@@ -1,0 +1,40 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head Partial -->
+@await Component.InvokeAsync("_HeadUILayoutComponentPartial")
+<!-- Head Partial -->
+<body
+  data-bs-spy="scroll"
+  data-bs-target="#navMain"
+  data-bs-root-margin="0px 0px -55%"
+  data-bs-smooth-scroll="true"
+  tabindex="0">
+<!-- Page Loader Partial (optional) -->
+<div id="pageloader" hidden>
+  <div class="spinner" aria-hidden="true"></div>
+  <span class="visually-hidden">Loading…</span>
+</div>
+
+  <!-- Navbar Partial  -->
+  @await Component.InvokeAsync("_TopBarUILayoutComponentPartial")
+
+  <main>
+    @RenderBody()
+  </main>
+
+<!-- Footer Partial -->
+@await Component.InvokeAsync("_FooterUILayoutComponentPartial")
+
+<button class="scroll-top" id="scrollTop" type="button" aria-label="Scroll back to top">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
+<script src="~/template/assets/js/vendor/bootstrap.bundle.min.js" defer></script>
+<script src="~/template/assets/js/main.js" defer></script>
+
+</body>
+</html>

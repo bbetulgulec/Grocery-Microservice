@@ -1,0 +1,18 @@
+@model List<ResultHighlightsProductWithProductDto>
+
+<div class="col-lg-8">
+    <div class="menu-scroll" tabindex="0" aria-label="Scrollable menu list">
+        @foreach (var item in Model)
+        {
+            <a href="/ProductDetail/Index/@item.Product.ProductID/">
+                <div class="menu-item">
+                    <span class="menu-thumb"><img src="@item.Product.ProductImageURL" alt="Heirloom tomatoes" loading="lazy"/></span>
+                    <span class="menu-body"><h4>@item.HighlightsProductsName</h4>
+                        <p class="menu-desc">@item.Product.ProductDescription</p></span>
+                    <span class="menu-price">$@item.Product.ProductPrice</span>
+                </div>
+            </a>
+          
+        }
+    </div>
+    </div>

@@ -1,0 +1,32 @@
+@{
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+}
+
+<section class="maintenance-page">
+    <div class="maintenance-card" aria-labelledby="order-call-title">
+        <div class="maintenance-icon" aria-hidden="true">
+            <i class="fa-solid fa-phone-volume"></i>
+        </div>
+
+        <span class="maintenance-label">Telefonla sipariş</span>
+
+        <h1 id="order-call-title">Siparişinizi birlikte oluşturalım</h1>
+
+        <p class="maintenance-description">
+            Bizi aradığınızda ekibimiz teslimat konumunuzu ve ürünlerin stok durumunu kontrol eder.
+            Siparişiniz uygunsa onaylayıp hazırlığa alır; değilse size bilgi verir.
+        </p>
+
+        <div class="maintenance-steps">
+            <span><i class="fa-solid fa-location-dot"></i> Teslimat konumu kontrol edilir</span>
+            <span><i class="fa-solid fa-boxes-stacked"></i> Stok durumu doğrulanır</span>
+            <span><i class="fa-solid fa-circle-check"></i> Uygunsa sipariş onaylanır</span>
+        </div>
+
+        <a class="maintenance-button maintenance-button-primary"
+           href="tel:+90XXXXXXXXXX">
+            <i class="fa-solid fa-phone"></i>
+            Bizi Ara ve Sipariş Ver
+        </a>
+    </div>
+</section>

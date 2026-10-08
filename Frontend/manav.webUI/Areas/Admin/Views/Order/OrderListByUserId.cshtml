@@ -1,0 +1,101 @@
+@model List<ResultOrderingByUserIdDto>
+@{
+    ViewBag.Title = "Kullanıcı Sipariş Detayları";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<section class="orders-page">
+    <header class="orders-heading">
+        <div>
+            <h1>Sipariş geçmişi</h1>
+            <p>Müşterinin verdiği siparişler ve ürün detayları</p>
+        </div>
+        <a href="/Admin/Order/GetAllOrders" class="orders-back">
+            <span class="back-arrow" aria-hidden="true">&larr;</span>
+            Sipariş listesine dön
+        </a>
+    </header>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="orders-list">
+            @foreach (var order in Model)
+            {
+                <article class="order-card">
+                    <header class="order-card-head">
+                        <div class="order-meta">
+                            <span class="order-number">Sipariş #@order.OrderingID</span>
+                            <time class="order-date">
+                                @order.OrderDate.ToString("dd MMMM yyyy, HH:mm")
+                            </time>
+                        </div>
+
+                        <div class="order-total">
+                            <span class="order-total-label">Sipariş toplamı</span>
+                            <span class="order-total-value">
+                                @order.TotalPrice.ToString("N2") ₺
+                            </span>
+                        </div>
+
+                    </header>
+                    <div class="order-table-wrap">
+                        <table class="order-table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ürün</th>
+                                <th scope="col">Birim fiyat</th>
+                                <th scope="col" class="item-qty">Adet</th>
+                                <th scope="col" style="text-align:right">Tutar</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            @if (order.OrderDetails != null && order.OrderDetails.Any())
+                            {
+                                var detailCount = 0;
+
+                                @foreach (var detail in order.OrderDetails)
+                                {
+                                    detailCount++;
+
+                                    <tr>
+                                        <td class="item-index">@detailCount</td>
+                                        <td class="item-name">@detail.ProductName</td>
+                                        <td class="item-price">@detail.ProductPrice.ToString("N2")</td>
+                                        <td class="item-qty">
+                                                <span class="quantity-tag">
+                                                    @detail.ProductAmount adet
+                                                </span>
+                                        </td>
+                                        <td class="item-subtotal">
+                                            @detail.ProductTotalPrice.ToString("N2")
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="5" class="order-empty-items">
+                                        Bu sipariş için ürün detayı bulunamadı.
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="orders-empty">
+            <div class="orders-empty-icon">
+                <i class="fa-regular fa-clipboard" aria-hidden="true"></i>
+            </div>
+            <h2>Henüz sipariş yok</h2>
+            <p>Bu müşteriye ait sipariş kaydı bulunmuyor.</p>
+        </div>
+    }
+</section>

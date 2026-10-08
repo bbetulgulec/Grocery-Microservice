@@ -1,0 +1,21 @@
+@{
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+}
+
+<div class="container py-5">
+        <div class="row g-4">
+            <section class="col-lg-8">
+                @await Component.InvokeAsync("_OrderAddressUILayoutComponentPartial")
+            </section>
+
+            <aside class="col-lg-4">
+                @await Component.InvokeAsync("_OrderProductListUILayoutComponentPartial")
+                </aside>
+        </div>
+</div>
+
+<script>
+    document.getElementById('different-address').addEventListener('change', function () {
+        document.getElementById('shipping-fields').hidden = !this.checked;
+    });
+</script>

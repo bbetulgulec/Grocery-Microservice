@@ -1,0 +1,43 @@
+@model List<UserOrderSummaryDto>
+@{
+    ViewBag.Title = "Sipariş Veren Kullanıcılar";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bs-example" data-example-id="bordered-table">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kullanıcı ID</th>
+                        <th>Toplam Sipariş</th>
+                        <th>Son Sipariş Tarihi</th>
+                        <th>Sipariş Listesi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td>@item.UserID</td>
+                            <td><span class="badge bg-info">@item.TotalOrderCount Adet</span></td>
+                            <td>@item.LastOrderDate.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>
+                                <a href="/Admin/Order/OrderListByUserId/@item.UserID"
+                                   class="btn btn-primary btn-sm">
+                                    Siparişleri Listele
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

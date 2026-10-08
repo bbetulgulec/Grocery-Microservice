@@ -1,0 +1,27 @@
+@model List<ResultGalleryDto> 
+
+<section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="section-head is-centered mb-5">
+        <span class="eyebrow is-centered"><i class="fa-solid fa-images"></i>Anılarımız</span>
+        <h2 class="mb-2">Yılların Esnaflığı</h2>
+        <p class="text-muted-2 mb-0">Fotoğraflardan herhangi birine dokunarak tam boyutlu halini görüntüleyebilir ve tüm seti inceleyebilirsiniz.</p>
+      </div>
+
+      <div class="gallery-grid">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+          bool isWide = (i % 6 == 0 || i % 6 == 5);
+          var item = Model[i];
+
+          <a class="gallery-item @(isWide ? "is-wide" : "") glightbox" 
+             href="@item.GalleryUrl" 
+             data-type="image" 
+             data-gallery="farm" 
+             data-title="@item.GallaryName">
+            <img src="@item.GalleryUrl" alt="@item.GallaryName" loading="lazy"/>
+            <span class="gi-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+          </a>
+        }   </div>
+    </div>
+  </section>

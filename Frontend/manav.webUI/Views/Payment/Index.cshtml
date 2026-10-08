@@ -1,0 +1,144 @@
+@{
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+    ViewData["Title"] = "Ödeme";
+}
+
+<main class="container py-5">
+    <div class="row g-4 align-items-center">
+
+        <section class="col-lg-6">
+            <div class="gec-card">
+                <span class="gh-pill is-green">Güvenli ödeme</span>
+                <h1 class="mt-3">Ödeme bilgileri</h1>
+                <p class="text-muted">Kart bilgilerinizi girerek siparişinizi tamamlayın.</p>
+
+                <form id="paymentForm" action="@Url.Action("FailedPayment", "Payment")" method="get">
+                    <div class="mb-3">
+                        <label class="form-label" for="cardName">Kart üzerindeki isim</label>
+                        <input class="form-control" id="cardName" autocomplete="cc-name"
+                               placeholder="Ad Soyad" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="cardNumber">Kart numarası</label>
+                        <input class="form-control" id="cardNumber" inputmode="numeric"
+                               autocomplete="cc-number" placeholder="1234 5678 9012 3456"
+                               maxlength="23" required>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label class="form-label" for="expiry">Son kullanma tarihi</label>
+                            <input class="form-control" id="expiry" inputmode="numeric"
+                                   autocomplete="cc-exp" placeholder="AA/YY" maxlength="5" required>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label" for="cvv">Güvenlik kodu</label>
+                            <input class="form-control" id="cvv" inputmode="numeric"
+                                   autocomplete="cc-csc" placeholder="CVV" maxlength="4" required>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary w-100 mt-4" type="submit">
+                        Ödemeyi tamamla
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <aside class="col-lg-6" aria-label="Kart önizlemesi">
+            <div class="gec-card">
+                <span class="gh-pill">Kart önizlemesi</span>
+
+                <div class="card-scene mt-4">
+                    <div class="card-flipper" id="cardFlipper">
+                        <div class="payment-card-face payment-card-front">
+                            <div class="payment-card-top">
+                                <span class="payment-card-chip" aria-hidden="true"></span>
+                                <strong>BANK CARD</strong>
+                            </div>
+
+                            <div class="payment-card-number" id="previewNumber">
+                                •••• •••• •••• ••••
+                            </div>
+
+                            <div class="payment-card-details">
+                                <div>
+                                    <span class="payment-card-label">KART SAHİBİ</span>
+                                    <span class="payment-card-value" id="previewName">AD SOYAD</span>
+                                </div>
+                                <div>
+                                    <span class="payment-card-label">SON KULLANMA</span>
+                                    <span class="payment-card-value" id="previewExpiry">AA/YY</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-card-face payment-card-back">
+                            <div class="card-magnetic-stripe" aria-hidden="true"></div>
+                            <div>
+                                <span class="payment-card-label">GÜVENLİK KODU</span>
+                                <div class="card-cvv-strip" id="previewCvv">•••</div>
+                            </div>
+                            <div class="payment-card-top">
+                                <span class="payment-card-label">BANK CARD</span>
+                                <span class="payment-card-label">ARKA YÜZ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="small text-muted mt-3 mb-0">
+                    Kart önizlemesi, girdiğiniz bilgileri gösterir.
+                </p>
+            </div>
+        </aside>
+
+    </div>
+</main>
+
+<script>
+    const cardName = document.getElementById("cardName");
+    const cardNumber = document.getElementById("cardNumber");
+    const expiry = document.getElementById("expiry");
+    const cvv = document.getElementById("cvv");
+    const cardFlipper = document.getElementById("cardFlipper");
+
+    cardName.addEventListener("input", () => {
+        document.getElementById("previewName").textContent =
+            cardName.value.trim().toUpperCase() || "AD SOYAD";
+    });
+
+    cardNumber.addEventListener("input", () => {
+        const digits = cardNumber.value.replace(/\D/g, "").slice(0, 19);
+        const formatted = digits.replace(/(.{4})/g, "$1 ").trim();
+        cardNumber.value = formatted;
+        document.getElementById("previewNumber").textContent =
+            formatted || "•••• •••• •••• ••••";
+    });
+
+    expiry.addEventListener("input", () => {
+        const digits = expiry.value.replace(/\D/g, "").slice(0, 4);
+        expiry.value = digits.length > 2
+            ? digits.slice(0, 2) + "/" + digits.slice(2)
+            : digits;
+
+        document.getElementById("previewExpiry").textContent =
+            expiry.value || "AA/YY";
+    });
+
+    cvv.addEventListener("focus", () => {
+        cardFlipper.classList.add("is-flipped");
+    });
+
+    cvv.addEventListener("blur", () => {
+        cardFlipper.classList.remove("is-flipped");
+    });
+
+    cvv.addEventListener("input", () => {
+        const digits = cvv.value.replace(/\D/g, "").slice(0, 4);
+        cvv.value = digits;
+        document.getElementById("previewCvv").textContent =
+            digits ? "•".repeat(digits.length) : "•••";
+    });
+</script>

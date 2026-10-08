@@ -1,0 +1,45 @@
+@model List<ResultProductWithCategoryDto>
+
+<div class="row g-4" id="productGrid">
+    <div class="row g-4" id="productGrid">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6 col-lg-4 grid-item">
+                <article class="gec-card product-card h-100">
+                    <a href="/ProductDetail/Index/@item.ProductID" class="pc-media d-block">
+                        <span class="pc-tag gh-pill is-green">Taze</span>
+                        <img src="@item.ProductImageURL"
+                             alt="Organic Apples"
+                             loading="lazy"/>
+                    </a>
+
+                    <div class="pc-body">
+                        <span class="pc-cat">@item.Category.CategoryName</span>
+                        <h3>
+                            <a href="#" class="text-decoration-none text-reset">
+                                @item.ProductName
+                            </a>
+                        </h3>
+                        <div class="gh-stars mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="pc-price">$@item.ProductPrice</div>
+
+                            <button type="button"
+                                    class="btn-gec btn-gec-primary btn-sm add-to-cart"
+                                    title="Add to cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        }
+    </div>
+    </div>

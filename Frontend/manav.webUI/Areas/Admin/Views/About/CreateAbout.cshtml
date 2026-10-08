@@ -1,0 +1,45 @@
+@model CreateAboutDto
+@{
+    ViewBag.Title = "Create About";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Hakkında Bilgileri Ekleme Sayfası</h4>
+                <br/>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <form method="post" asp-action="CreateAbout" asp-controller="About" asp-area="Admin">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <label>Açıklama</label>
+                        <input type="text" class="form-control" asp-for="AboutDescription"/>
+                        <span asp-validation-for="AboutDescription" class="text-danger"></span>
+                        <br/>
+                        <label>Konum</label>
+                        <input type="text" class="form-control" asp-for="AboutAdress"/>
+                        <span asp-validation-for="AboutAdress" class="text-danger"></span>
+                        <br/>
+
+                        <label>Mail</label>
+                        <input type="text" class="form-control" asp-for="AboutMail"/>
+                        <span asp-validation-for="AboutMail" class="text-danger"></span>
+                        <br/>
+
+                        <label>Telefon</label>
+                        <input type="text" class="form-control" asp-for="AboutNumber"/>
+                        <span asp-validation-for="AboutNumber" class="text-danger"></span>
+                        <br/>
+
+                        <label>Çalışma Saatleri</label>
+                        <input type="text" class="form-control" asp-for="AboutWorkTime"/>
+                        <span asp-validation-for="AboutWorkTime" class="text-danger"></span>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Hakkında Bilgisini Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

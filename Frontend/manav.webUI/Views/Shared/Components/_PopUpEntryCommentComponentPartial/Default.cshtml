@@ -1,0 +1,119 @@
+@{
+    var showThankYou = TempData["ShowThankYouModal"] != null && (bool)TempData["ShowThankYouModal"];
+    var userComment = TempData["UserComment"]?.ToString() ?? "";
+}
+
+<div class="modal fade" id="addCommentModal" tabindex="-1" aria-labelledby="addCommentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content gec-card p-4">
+      
+      <div class="modal-header border-0 pb-0">
+        <h3 class="modal-title h4 mb-0" id="addCommentModalLabel">
+            @(showThankYou ? "Teşekkür Ederiz!" : "Yorumunuzu Paylaşın")
+        </h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      
+      <div class="modal-body pt-3">
+        
+        @if (showThankYou)
+        {
+            <!-- KONTROLLER'DAN BAŞARILI DÖNEN TEŞEKKÜR & GOOGLE EKRANI -->
+            <div class="text-center py-2">
+                <div class="text-success mb-3 fs-1">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h4 class="fw-bold mb-2">Geri bildiriminiz başarıyla alındı!</h4>
+                <p class="text-muted mb-4 fs-6">
+                    Google üzerinden yapılan yorumlar web sitemizde <strong>öncelikli olarak öne çıkarılmaktadır</strong>. Yorumunuzu Google Haritalar üzerinde de paylaşarak bize destek olmak ister misiniz?
+                </p>
+
+                <!-- Yapılandırılmış Google İşletme Linki -->
+                <div class="d-flex flex-column gap-2">
+                  <a href="@ViewBag.GoogleReviewUrl"
+                     target="_blank" 
+                       class="btn btn-danger w-100 d-flex align-items-center justify-content-center gap-2 py-2">
+                        <i class="fa-brands fa-google"></i> Google'da da Paylaş
+                    </a>
+                    <button type="button" class="btn btn-gec btn-gec-outline w-100" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        }
+        else
+        {
+            <!-- STANDART YORUM EKLENME FORMU -->
+            <form id="commentForm" method="post" action="/Comment/AddComment">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Adınız</label>
+                  <input type="text" name="FirstName" class="form-control gec-input" required/>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Soyadınız</label>
+                  <input type="text" name="LastName" class="form-control gec-input" required/>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Profil Fotoğrafı (URL) (İsteğe Bağlı)</label>
+                <input type="url" name="UserImageURL" class="form-control gec-input" placeholder="https://..."/>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold d-block">Puanınız</label>
+                <div class="rating-stars d-flex gap-2 fs-5" style="cursor: pointer; color: #f0a93b;">
+                  <i class="fa-solid fa-star star-option" data-value="1"></i>
+                  <i class="fa-solid fa-star star-option" data-value="2"></i>
+                  <i class="fa-solid fa-star star-option" data-value="3"></i>
+                  <i class="fa-solid fa-star star-option" data-value="4"></i>
+                  <i class="fa-solid fa-star star-option" data-value="5"></i>
+                </div>
+                <input type="hidden" name="Rating" id="ratingInput" value="5"/>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-semibold">Yorumunuz</label>
+                <textarea name="CommentDetail" class="form-control gec-input" rows="4" required></textarea>
+              </div>
+
+              <div class="d-flex justify-content-end gap-2">
+                <button type="button" class="btn btn-gec btn-gec-outline" data-bs-dismiss="modal">Vazgeç</button>
+                <button type="submit" class="btn btn-gec btn-gec-primary">Gönder</button>
+              </div>
+            </form>
+        }
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const stars = document.querySelectorAll("#addCommentModal .star-option");
+    const ratingInput = document.getElementById("ratingInput");
+
+    stars.forEach((star) => {
+      star.addEventListener("click", function () {
+        const selectedValue = parseInt(this.getAttribute("data-value"));
+        ratingInput.value = selectedValue;
+
+        stars.forEach((s, index) => {
+          if (index < selectedValue) {
+            s.classList.remove("opacity-25");
+          } else {
+            s.classList.add("opacity-25");
+          }
+        });
+      });
+    });
+    @if (showThankYou)
+    {
+        <text>
+        var myModal = new bootstrap.Modal(document.getElementById('addCommentModal'));
+        myModal.show();
+        </text>
+    }
+  });
+</script>

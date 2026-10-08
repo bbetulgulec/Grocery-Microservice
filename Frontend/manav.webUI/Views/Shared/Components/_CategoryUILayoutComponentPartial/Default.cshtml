@@ -1,0 +1,17 @@
+@model List<ResultCategoryDtos>
+
+<section class="container category-strip">
+    <div class="row g-3 g-md-4 justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a class="cat-card" href="/ProductList/Index/">
+                    <span class="cat-ico"><i class="@item.CategoryIcon"></i></span>
+                    <span class="cat-name">@item.CategoryName</span>
+                    <span class="cat-count">@item.ProductCount Ürün</span>
+                </a>
+            </div>
+            
+        }
+    </div>
+</section>

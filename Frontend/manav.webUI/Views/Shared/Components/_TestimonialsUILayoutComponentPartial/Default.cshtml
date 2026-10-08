@@ -1,0 +1,68 @@
+@model List<ResultCommentDto>  
+@{ 
+  var isFirst = true;
+  var button = true;
+  
+}
+<section id="reviews" class="section testimonials-section">
+    <div class="container">
+      <div class="section-head is-centered mb-5">
+        <span class="eyebrow is-centered"><i class="fa-solid fa-comment-dots"></i> Kullanıcı yorumları </span>
+        <h2 class="mb-2">Semtin Emektar Manavı</h2>
+        <p class="text-muted-2 mb-0">Bizden değil, her gün kullananlardan dinleyin...</p>
+      </div>
+
+      <div id="testiCarousel" class="carousel slide testi-carousel" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-inner">
+          @foreach (var item in Model)
+          {
+            <div class="carousel-item @(isFirst ? "active" : "")">
+              <div class="gec-card review-card">
+                <div class="gh-stars" aria-label="Rated @item.Rating out of 5">
+                  @for (int i = 1; i <= 5; i++)
+                  {
+                    <i class="fa-solid fa-star @(i <= item.Rating ? "" : "text-muted opacity-25")"></i>
+                  }
+                </div>                <blockquote>@item.CommentDetail</blockquote>
+                <div class="rv-person">
+                  <img src="@item.UserImageURL" alt="Amelia Dyer" loading="lazy"/>
+                  <div class="text-start">
+                    <div class="rv-name">@item.FirstName @item.LastName</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            isFirst = false;
+          }
+        </div>  
+        <button class="carousel-control-prev" type="button" data-bs-target="#testiCarousel" data-bs-slide="prev">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          <span class="visually-hidden">Önceki</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testiCarousel" data-bs-slide="next">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          <span class="visually-hidden">Sonraki</span>
+        </button>
+        <div class="carousel-indicators">
+          @for (int i = 0; i < Model.Count; i++)
+          {
+            <button type="button" 
+                    data-bs-target="#testiCarousel" 
+                    data-bs-slide-to="@i" 
+                    class="@(i == 0 ? "active" : "")" 
+                    aria-current="@(i == 0 ? "true" : "false")" 
+                    aria-label="Review @(i + 1)">
+            </button>
+          }
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center gap-3 my-4">
+        <button type="button" 
+                class="btn btn-gec-cream px-4 py-2 d-inline-flex align-items-center gap-2" 
+                data-bs-toggle="modal" 
+                data-bs-target="#addCommentModal">
+          Yorum Yap
+        </button>
+      </div>
+    </div>
+  </section>

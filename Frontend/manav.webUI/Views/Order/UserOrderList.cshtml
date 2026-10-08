@@ -1,0 +1,75 @@
+@model List<manav.DtoLayer.OrderDtos.OrderingDtos.ResultOrderingByUserIdDto>
+
+@{
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+    ViewBag.Title = "Siparişlerim";
+    var orderCount = Model?.Count ?? 0;
+}
+
+<div class="my-orders">
+    <div class="orders-title">
+        <h2>Siparişlerim</h2>
+        <p>Verdiğiniz siparişleri ve ürün detaylarını buradan takip edebilirsiniz.</p>
+        <span class="orders-count">
+            Toplam @orderCount sipariş
+        </span>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var order in Model)
+        {
+            <section class="my-order-card">
+                <div class="my-order-header">
+                        <span class="my-order-date">
+                            @order.OrderDate.ToString("dd.MM.yyyy HH:mm")
+                        </span>
+                    <div class="my-order-total">
+                        @order.TotalPrice.ToString("N2") ₺
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="my-order-table">
+                        <thead>
+                            <tr>
+                                <th>Ürün</th>
+                                <th>Birim fiyat</th>
+                                <th>Adet</th>
+                                <th class="price">Tutar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (order.OrderDetails != null && order.OrderDetails.Any())
+                            {
+                                foreach (var detail in order.OrderDetails)
+                                {
+                                    <tr>
+                                        <td>@detail.ProductName</td>
+                                        <td>@detail.ProductPrice.ToString("N2") ₺</td>
+                                        <td>@detail.ProductAmount</td>
+                                        <td class="price">
+                                            @detail.ProductTotalPrice.ToString("N2") ₺
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="4">Bu siparişin ürün detayı bulunamadı.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        }
+    }
+    else
+    {
+        <div class="no-orders">
+            Henüz sipariş vermediniz.
+        </div>
+    }
+</div>

@@ -1,0 +1,76 @@
+@using manav.DtoLayer.OrderDtos.AddressDtos
+@model List<ResultAddressDto>
+
+<section class="col-lg-8" aria-labelledby="billing-title">
+    <h1 class="h4 text-uppercase border-bottom pb-3 mb-4" id="billing-title">Teslimat Adresi</h1>
+
+    @if (Model != null && Model.Any())
+    { <div class="mb-4">
+            <label class="form-label fw-bold">Kayıtlı Adresleriniz:</label>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="form-check border p-3 rounded mb-2">
+                    <input class="form-check-input address-selector" type="radio" name="SelectedAddressId" id="addr_@Model[i].adressID" value="@Model[i].adressID" @(i == 0 ? "checked" : "")>
+                    <label class="form-check-label w-100 ms-2" for="addr_@Model[i].adressID">
+                        <strong>@Model[i].FirstName @Model[i].LastName</strong> - (@Model[i].Number)
+                        <br />
+                        <span class="text-muted small">@Model[i].addressDetail</span>
+                    </label>
+                </div>
+            }
+        <div class="form-check mt-3">
+                <input class="form-check-input address-selector" type="radio" name="SelectedAddressId" id="new-address-toggle" value="0">
+                <label class="form-check-label fw-bold text-primary" for="new-address-toggle" style="cursor:pointer;">
+                    + Farklı / Yeni Adres Ekle
+                </label>
+            </div>
+        </div>
+    }
+
+    <div id="new-address-form" style="@(Model != null && Model.Any() ? "display: none;" : "")">
+        <h5 class="mb-3 text-secondary">Yeni Adres Bilgileri</h5>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label" for="firstName">Adınız :</label>
+                <input class="form-control address-input" id="firstName" name="FirstName" autocomplete="given-name" required />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="lastName">Soyadınız :</label>
+                <input class="form-control address-input" id="lastName" name="LastName" autocomplete="family-name" required />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="email">E-mail :</label>
+                <input class="form-control address-input" id="email" type="email" name="Email" autocomplete="email" required />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="phone">Telefon Numarası :</label>
+                <input class="form-control address-input" id="phone" type="tel" name="Number" autocomplete="tel" required />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="address1">Adress tam hali</label>
+                <input class="form-control address-input" id="address1" name="AdressDetails" autocomplete="address-line1" required />
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const radios = document.querySelectorAll('.address-selector');
+        const formContainer = document.getElementById('new-address-form');
+        const inputs = document.querySelectorAll('.address-input');
+
+        function toggleForm() {
+            const selectedRadio = document.querySelector('.address-selector:checked');
+            if (!selectedRadio || selectedRadio.value === "0") {
+                formContainer.style.display = "block";
+                inputs.forEach(input => input.setAttribute('required', 'required'));
+            } else {
+                formContainer.style.display = "none";
+                inputs.forEach(input => input.removeAttribute('required'));
+            }
+        }
+
+        radios.forEach(r => r.addEventListener('change', toggleForm));
+        toggleForm(); 
+    });
+</script>

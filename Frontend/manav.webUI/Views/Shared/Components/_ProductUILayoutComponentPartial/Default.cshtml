@@ -1,0 +1,53 @@
+@using manav.webUI.Enums
+@model List<ResultProductDto>
+
+<section id="products" class="section">
+    <div class="container">
+      <div class="section-head is-centered mb-5">
+        <span class="eyebrow is-centered"><i class="fa-solid fa-basket-shopping"></i>ÖNE ÇIKAN ÜRÜNLER</span>
+        <h2 class="mb-2">Haftanın taze seçilenleri</h2>
+        <p class="text-muted-2 mb-0">Günlük ihtiyaçlarınız ve ötesi için özenle seçilmiş organik favoriler.</p>
+      </div>
+
+      <div class="row g-4">
+        @if (Model != null && Model.Any())
+        {
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var item = Model[i];
+                var badgeType = (i % 4) switch
+                {
+                    0 => ProductBadgeType.BestSeller,
+                    1 => ProductBadgeType.Trending,
+                    2 => ProductBadgeType.OnSale,
+                    _ => ProductBadgeType.None
+                };
+
+                <div class="col-sm-6 col-lg-3">
+                  <article class="gec-card product-card">
+                    <div class="pc-media">
+                      @if (badgeType != ProductBadgeType.None)
+                      {
+                          var (badgeText, badgeClass) = badgeType switch
+                          {
+                              ProductBadgeType.BestSeller => ("Best Seller", "is-green"),
+                              ProductBadgeType.Trending => ("Trending", "is-cream"),
+                              ProductBadgeType.OnSale => ("On Sale", "is-green"),
+                              _ => (string.Empty, string.Empty)
+                          };
+
+                          <span class="pc-tag gh-pill @badgeClass">@badgeText</span>
+                      }
+                      <img src="@item.ProductImageURL" alt="Product Image" loading="lazy"/>
+                    </div>
+                  </article>
+                </div>
+            }
+        }
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="~/ProductList/Index" class="btn-gec btn-gec-outline">Tüm Ürünler <i class="fa-solid fa-arrow-right-long"></i></a>
+      </div>
+    </div>
+</section>

@@ -1,0 +1,31 @@
+@{
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+    var requestId = Context.TraceIdentifier;
+}
+
+<section class="maintenance-page">
+    <div class="maintenance-card" role="alert" aria-labelledby="error-title">
+        <div class="maintenance-icon" aria-hidden="true">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+        <span class="maintenance-label">İşlem tamamlanamadı</span>
+
+        <h1 id="error-title">Bir sorun oluştu</h1>
+
+        <p class="maintenance-description">
+            İsteğiniz şu anda tamamlanamadı. Lütfen tekrar deneyin.
+            Sorun devam ederse destek ekibimizle iletişime geçin.
+        </p>
+
+        <a class="maintenance-button maintenance-button-primary"
+           href="/Default/Index">
+            <i class="fa-solid fa-house"></i>
+            Ana sayfaya dön
+        </a>
+
+        <p class="mt-4 mb-0 small text-muted">
+            Destek kodu: @requestId
+        </p>
+    </div>
+</section>

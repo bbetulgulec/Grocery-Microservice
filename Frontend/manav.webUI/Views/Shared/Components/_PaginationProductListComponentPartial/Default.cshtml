@@ -1,0 +1,23 @@
+@{
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int totalPages  = ViewBag.TotalPages ?? 1;
+}
+@if (12 > 1)
+{
+    <nav aria-label="Product pages" class="mt-5">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(currentPage <= 1 ? "disabled" : "")">
+                <a class="page-link" href="?page=@(currentPage - 1)&categoryId=@ViewBag.SelectedCategoryId">Previous</a>
+            </li>
+            @for (int p = 1; p <= totalPages; p++)
+            {
+                <li class="page-item @(p == currentPage ? "active" : "")">
+                    <a class="page-link" href="?page=@p&categoryId=@ViewBag.SelectedCategoryId">@p</a>
+                </li>
+            }
+            <li class="page-item @(currentPage >= totalPages ? "disabled" : "")">
+                <a class="page-link" href="?page=@(currentPage + 1)&categoryId=@ViewBag.SelectedCategoryId">Next</a>
+            </li>
+        </ul>
+    </nav>
+}

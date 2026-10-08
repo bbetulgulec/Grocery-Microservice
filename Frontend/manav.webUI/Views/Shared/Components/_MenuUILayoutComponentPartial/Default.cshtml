@@ -1,0 +1,22 @@
+  <section id="menu" class="section menu-section">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Frozen left panel -->
+        <div class="col-lg-4">
+          <div class="menu-aside">
+            <span class="eyebrow"><i class="fa-solid fa-utensils"></i> Tarladan sofraya</span>
+            <h2 class="mb-3">Sezonluk Yiyecekler</h2>
+            <p class="text-muted-2 mb-4">
+              Her gün stoklanan, özenle seçilmiş temel gıda ürünleri. Listeyi kaydırarak mevsimlik tüm ürünleri keşfedin.
+            </p>
+            <div class="menu-figure d-none d-lg-block">
+              <img src="https://d2gv4t6k9xuh77.cloudfront.net/HomePage/MenuImage/side-menu-image.jpeg" alt="A spread of fresh organic produce on a wooden table" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scrollable right list -->
+      @await Component.InvokeAsync("_SideListMenuUILayoutComponentPartial")
+      </div>
+    </div>
+  </section>

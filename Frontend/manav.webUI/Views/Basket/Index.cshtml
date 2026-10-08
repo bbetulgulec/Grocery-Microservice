@@ -1,0 +1,125 @@
+@model BasketTotalDto
+@{
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+    var subtotal = Model.TotalPrice;
+    var tax = subtotal * 0.10m;
+    var grandTotal = subtotal + tax;
+}
+
+<section class="container my-5">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="table-responsive basket-table-wrap">
+                <table class="able basket-table align-middle">
+                    <thead >
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Fiyat</th>
+                        <th>Miktar</th>
+                        <th>Toplam</th>
+                        <th>Kaldır</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.BasketItems)
+                    {
+                        <tr>
+                            <td class="basket-product-name">
+                                @item.ProductName
+                            </td>
+                            <td>@item.Price ₺</td>
+                            <td>
+                                <form asp-action="ChangeCount" asp-controller="Basket" method="post" class="d-inline">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                    <input type="hidden" name="changeBy" value="-1" />
+                                    <button type="submit" class="btn btn-outline-secondary">−</button>
+                                </form>
+
+                                <span class="mx-2">@item.Quantity</span>
+
+                                <form asp-action="ChangeCount" asp-controller="Basket" method="post" class="d-inline">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                    <input type="hidden" name="changeBy" value="1" />
+                                    <button type="submit" class="btn btn-outline-secondary">+</button>
+                                </form>
+                            </td>
+                            <td>@((item.Price * item.Quantity).ToString("N2")) ₺</td>
+                            <td>
+                                <form asp-controller="Basket" asp-action="RemoveFromBasket" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                    <button type="submit" class="btn btn-danger">×</button>
+                                </form>
+                            </td>             
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row g-3">
+                <div class="col-12">
+                    <aside class="gec-card p-4">
+                        <h3 class="h4 mb-4">Sipariş Özeti</h3>
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Toplam Ürün Fiyatı</span>
+                            <strong>@subtotal.ToString("N2") ₺</strong>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>KDV (%10)</span>
+                            <strong>@tax.ToString("N2") ₺</strong>
+                        </div>
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between fs-5">
+                            <span>Toplam</span>
+                            <strong>@grandTotal.ToString("N2") ₺</strong>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-12">
+                    <aside class="gec-card p-4">
+                        <form asp-controller="Basket"
+                              asp-action="ContinueToPayment"
+                              method="post">
+                            <fieldset>
+                                <legend class="h4 mb-4">Ödeme yöntemi</legend>
+
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio"
+                                           name="paymentMethod" id="paymentCard"
+                                           value="Card" checked>
+                                    <label class="form-check-label" for="paymentCard">
+                                        Kredi / banka kartı
+                                    </label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio"
+                                           name="paymentMethod" id="paymentCash"
+                                           value="Cash">
+                                    <label class="form-check-label" for="paymentCash">Nakit</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio"
+                                           name="paymentMethod" id="paymentPickup"
+                                           value="Pickup">
+                                    <label class="form-check-label" for="paymentPickup">Gel al</label>
+                                </div>
+                            </fieldset>
+
+                            <button type="submit" class="btn-gec-main w-100 mt-4">
+                                Devam Et
+                            </button>
+                        </form>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,63 @@
+@model UpdateGalleryDto
+@{
+    ViewBag.Title = "Update Gallery";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Galeri Güncelleme Sayfası</h4>
+                <br/>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="GallaryId"/>
+                        <label>Galeri Adı</label>
+                        <input type="text" class="form-control" asp-for="GallaryName"/>
+                        <br/>
+                        <div class="form-group">
+                            <label>Resim</label>
+                            <div class="product-image-container">
+                                <img src="@Model.GalleryUrl"
+                                     alt="@Model.GallaryName"
+                                     id="previewImage"
+                                     class="highlight-product-image"/>
+                                <div class="product-image-actions">
+                                    <button type="button"
+                                            class="btn btn-primary"
+                                            onclick="document.getElementById('imageFileInput').click();">
+                                        Değiştir
+                                    </button>
+                                    <span id="selectedFileName"
+                                          style="margin-left: 10px; color: #666; font-size: 12px;"></span>
+                                </div>
+                                <input type="file"
+                                       id="imageFileInput"
+                                       class="hidden-file-input"
+                                       asp-for="ImageFile"
+                                       accept="image/*"
+                                       onchange="handleFileSelect(this)"/>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Galeriyi Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function handleFileSelect(input) {
+        if (input.files && input.files[0]) {
+            var file = input.files[0];
+
+            document.getElementById('selectedFileName').textContent = file.name;
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('previewImage').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

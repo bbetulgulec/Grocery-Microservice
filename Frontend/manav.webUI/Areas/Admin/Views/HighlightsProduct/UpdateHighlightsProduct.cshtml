@@ -1,0 +1,138 @@
+@model UpdateHighlightsProductDto
+@{
+    ViewBag.Title = "Highlight Product Update";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Öne Çıkarılan Ürün Güncelleme Sayfası</h4>
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger">
+                        @ViewBag.ErrorMessage
+                    </div>
+                }
+                <br/>
+                <div class="bs-example">
+                    <form method="post"
+                          asp-action="UpdateHighlightsProduct"
+                          asp-controller="HighlightsProduct"
+                          enctype="multipart/form-data"
+                          asp-area="Admin">
+                        <input type="hidden" asp-for="HighlightsProductsID"/>
+                        <input type="hidden" asp-for="Product.ProductName" id="productNameHidden"/>
+                        <input type="hidden" asp-for="Product.ProductPrice" id="productPriceHidden"/>
+                        <input type="hidden" asp-for="Product.ProductStok" id="productStokHidden"/>
+                        <input type="hidden" asp-for="Product.ProductImageURL" id="productImageHidden"/>
+                        <input type="hidden" asp-for="Product.ProductDescription" id="productDescriptionHidden"/>
+                        <input type="hidden" asp-for="Product.CategoryID" id="productCategoryHidden"/>
+
+                        <div class="form-group">
+                            <label>Öne Çıkarılacak Ürünü Seçin</label>
+                            <select asp-for="Product.ProductID"
+                                    asp-items="ViewBag.ProductList"
+                                    class="form-control"
+                                    id="productSelect"
+                                    required>
+                                <option value="">--- Ürün Seçiniz ---</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Seçilen Ürün Fiyatı (Otomatik)</label>
+                            <input type="text" id="productPrice" class="form-control" disabled
+                                   placeholder="Ürün seçilince gelecek..."/>
+                        </div>
+                        <div class="form-group">
+                            <label>Seçilen Ürün Görseli (Otomatik)</label>
+                            <div class="product-image-container">
+                                <img src="@Model.Product.ProductImageURL"
+                                     alt="@Model.Product.ProductName"
+                                     id="productImage"
+                                     class="highlight-product-image"
+                                     readonly placeholder="Ürün seçilince gelecek..."/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Öne Çıkan Başlığı (Vitrin Sloganı)</label>
+                            <input type="text" class="form-control" asp-for="HighlightsProductsName"
+                                   placeholder="Örn: Günün Fırsatı!" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Öne Çıkan Açıklaması</label>
+                            <input type="text" id="productDescription" class="form-control" disabled
+                                   placeholder="Ürün seçilince gelecek..."/>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-top-space">Öne Çıkarılanı Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById("productSelect").addEventListener("change", function () {
+        var productId = this.value;
+
+        if (!productId) {
+            document.getElementById("productPrice").value = "";
+            document.getElementById("productImage").src = "";
+            document.getElementById("productDescription").value = "";
+            return;
+        }
+        fetch("/Admin/HighlightsProduct/GetProductDetailForHighlight?id=" + productId)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("API yanıt vermedi");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("API'den gelen ürün detay verisi:", data);
+
+                var price = data.productPrice ?? data.ProductPrice ?? 0;
+                var image = data.productImageURL ?? data.ProductImageURL ?? "";
+                var description = data.productDescription ?? data.ProductDescription ?? "";
+                var name = data.productName ?? data.ProductName ?? "";
+                var stok = data.productStok ?? data.ProductStok ?? 0;
+                var categoryId = data.categoryID ?? data.CategoryID ?? "";
+
+                document.getElementById("productPrice").value = price + " ₺";
+                document.getElementById("productImage").src = image;
+                document.getElementById("productDescription").value = description;
+                document.getElementById("productNameHidden").value = name;
+                document.getElementById("productPriceHidden").value = price;
+                document.getElementById("productStokHidden").value = stok;
+                document.getElementById("productImageHidden").value = image;
+                document.getElementById("productDescriptionHidden").value = description;
+                document.getElementById("productCategoryHidden").value = categoryId;
+            })
+            .catch(err => {
+                console.error("Ürün bilgileri alınamadı:", err);
+                document.getElementById("productPrice").value = "";
+                document.getElementById("productDescription").value = "";
+                document.getElementById("productImage").src = "";
+            });
+    });
+    window.addEventListener("DOMContentLoaded", function () {
+        var productSelect = document.getElementById("productSelect");
+        if (productSelect.value) {
+            productSelect.dispatchEvent(new Event("change"));
+        }
+    });
+
+    function handleFileSelect(input) {
+        if (input.files && input.files[0]) {
+            var file = input.files[0];
+            document.getElementById("selectedFileName").innerText = file.name;
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("productImage").src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

@@ -1,0 +1,37 @@
+@model UpdateAboutDto
+@{
+    ViewBag.Title = "Update About";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Hakkında blgilerini Güncelleme Sayfası</h4>
+                <br/>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <form method="post">
+                        <input type="hidden"  asp-for="AboutId"/>
+                        <label>Açıklama</label>
+                        <input type="text" class="form-control" asp-for="AboutDescription"/>
+                        <br/>
+                        <label>Adres</label>
+                        <input type="text" class="form-control" asp-for="AboutAdress"/>
+                        <br/>
+                        <label>Mail</label>
+                        <input type="text" class="form-control" asp-for="AboutMail"/>
+                        <br/>
+                        <label>Telefon</label>
+                        <input type="text" class="form-control" asp-for="AboutNumber"/>
+                        <br/>
+                        <label>Çalışma Saati</label>
+                        <input type="text" class="form-control" asp-for="AboutWorkTime"/>
+                        <br/>
+                        <button class="btn btn-primary">Hakkında bİlgilerini Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

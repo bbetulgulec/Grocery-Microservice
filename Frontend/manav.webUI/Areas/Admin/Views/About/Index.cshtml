@@ -1,0 +1,48 @@
+@model ResultAboutDto
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Hakkında Bilgileri Sayfası</h4>
+                <br/>
+                @if (string.IsNullOrEmpty(Model?.AboutId))
+                {
+                    <div class="alert alert-warning">
+                        <strong>Kayıt Bulunamadı!</strong> Lütfen aşağıdaki alanları doldurarak yeni Hakkında bilgisi ekleyin.
+                    </div>
+                }
+                <div class="bs-example" data-example-id="bordered-table">
+                    <form method="post" asp-action="UpdateAbout" asp-controller="About" asp-area="Admin">
+                        <input type="hidden" asp-for="AboutId"/>
+                        
+                        <label>Açıklama</label>
+                        <input type="text" class="form-control" asp-for="AboutDescription"/>
+                        <br/>
+                        <label>Adres</label>
+                        <input type="text" class="form-control" asp-for="AboutAdress"/>
+                        <br/>
+                        <label>Mail</label>
+                        <input type="text" class="form-control" asp-for="AboutMail"/>
+                        <br/>
+                        <label>Telefon</label>
+                        <input type="text" class="form-control" asp-for="AboutNumber"/>
+                        <br/>
+                        <label>Çalışma Saati</label>
+                        <input type="text" class="form-control" asp-for="AboutWorkTime"/>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Hakkında Bilgilerini Güncelle</button>
+                        @if (!string.IsNullOrEmpty(Model?.AboutId))
+                        {
+                            <a href="/Admin/About/DeleteAbout/@Model.AboutId" class="btn btn-danger" onclick="return confirm('Silmek istediğinize emin misiniz?');">Hakkında Bilgilerini Sil</a>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

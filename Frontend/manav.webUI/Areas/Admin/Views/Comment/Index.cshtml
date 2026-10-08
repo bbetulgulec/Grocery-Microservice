@@ -1,0 +1,84 @@
+@model List<ResultCommentDto>
+@{
+    ViewData["Title"] = "Yorum İşlemleri";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="action-button-area">
+                <a href="/Admin/Comment/FetchGoogleReviews" class="btn btn-primary">
+                    <i class="fa fa-google"></i> Google Yorumlarını Senkronize Et
+                </a>
+            </div>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Müşteri Adı</th>
+                            <th>Müşteri Soyadı</th>
+                            <th>Müşteri Resmi</th>
+                            <th>Yorum </th>
+                            <th>Puan</th>
+                            <th>Tarih</th>
+                            <th>Google Akışı</th>
+                            <th>Sitede Yayın Durumu</th>
+                            <th>Sil</th>
+                            <th>Durum</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@item.FirstName</td>
+                                <td>@item.LastName</td>
+                                <td class="text-center">
+                                    @if (!string.IsNullOrEmpty(item.UserImageURL))
+                                    {
+                                        <img src="@item.UserImageURL" alt="@item.FirstName" class="user-avatar" />
+                                    }
+                                    else
+                                    {
+                                        <i class="fa fa-user default-user-icon" aria-hidden="true"></i>
+                                    }
+                                </td>
+                                <td>@item.CommentDetail</td>
+                                <td>@item.Rating</td>
+                                <td>@item.CreatedDate</td>
+                                <td>@item.isAddedGoogle</td>
+                                <td>
+                                    @if (item.status)
+                                    {
+                                        <span class="label label-success">Yayında</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-default">Pasif</span>
+                                    }
+                                </td>
+                                <td><a href='/Admin/Comment/DeleteComment/@item.UserCommentId' class="btn btn-danger"> Sil</a></td>
+                                <td>
+                                    @if (item.status)
+                                    {
+                                        <a href='/Admin/Comment/ChangeCommentStatus/@item.UserCommentId' class="btn btn-warning">Pasif Yap</a>
+                                    }
+                                    else
+                                    {
+                                        <a href='/Admin/Comment/ChangeCommentStatus/@item.UserCommentId' class="btn btn-success">Yayınla</a>
+                                    }
+                                </td>
+                                </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</section> 
