@@ -1,0 +1,30 @@
+name: .NET CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Restore
+        run: dotnet restore manav.sln
+
+      - name: Build
+        run: dotnet build manav.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test manav.sln --configuration Release --no-build
