@@ -24,8 +24,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddOpenApi();
-
-builder.Services.AddDbContext<CargoContext>();
 builder.Services.AddScoped<ICargoCompany, EFCargoCompany>();
 builder.Services.AddScoped<ICargoCamponyService, CargoCompanyManager>();
 builder.Services.AddScoped<ICargoOperation, EFCargoOperation>();
