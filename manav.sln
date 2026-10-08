@@ -42,8 +42,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.Message", "Services\M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.signalRRealTimeApi", "Services\SignalRRealTime\manav.signalRRealTimeApi\manav.signalRRealTimeApi.csproj", "{06D81ED5-6D5C-4A93-9A41-BF66522132D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.rabbitMQMessage", "manav.rabbitMQMessage\manav.rabbitMQMessage.csproj", "{266BCA4D-6844-4951-B5C0-CA1F259588D1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.raabitMQMessageApi", "Services\RabbitMQMessage\manav.raabitMQMessageApi\manav.raabitMQMessageApi.csproj", "{E1DB6C86-0493-4D5E-906E-F92B569885D4}"
 EndProject
 Global
@@ -136,13 +134,12 @@ Global
 		{06D81ED5-6D5C-4A93-9A41-BF66522132D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06D81ED5-6D5C-4A93-9A41-BF66522132D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06D81ED5-6D5C-4A93-9A41-BF66522132D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{266BCA4D-6844-4951-B5C0-CA1F259588D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{266BCA4D-6844-4951-B5C0-CA1F259588D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{266BCA4D-6844-4951-B5C0-CA1F259588D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{266BCA4D-6844-4951-B5C0-CA1F259588D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E1DB6C86-0493-4D5E-906E-F92B569885D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E1DB6C86-0493-4D5E-906E-F92B569885D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1DB6C86-0493-4D5E-906E-F92B569885D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1DB6C86-0493-4D5E-906E-F92B569885D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
