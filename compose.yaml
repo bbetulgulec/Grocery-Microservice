@@ -43,17 +43,6 @@ services:
       - order_db_data:/var/opt/mssql
     restart: unless-stopped
 
-  discount-db:
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    platform: linux/amd64
-    environment:
-      ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
-      MSSQL_PID: Developer
-    volumes:
-      - discount_db_data:/var/opt/mssql
-    restart: unless-stopped
-
   message-db:
     image: postgres:16
     environment:
@@ -86,6 +75,7 @@ services:
     restart: unless-stopped
     
     
+    
   identity:
     build:
       context: ./IdentityServer/manav.identityServer
@@ -114,6 +104,7 @@ services:
     restart: unless-stopped
     
     
+    
   comment:
     build:
       context: .
@@ -129,6 +120,7 @@ services:
     
     
     
+    
   cargo:
     build:
       context: .
@@ -138,9 +130,10 @@ services:
       IdentityServerUrl: http://identity:8080/
       ConnectionStrings__CargoDatabase: "Server=cargo-db,1433;Database=manavCargoDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
     depends_on:
-      - cargo-db
-      - identity
+    - cargo-db
+    - identity
     restart: unless-stopped
+      
       
       
   basket:
@@ -158,31 +151,7 @@ services:
     restart: unless-stopped
     
     
-  discount:
-    build:
-      context: .
-      dockerfile: Services/Discount/manav.discount/Dockerfile
-    environment:
-      ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
-      ConnectionStrings__DefaultConnection: "Server=discount-db,1433;Database=MultiShopDiscountDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
-    depends_on:
-      - discount-db
-      - identity
-    restart: unless-stopped
-    
-    
-  images:
-    build:
-      context: .
-      dockerfile: Services/Images/manav.images/Dockerfile
-    environment:
-      ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
-    depends_on:
-      - identity
-    restart: unless-stopped
-    
+
   message:
     build:
       context: .
@@ -195,6 +164,7 @@ services:
       - message-db
       - identity
     restart: unless-stopped
+    
     
     
   order:
@@ -210,39 +180,7 @@ services:
       - identity
     restart: unless-stopped
     
-  payment:
-    build:
-      context: .
-      dockerfile: Services/Payment/manav.Payment/Dockerfile
-    environment:
-      ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
-    depends_on:
-      - identity
-    restart: unless-stopped
-    
-  rabbitmqmessage:
-    build:
-      context: .
-      dockerfile: Services/RabbitMQMessage/manav.raabitMQMessageApi/Dockerfile
-    environment:
-      ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
-    depends_on:
-      - identity
-    restart: unless-stopped
-    
-  signalrrealtime:
-    build:
-      context: .
-      dockerfile: Services/SignalRRealTime/manav.signalRRealTimeApi/Dockerfile
-    environment:
-      ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
-    depends_on:
-      - identity
-    restart: unless-stopped
-  
+
   ocelot:
     build:
       context: .
@@ -258,7 +196,6 @@ services:
       - identity
       - catalog
       - basket
-      - discount
       - order
       - cargo
       - comment
@@ -269,7 +206,6 @@ volumes:
   comment_db_data:
   cargo_db_data:
   order_db_data:
-  discount_db_data:
   message_db_data:
   basket_redis_data:
   catalog_mongo_data:
