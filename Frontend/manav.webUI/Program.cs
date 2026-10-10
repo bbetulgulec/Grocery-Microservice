@@ -1,8 +1,8 @@
 using Amazon;
+using Amazon.Extensions.NETCore.Setup;
 using Amazon.Runtime;
 using Amazon.S3;
 using FluentValidation;
-using manav.catalog.Entities;
 using manav.webUI.Handlers;
 using manav.webUI.Services;
 using manav.webUI.Services.AwsS3Services;
@@ -28,16 +28,12 @@ using Microsoft.AspNetCore.Mvc.Razor;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddLocalization(options =>
-{
-    
-    options.ResourcesPath = "Resources";
-    
-});
+builder.Services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
     .AddDataAnnotationsLocalization();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme,
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(
+    JwtBearerDefaults.AuthenticationScheme,
     options =>
     {
         options.LoginPath = "/Login/Index";
@@ -53,9 +49,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     options =>
     {
         options.LoginPath = "/Login/Index";
-        options.ExpireTimeSpan=TimeSpan.FromHours(5);
+        options.ExpireTimeSpan = TimeSpan.FromHours(5);
         options.Cookie.Name = "manavCookie";
-        options.SlidingExpiration=true;
+        options.SlidingExpiration = true;
     });
 builder.Services.AddAccessTokenManagement();
 builder.Services.AddHttpContextAccessor();
@@ -63,7 +59,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateAboutValidator>();
 builder.Services.AddScoped<ILoginServices, LoginServices>();
-builder.Services.AddHttpClient<IIdentityService,IdentityService>();
+builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 builder.Services.AddScoped<ICloudStorageService, CloudStorageService>();
 builder.Services.Configure<ClientSettings>(
     builder.Configuration.GetSection("ClientSettings"));
@@ -73,10 +69,10 @@ builder.Services.AddTransient<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddScoped<ClientCredentialHandler>();
 builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
 var awsSection = builder.Configuration.GetSection("AWS");
-var awsOptions = new Amazon.Extensions.NETCore.Setup.AWSOptions
+var awsOptions = new AWSOptions
 {
     Credentials = new BasicAWSCredentials(
-        awsSection["AccessKeyId"], 
+        awsSection["AccessKeyId"],
         awsSection["SecretAccessKey"]
     ),
     Region = RegionEndpoint.GetBySystemName(awsSection["Region"])
@@ -169,7 +165,7 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 var supportedCulture = new[] { "en", "tr" };
-var locaritationOptions= new RequestLocalizationOptions()
+var locaritationOptions = new RequestLocalizationOptions()
     .SetDefaultCulture(supportedCulture[1])
     .AddSupportedCultures(supportedCulture)
     .AddSupportedUICultures(supportedCulture);
@@ -177,12 +173,12 @@ var locaritationOptions= new RequestLocalizationOptions()
 app.UseRequestLocalization(locaritationOptions);
 // AREA ROUTE - default'tan ÖNCE olmalı
 app.MapControllerRoute(
-        name: "areas",
-        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}")
+        "areas",
+        "{area:exists}/{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Default}/{action=Index}/{id?}")
+        "default",
+        "{controller=Default}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 

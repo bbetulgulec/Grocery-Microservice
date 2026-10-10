@@ -1,0 +1,276 @@
+services:
+  identity-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
+      MSSQL_PID: Developer
+    volumes:
+      - identity_db_data:/var/opt/mssql
+    restart: unless-stopped
+
+  comment-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
+      MSSQL_PID: Developer
+    volumes:
+      - comment_db_data:/var/opt/mssql
+    restart: unless-stopped
+
+  cargo-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
+      MSSQL_PID: Developer
+    volumes:
+      - cargo_db_data:/var/opt/mssql
+    restart: unless-stopped
+
+  order-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
+      MSSQL_PID: Developer
+    volumes:
+      - order_db_data:/var/opt/mssql
+    restart: unless-stopped
+
+  discount-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
+      MSSQL_PID: Developer
+    volumes:
+      - discount_db_data:/var/opt/mssql
+    restart: unless-stopped
+
+  message-db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ManavMessageDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - message_db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  basket-redis:
+    image: redis:7
+    volumes:
+      - basket_redis_data:/data
+    restart: unless-stopped
+
+  catalog-mongo:
+    image: mongo:7
+    volumes:
+      - catalog_mongo_data:/data/db
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: unless-stopped
+    
+    
+  identity:
+    build:
+      context: ./IdentityServer/manav.identityServer
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: "Server=identity-db,1433;Database=manavIdentityDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+      Jwt__Key: ${JWT_KEY}
+    ports:
+      - "5001:8080"
+    depends_on:
+      - identity-db
+    restart: unless-stopped
+
+  catalog:
+    build:
+      context: .
+      dockerfile: Services/Catalog/manav.catalog/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+      DatabaseSettings__ConnectionString: mongodb://catalog-mongo:27017
+    depends_on:
+      - catalog-mongo
+      - identity
+    restart: unless-stopped
+    
+    
+  comment:
+    build:
+      context: .
+      dockerfile: Services/Comment/manav.comment/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+      ConnectionStrings__DefaultConnection: "Server=comment-db,1433;Database=manavCommentDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+    depends_on:
+      - comment-db
+      - identity
+    restart: unless-stopped
+    
+    
+    
+  cargo:
+    build:
+      context: .
+      dockerfile: Services/Cargo/manav.cargo.webApi/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+      ConnectionStrings__CargoDatabase: "Server=cargo-db,1433;Database=manavCargoDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+    depends_on:
+      - cargo-db
+      - identity
+    restart: unless-stopped
+      
+      
+  basket:
+    build:
+      context: .
+      dockerfile: Services/Basket/manav.basket/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+      RedisSettings__Host: basket-redis
+      RedisSettings__Port: 6379
+    depends_on:
+      - basket-redis
+      - identity
+    restart: unless-stopped
+    
+    
+  discount:
+    build:
+      context: .
+      dockerfile: Services/Discount/manav.discount/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+      ConnectionStrings__DefaultConnection: "Server=discount-db,1433;Database=MultiShopDiscountDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+    depends_on:
+      - discount-db
+      - identity
+    restart: unless-stopped
+    
+    
+  images:
+    build:
+      context: .
+      dockerfile: Services/Images/manav.images/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+    depends_on:
+      - identity
+    restart: unless-stopped
+    
+  message:
+    build:
+      context: .
+      dockerfile: Services/Message/manav.Message/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+      ConnectionStrings__DefaultConnection: "Server=message-db,5432;Database=ManavMessageDB;Username=postgres;Password=${POSTGRES_PASSWORD}"
+    depends_on:
+      - message-db
+      - identity
+    restart: unless-stopped
+    
+    
+  order:
+    build:
+      context: .
+      dockerfile: Services/Order/Presentation/manav.order.webApi/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+      ConnectionStrings__CargoDatabase: "Server=cargo-db,1433;Database=manavCargoDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+    depends_on:
+      - order-db
+      - identity
+    restart: unless-stopped
+    
+  payment:
+    build:
+      context: .
+      dockerfile: Services/Payment/manav.Payment/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+    depends_on:
+      - identity
+    restart: unless-stopped
+    
+  rabbitmqmessage:
+    build:
+      context: .
+      dockerfile: Services/RabbitMQMessage/manav.raabitMQMessageApi/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+    depends_on:
+      - identity
+    restart: unless-stopped
+    
+  signalrrealtime:
+    build:
+      context: .
+      dockerfile: Services/SignalRRealTime/manav.signalRRealTimeApi/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+    depends_on:
+      - identity
+    restart: unless-stopped
+  
+  ocelot:
+    build:
+      context: .
+      dockerfile: ApiGateway/manav.OcelotGateway/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://identity:8080/
+    ports:
+      - "5002:8080"
+    volumes:
+      - ./ApiGateway/manav.OcelotGateway/ocelot.Docker.json:/app/ocelot.json:ro
+    depends_on:
+      - identity
+      - catalog
+      - basket
+      - discount
+      - order
+      - cargo
+      - comment
+    restart: unless-stopped
+  
+volumes:
+  identity_db_data:
+  comment_db_data:
+  cargo_db_data:
+  order_db_data:
+  discount_db_data:
+  message_db_data:
+  basket_redis_data:
+  catalog_mongo_data:
+  rabbitmq_data:
