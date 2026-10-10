@@ -34,15 +34,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.comment", "Services\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.OcelotGateway", "ApiGateway\manav.OcelotGateway\manav.OcelotGateway.csproj", "{AE8F0EAA-05BE-45A3-9600-628684F6DABF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.Payment", "Services\Payment\manav.Payment\manav.Payment.csproj", "{CA34C3DA-8957-4DF2-AB1E-C39FF53BC296}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.images", "Services\Images\manav.images\manav.images.csproj", "{AB6A7117-BF49-4B67-B62C-555E2BB0052B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.Message", "Services\Message\manav.Message\manav.Message.csproj", "{7A7BE388-1516-4181-B7B2-932CC010B129}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.signalRRealTimeApi", "Services\SignalRRealTime\manav.signalRRealTimeApi\manav.signalRRealTimeApi.csproj", "{06D81ED5-6D5C-4A93-9A41-BF66522132D0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manav.raabitMQMessageApi", "Services\RabbitMQMessage\manav.raabitMQMessageApi\manav.raabitMQMessageApi.csproj", "{E1DB6C86-0493-4D5E-906E-F92B569885D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -118,26 +110,10 @@ Global
 		{AE8F0EAA-05BE-45A3-9600-628684F6DABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE8F0EAA-05BE-45A3-9600-628684F6DABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE8F0EAA-05BE-45A3-9600-628684F6DABF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CA34C3DA-8957-4DF2-AB1E-C39FF53BC296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA34C3DA-8957-4DF2-AB1E-C39FF53BC296}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA34C3DA-8957-4DF2-AB1E-C39FF53BC296}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA34C3DA-8957-4DF2-AB1E-C39FF53BC296}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB6A7117-BF49-4B67-B62C-555E2BB0052B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB6A7117-BF49-4B67-B62C-555E2BB0052B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB6A7117-BF49-4B67-B62C-555E2BB0052B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB6A7117-BF49-4B67-B62C-555E2BB0052B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A7BE388-1516-4181-B7B2-932CC010B129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A7BE388-1516-4181-B7B2-932CC010B129}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A7BE388-1516-4181-B7B2-932CC010B129}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A7BE388-1516-4181-B7B2-932CC010B129}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06D81ED5-6D5C-4A93-9A41-BF66522132D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06D81ED5-6D5C-4A93-9A41-BF66522132D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06D81ED5-6D5C-4A93-9A41-BF66522132D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06D81ED5-6D5C-4A93-9A41-BF66522132D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1DB6C86-0493-4D5E-906E-F92B569885D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1DB6C86-0493-4D5E-906E-F92B569885D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1DB6C86-0493-4D5E-906E-F92B569885D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1DB6C86-0493-4D5E-906E-F92B569885D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
