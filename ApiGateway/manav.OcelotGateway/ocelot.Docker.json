@@ -17,13 +17,7 @@
         "Put",
         "Delete"
       ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [
-          "CatalogFullPermission"
-        ]
-      }
+      "UpstreamScheme": "http"
     },
     {
       "DownstreamPathTemplate": "/api/{everything}",
@@ -237,6 +231,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000"
+    "BaseUrl": "http://51.20.140.89:5002"
   }
 }
