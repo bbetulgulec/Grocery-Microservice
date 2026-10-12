@@ -71,13 +71,11 @@ builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTo
 var awsSection = builder.Configuration.GetSection("AWS");
 var awsOptions = new AWSOptions
 {
-    Credentials = new BasicAWSCredentials(
-        awsSection["AccessKeyId"],
-        awsSection["SecretAccessKey"]
-    ),
-    Region = RegionEndpoint.GetBySystemName(awsSection["Region"])
+    Region = RegionEndpoint.GetBySystemName(awsSection["Region"] ?? "eu-north-1")
 };
-
+if (!string.IsNullOrEmpty(awsSection["AccessKeyId"]))
+    awsOptions.Credentials = new BasicAWSCredentials(
+        awsSection["AccessKeyId"], awsSection["SecretAccessKey"]);
 builder.Services.AddDefaultAWSOptions(awsOptions);
 builder.Services.AddAWSService<IAmazonS3>();
 
