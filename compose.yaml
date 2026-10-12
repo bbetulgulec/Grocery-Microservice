@@ -100,6 +100,9 @@ services:
       ASPNETCORE_URLS: http://+:8080
       IdentityServerUrl: http://16.192.248.206:5001
       DatabaseSettings__ConnectionString: mongodb://catalog-mongo:27017
+    environment:
+      AWS__AccessKeyId: ${AWS_ACCESS_KEY_ID}
+      AWS__SecretAccessKey: ${AWS_SECRET_ACCESS_KEY}
     depends_on:
       - catalog-mongo
       - identity
@@ -153,7 +156,6 @@ services:
     restart: unless-stopped
     
     
-
   message:
     build:
       context: .
@@ -196,7 +198,6 @@ services:
       - identity
     restart: unless-stopped
     
-
   ocelot:
     build:
       context: .
