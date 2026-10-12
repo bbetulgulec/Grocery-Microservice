@@ -13,7 +13,6 @@ using manav.catalog.Settings;
 using manav.catalog.Validators;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
-using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,20 +62,4 @@ app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();
-using (var scope = app.Services.CreateScope())
-{
-    var s = scope.ServiceProvider.GetRequiredService<IDatabaseSettings>();
-    var db = new MongoClient(s.ConnectionString).GetDatabase(s.DatabaseName);
-    var existing = db.ListCollectionNames().ToList();
-
-    foreach (var name in new[]
-             {
-                 s.CategoryCollectionName, s.ProductCollectionName, s.ProductDetailCollectionName,
-                 s.ProductImageCollectionName, s.HighlightsProductCollectionName,
-                 s.AboutCollectionName, s.ContactCollectionName, s.GalleryCollectionName
-             })
-        if (!existing.Contains(name))
-            db.CreateCollection(name);
-}
-
 app.Run();
