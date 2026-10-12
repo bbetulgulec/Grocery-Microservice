@@ -189,7 +189,7 @@ services:
       dockerfile: ApiGateway/manav.OcelotGateway/Dockerfile
     environment:
       ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://51.20.121.230:5001
+      IdentityServerUrl: http://16.192.248.206:5001
     ports:
       - "5002:8080"
     volumes:

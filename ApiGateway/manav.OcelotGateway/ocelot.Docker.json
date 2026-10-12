@@ -231,6 +231,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://51.20.140.89:5002"
+    "BaseUrl": "http://16.192.248.206:5002"
   }
 }
