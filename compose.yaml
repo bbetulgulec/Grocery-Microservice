@@ -98,7 +98,7 @@ services:
       dockerfile: Services/Catalog/manav.catalog/Dockerfile
     environment:
       ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://51.20.121.230:5001
+      IdentityServerUrl: http://16.192.248.206:5001
       DatabaseSettings__ConnectionString: mongodb://catalog-mongo:27017
     depends_on:
       - catalog-mongo
