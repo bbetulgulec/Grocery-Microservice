@@ -188,8 +188,7 @@ services:
       context: .
       dockerfile: Frontend/manav.webUI/Dockerfile
     environment:
-      AWS__AccessKeyId: ${AWS_ACCESS_KEY_ID}
-      AWS__SecretAccessKey: ${AWS_SECRET_ACCESS_KEY}
+      ASPNETCORE_ENVIRONMENT: "Development"
     ports:
       - "80:8080"
     depends_on:
