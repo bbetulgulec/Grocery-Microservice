@@ -13,14 +13,16 @@ using manav.catalog.Settings;
 using manav.catalog.Validators;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //Tokenın geçerliliğini sorgular
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
-    options.Authority = builder.Configuration["IdentityServerUrl"];//IdentityServer ile nirlikte ayağa kalkamyı sağlar
-    options.Audience = "ResourceCatalog";//config tarafındaki dinleyici hangi keye sahipse ne yaapacağı işlemler velirlenir
+    options.Authority = builder.Configuration["IdentityServerUrl"]; //IdentityServer ile nirlikte ayağa kalkamyı sağlar
+    options.Audience =
+        "ResourceCatalog"; //config tarafındaki dinleyici hangi keye sahipse ne yaapacağı işlemler velirlenir
     options.RequireHttpsMetadata = false;
 });
 
@@ -38,9 +40,6 @@ builder.Services.AddScoped<IContactService, ContactService>();
 builder.Services.AddScoped<IGalleryServices, GalleryServices>();
 
 
-
-
-
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
 builder.Services.AddScoped<IDatabaseSettings>(sp =>
@@ -55,17 +54,29 @@ builder.Services.AddScoped<IValidator<About>, AboutValidator>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+if (app.Environment.IsDevelopment()) app.MapOpenApi();
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
-app.UseAuthorization();  
+app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();
-app.Run();
+using (var scope = app.Services.CreateScope())
+{
+    var s = scope.ServiceProvider.GetRequiredService<IDatabaseSettings>();
+    var db = new MongoClient(s.ConnectionString).GetDatabase(s.DatabaseName);
+    var existing = db.ListCollectionNames().ToList();
 
+    foreach (var name in new[]
+             {
+                 s.CategoryCollectionName, s.ProductCollectionName, s.ProductDetailCollectionName,
+                 s.ProductImageCollectionName, s.HighlightsProductCollectionName,
+                 s.AboutCollectionName, s.ContactCollectionName, s.GalleryCollectionName
+             })
+        if (!existing.Contains(name))
+            db.CreateCollection(name);
+}
+
+app.Run();

@@ -61,6 +61,8 @@ services:
 
   catalog-mongo:
     image: mongo:7
+    ports:
+      - "27018:27017"
     volumes:
       - catalog_mongo_data:/data/db
     restart: unless-stopped
