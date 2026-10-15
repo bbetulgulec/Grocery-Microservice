@@ -84,6 +84,7 @@ services:
       dockerfile: Dockerfile
     environment:
       ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://16.192.248.206:5001
       ConnectionStrings__DefaultConnection: "Server=identity-db,1433;Database=manavIdentityDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
       Jwt__Key: ${JWT_KEY}
     ports:
@@ -91,6 +92,7 @@ services:
     depends_on:
       - identity-db
     restart: unless-stopped
+    
   catalog:
     build:
       context: .
