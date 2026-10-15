@@ -227,7 +227,13 @@
         "Put",
         "Delete"
       ],
-      "UpstreamScheme": "http"
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [
+          "IdentityFullPermission"
+        ]
+      }
     }
   ],
   "GlobalConfiguration": {

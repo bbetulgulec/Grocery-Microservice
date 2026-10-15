@@ -123,7 +123,7 @@ public static class Config
             AllowedScopes =
             {
                 "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission",
-                "BasketFullPermission", "OcelotFullPermission",
+                "BasketFullPermission", "OcelotFullPermission","IdentityFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
