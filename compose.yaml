@@ -91,7 +91,6 @@ services:
     depends_on:
       - identity-db
     restart: unless-stopped
-
   catalog:
     build:
       context: .
@@ -131,7 +130,7 @@ services:
       dockerfile: Services/Cargo/manav.cargo.webApi/Dockerfile
     environment:
       ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
+      IdentityServerUrl: http://16.192.248.206:5001
       ConnectionStrings__CargoDatabase: "Server=cargo-db,1433;Database=manavCargoDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
     depends_on:
     - cargo-db
@@ -146,7 +145,7 @@ services:
       dockerfile: Services/Basket/manav.basket/Dockerfile
     environment:
       ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
+      IdentityServerUrl: http://16.192.248.206:5001
       RedisSettings__Host: basket-redis
       RedisSettings__Port: 6379
     depends_on:
@@ -161,7 +160,7 @@ services:
       dockerfile: Services/Message/manav.Message/Dockerfile
     environment:
       ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
+      IdentityServerUrl: http://16.192.248.206:5001
       ConnectionStrings__DefaultConnection: "Server=message-db,5432;Database=ManavMessageDB;Username=postgres;Password=${POSTGRES_PASSWORD}"
     depends_on:
       - message-db
@@ -176,7 +175,7 @@ services:
       dockerfile: Services/Order/Presentation/manav.order.webApi/Dockerfile
     environment:
       ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
+      IdentityServerUrl: http://16.192.248.206:5001
       ConnectionStrings__CargoDatabase: "Server=cargo-db,1433;Database=manavCargoDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
     depends_on:
       - order-db
