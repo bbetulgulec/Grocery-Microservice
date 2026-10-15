@@ -27,16 +27,6 @@ builder.Services.AddScoped<ICommentService, CommentService>();
 
 
 var app = builder.Build();
-
-// --- BURAYA OTOMATİK MİGRATİON KODUNU EKLETİYORUZ ---
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<CommentContext>();
-    dbContext.Database.Migrate();
-}
-// ----------------------------------------------------
-
-
 if (app.Environment.IsDevelopment()) app.MapOpenApi();
 
 app.UseHttpsRedirection();

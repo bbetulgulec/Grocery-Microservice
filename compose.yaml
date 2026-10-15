@@ -115,7 +115,7 @@ services:
       dockerfile: Services/Comment/manav.comment/Dockerfile
     environment:
       ASPNETCORE_URLS: http://+:8080
-      IdentityServerUrl: http://identity:8080/
+      IdentityServerUrl: http://16.192.248.206:5001
       ConnectionStrings__DefaultConnection: "Server=comment-db,1433;Database=manavCommentDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
     depends_on:
       - comment-db
