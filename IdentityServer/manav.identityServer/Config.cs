@@ -52,6 +52,10 @@ public static class Config
         {
             Scopes = { "OcelotFullPermission" }
         },
+        new ApiResource("ResourceIdentity")
+        {
+            Scopes = { "IdentityFullPermission" }
+        },
         new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
     };
 
@@ -76,6 +80,7 @@ public static class Config
         new ApiScope("OcelotFullPermission", "Full access to images full permission"),
         new ApiScope("MessageFullPermission", "Full access to message full permission"),
         new ApiScope("ProductFullPermission", "Full access to product full permission"),
+        new ApiScope("IdentityFullPermission", "Full access to identity full permission"),
         new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
     };
 
@@ -123,7 +128,7 @@ public static class Config
             AllowedScopes =
             {
                 "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission",
-                "BasketFullPermission", "OcelotFullPermission","IdentityFullPermission",
+                "BasketFullPermission", "OcelotFullPermission", "IdentityFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
