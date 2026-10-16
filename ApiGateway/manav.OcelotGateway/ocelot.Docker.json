@@ -116,6 +116,50 @@
       }
     },
     {
+      "DownstreamPathTemplate": "/api/comment/getactivecomments",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "comment",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/services/comment/comment/getactivecomments",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "UpstreamScheme": "http",
+      "Priority": 2,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [
+          "CommentReadPermission"
+        ]
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/comment",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "comment",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/services/comment/comment",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "UpstreamScheme": "http",
+      "Priority": 2,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": [
+          "CommentReadPermission"
+        ]
+      }
+    },
+    {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
