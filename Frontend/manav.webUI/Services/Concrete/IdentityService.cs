@@ -106,17 +106,14 @@ public class IdentityService : IIdentityService
 
         var token = await _httpClient.RequestPasswordTokenAsync(passwordTokenRequest);
 
-        // --- BURAYI EKLEYEREK HATAYI KONSOLDA GÖRELİM ---
         if (token.IsError || string.IsNullOrEmpty(token.AccessToken))
         {
-            // IdentityServer'ın döndüğü gerçek hata mesajını konsola basıyoruz
             Console.WriteLine("--- TOKEN ALMA HATASI ---");
             Console.WriteLine($"Error: {token.Error}");
             Console.WriteLine($"Error Description: {token.ErrorDescription}");
             Console.WriteLine($"HTTP Error: {token.HttpResponse?.ReasonPhrase}");
             return false;
         }
-        // ------------------------------------------------
 
         var userInfoRequest = new UserInfoRequest
         {
@@ -125,6 +122,23 @@ public class IdentityService : IIdentityService
         };
 
         var userValues = await _httpClient.GetUserInfoAsync(userInfoRequest);
+
+        if (userValues.IsError)
+        {
+            Console.WriteLine($"UserInfo hatası: {userValues.Error}");
+            return false;
+        }
+
+        // Sadece bu e-posta admin paneline girebilir
+        const string adminEmail = "mevsimmanav@gmail.com";
+
+        var emailClaim = userValues.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
+
+        if (!string.Equals(emailClaim, adminEmail, StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine($"Admin yetkisi yok: {emailClaim}");
+            return false;
+        }
 
         var claimsIdentity = new ClaimsIdentity(
             userValues.Claims,
@@ -137,16 +151,8 @@ public class IdentityService : IIdentityService
         var authenticationProperties = new AuthenticationProperties();
         authenticationProperties.StoreTokens(new List<AuthenticationToken>
         {
-            new()
-            {
-                Name = OpenIdConnectParameterNames.AccessToken,
-                Value = token.AccessToken
-            },
-            new()
-            {
-                Name = OpenIdConnectParameterNames.RefreshToken,
-                Value = token.RefreshToken
-            },
+            new() { Name = OpenIdConnectParameterNames.AccessToken, Value = token.AccessToken },
+            new() { Name = OpenIdConnectParameterNames.RefreshToken, Value = token.RefreshToken },
             new()
             {
                 Name = OpenIdConnectParameterNames.ExpiresIn,

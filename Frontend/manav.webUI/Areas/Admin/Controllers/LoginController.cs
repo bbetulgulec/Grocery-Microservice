@@ -36,16 +36,6 @@ public class LoginController : Controller
             return View(createLoginDto);
         }
 
-        if (!User.IsInRole("Admin"))
-        {
-            await _identityService.Logout();
-
-            ModelState.AddModelError(string.Empty,
-                "Bu panele yalnızca Admin kullanıcıları erişebilir.");
-
-            return View(createLoginDto);
-        }
-
         return RedirectToAction("Index", "Category", new { area = "Admin" });
     }
 }
