@@ -106,6 +106,18 @@ public class IdentityService : IIdentityService
 
         var token = await _httpClient.RequestPasswordTokenAsync(passwordTokenRequest);
 
+        // --- BURAYI EKLEYEREK HATAYI KONSOLDA GÖRELİM ---
+        if (token.IsError || string.IsNullOrEmpty(token.AccessToken))
+        {
+            // IdentityServer'ın döndüğü gerçek hata mesajını konsola basıyoruz
+            Console.WriteLine("--- TOKEN ALMA HATASI ---");
+            Console.WriteLine($"Error: {token.Error}");
+            Console.WriteLine($"Error Description: {token.ErrorDescription}");
+            Console.WriteLine($"HTTP Error: {token.HttpResponse?.ReasonPhrase}");
+            return false;
+        }
+        // ------------------------------------------------
+
         var userInfoRequest = new UserInfoRequest
         {
             Token = token.AccessToken,
@@ -113,10 +125,7 @@ public class IdentityService : IIdentityService
         };
 
         var userValues = await _httpClient.GetUserInfoAsync(userInfoRequest);
-        var roles = userValues.Claims
-            .Where(x => x.Type == ClaimTypes.Role || x.Type == "role")
-            .Select(x => x.Value)
-            .ToList();
+
         var claimsIdentity = new ClaimsIdentity(
             userValues.Claims,
             CookieAuthenticationDefaults.AuthenticationScheme,

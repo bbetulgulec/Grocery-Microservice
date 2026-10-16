@@ -3123,28 +3123,7 @@ table + a.btn {
     font-size: 13px;
 }
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e8eff3 !important;
-}
-
-.card {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
-}
-
-.form-control {
-    border-radius: 6px;
-    border: 1px solid #d2d6de;
-    margin-bottom: 15px;
-}
-
-.form-control:focus {
-    border-color: #002628;
-    box-shadow: none;
-}
-
+@
 @media (max-width: 640px) {
     .orders-page {
         padding: 20px 13px 32px;
