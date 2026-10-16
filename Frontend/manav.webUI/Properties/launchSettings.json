@@ -5,7 +5,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "Admin/Category/Index",
+      "launchUrl": "Admin/Login/Index",
       "applicationUrl": "http://0.0.0.0:7271",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

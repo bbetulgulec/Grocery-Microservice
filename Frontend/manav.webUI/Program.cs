@@ -120,6 +120,11 @@ builder.Services.AddHttpClient<ICommentService, CommentService>(options =>
     options.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Comment.Path}");
 }).AddHttpMessageHandler<ClientCredentialHandler>();
 
+builder.Services.AddHttpClient<IAdminCommentService, AdminCommentService>(options =>
+{
+    options.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Comment.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
 builder.Services.AddHttpClient<IBasketService, BasketService>(options =>
 {
     options.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Basket.Path}");

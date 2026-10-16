@@ -6,20 +6,21 @@ namespace manav.webUI.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Route("Admin/Comment")]
-public class CommentController:Controller
+public class CommentController : Controller
 {
-    private readonly ICommentService _commentService;
+    private readonly IAdminCommentService _commentService;
 
-    public CommentController(ICommentService commentService)
+    public CommentController(IAdminCommentService commentService)
     {
         _commentService = commentService;
     }
-        [HttpGet]
+
+    [HttpGet]
     [Route("Index")]
     public async Task<IActionResult> Index()
     {
         ViewbagComment();
-       var values= await _commentService.GetAllCommentAsync();
+        var values = await _commentService.GetAllCommentAsync();
         return View(values);
     }
 
@@ -30,13 +31,13 @@ public class CommentController:Controller
         ViewbagComment();
         return View();
     }
-    
+
     [HttpPost]
     [Route("CreateComment")]
     public async Task<IActionResult> CreateComment(CreateCommentDto value)
     {
         await _commentService.CreateCommentDto(value);
-            return RedirectToAction("Index", "Comment", new { area = "Admin" });
+        return RedirectToAction("Index", "Comment", new { area = "Admin" });
     }
 
     [HttpGet]
@@ -46,7 +47,7 @@ public class CommentController:Controller
         await _commentService.DeleteCommentAsync(id);
         return RedirectToAction("Index", "Comment", new { area = "Admin" });
     }
-    
+
     [HttpPost]
     [Route("UpdateComment")]
     public async Task<IActionResult> UpdateComment(UpdateCommentDto updateCommentDto)
@@ -54,7 +55,7 @@ public class CommentController:Controller
         await _commentService.UpdateCommentDto(updateCommentDto);
         return View();
     }
-    
+
     [HttpGet]
     [Route("FetchGoogleReviews")]
     public async Task<IActionResult> FetchGoogleReviews()
@@ -62,8 +63,8 @@ public class CommentController:Controller
         await _commentService.SyncGoogleReviewsAsync();
         return RedirectToAction("Index", "Comment", new { area = "Admin" });
     }
-    
-    
+
+
     [HttpGet]
     [Route("ChangeCommentStatus/{id}")]
     public async Task<IActionResult> ChangeCommentStatus(int id)
