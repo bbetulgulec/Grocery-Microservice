@@ -14,11 +14,14 @@ public static class Config
     {
         new ApiResource("ResourceCatalog")
         {
-            Scopes = { "CatalogFullPermission", "CatalogReadPermission", "ProductFullPermission" }
+            Scopes =
+            {
+                "CatalogFullPermission", "CatalogReadPermission", "ProductFullPermission", "ProductReadPermission"
+            }
         },
         new ApiResource("ResourceDiscount")
         {
-            Scopes = { "DiscountFullPermission" }
+            Scopes = { "DiscountFullPermission", "DiscountReadPermission" }
         },
         new ApiResource("ResourceOrder")
         {
@@ -34,7 +37,7 @@ public static class Config
         },
         new ApiResource("ResourceComment")
         {
-            Scopes = { "CommentFullPermission" }
+            Scopes = { "CommentFullPermission", "CommentReadPermission" }
         },
         new ApiResource("ResourcePayment")
         {
@@ -42,11 +45,11 @@ public static class Config
         },
         new ApiResource("ResourceImages")
         {
-            Scopes = { "ImagesFullPermission" }
+            Scopes = { "ImagesFullPermission", "ImagesReadPermission" }
         },
         new ApiResource("ResourceMessage")
         {
-            Scopes = { "MessageFullPermission" }
+            Scopes = { "MessageFullPermission", "MessageReadPermission" }
         },
         new ApiResource("ResourceOcelot")
         {
@@ -71,15 +74,20 @@ public static class Config
         new ApiScope("CatalogFullPermission", "Full access to catalog full permission"),
         new ApiScope("CatalogReadPermission", "Full access to catalog read permission"),
         new ApiScope("DiscountFullPermission", "Full access to discount full permission"),
+        new ApiScope("DiscountReadPermission", "Full access to discount read permission"),
         new ApiScope("OrderFullPermission", "Full access to order full permission"),
         new ApiScope("CargoFullPermission", "Full access to cargo full permission"),
         new ApiScope("BasketFullPermission", "Full access to basket full permission"),
         new ApiScope("CommentFullPermission", "Full access to comment full permission"),
+        new ApiScope("CommentReadPermission", "Full access to product read permission"),
         new ApiScope("PaymentFullPermission", "Full access to payment full permission"),
         new ApiScope("ImagesFullPermission", "Full access to images full permission"),
+        new ApiScope("ImagesReadPermission", "Full access to images read permission"),
         new ApiScope("OcelotFullPermission", "Full access to images full permission"),
         new ApiScope("MessageFullPermission", "Full access to message full permission"),
+        new ApiScope("MessageReadPermission", "Full access to message full permission"),
         new ApiScope("ProductFullPermission", "Full access to product full permission"),
+        new ApiScope("ProductReadPermission", "Full access to order read permission"),
         new ApiScope("IdentityFullPermission", "Full access to identity full permission"),
         new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
     };
@@ -96,8 +104,8 @@ public static class Config
             ClientSecrets = { new Secret("manavsecret".Sha256()) },
             AllowedScopes =
             {
-                "CatalogFullPermission", "OcelotFullPermission", "CommentFullPermission", "ProductFullPermission",
-                "BasketFullPermission", "PaymentFullPermission", "OrderFullPermission"
+                "CatalogReadPermission", "OcelotFullPermission", "CommentReadPermission", "ProductReadPermission",
+                "BasketFullPermission", "OrderFullPermission", "ImagesReadPermission"
             }
         },
 
@@ -110,8 +118,10 @@ public static class Config
             ClientSecrets = { new Secret("manavsecret".Sha256()) },
             AllowedScopes =
             {
-                "CatalogFullPermission", "OcelotFullPermission", "BasketFullPermission", "OrderFullPermission",
-                "MessageFullPermission",
+                "OcelotFullPermission", "BasketFullPermission", "OrderFullPermission", "CatalogReadPermission",
+                "ProductReadPermission", "DiscountReadPermission", "CommentReadPermission", "ImagesReadPermission",
+                "PaymentFullPermission", "MessageReadPermission",
+
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
@@ -128,7 +138,8 @@ public static class Config
             AllowedScopes =
             {
                 "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission",
-                "BasketFullPermission", "OcelotFullPermission", "IdentityFullPermission",
+                "BasketFullPermission", "OcelotFullPermission", "IdentityFullPermission", "ProductFullPermission",
+                "CommentFullPermission", "PaymentFullPermission", "ImagesFullPermission", "MessageFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,

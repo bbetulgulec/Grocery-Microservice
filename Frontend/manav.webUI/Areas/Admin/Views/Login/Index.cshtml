@@ -1,0 +1,75 @@
+```cshtml
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewBag.Title</title>
+</head>
+
+<body class="body-bg-color min-vh-100 d-flex align-items-center justify-content-center p-3 p-md-4">
+
+<div class="card border-0 overflow-hidden shadow-lg w-100" style="max-width: 1000px;">
+    <div class="row g-0 align-items-stretch">
+
+        <div class="col-md-7 p-4 p-lg-5 text-dark bg-white d-flex flex-column justify-content-center">
+
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h2 class="fw-bold mb-0 text-dark">Giriş Yap</h2>
+
+                <a href="/Default/Index"
+                   class="text-secondary text-decoration-none small d-flex align-items-center gap-1">
+                    <i class="bi bi-house-door"></i>
+                    Siteye Dön
+                </a>
+            </div>
+
+            <form asp-controller="Login" asp-action="Index" method="post">
+
+                <div class="mb-3">
+                    <label for="Email" class="form-label text-dark fw-semibold small mb-1">
+                        E-Posta Adresi
+                    </label>
+
+                    <input type="email"
+                           class="form-control"
+                           asp-for="Email"
+                           id="Email"
+                           placeholder="ornek@email.com"
+                           required/>
+                </div>
+
+                <div class="mb-4">
+                    <label for="Password" class="form-label text-dark fw-semibold small mb-1">
+                        Şifre
+                    </label>
+
+                    <input type="password"
+                           class="form-control"
+                           asp-for="Password"
+                           id="Password"
+                           placeholder="••••••••"
+                           required/>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit"
+                            class="btn btn-dark w-100 d-flex align-items-center justify-content-center gap-2">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        Giriş Yap
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
