@@ -1,0 +1,23 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [ development ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sunucuda güncelle ve yeniden başlat
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+            cd ~/Grocery-Microservice
+            git pull origin development
+            docker compose up -d --build
+            docker image prune -f
