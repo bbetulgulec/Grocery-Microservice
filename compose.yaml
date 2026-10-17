@@ -39,6 +39,8 @@ services:
       ACCEPT_EULA: "Y"
       MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
       MSSQL_PID: Developer
+    ports:
+      - "127.0.0.1:1434:1433"
     volumes:
       - order_db_data:/var/opt/mssql
     restart: unless-stopped
@@ -178,7 +180,7 @@ services:
     environment:
       ASPNETCORE_URLS: http://+:8080
       IdentityServerUrl: http://16.192.248.206:5001
-      ConnectionStrings__CargoDatabase: "Server=cargo-db,1433;Database=manavCargoDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+      ConnectionStrings__CargoDatabase: "Server=order-db,1433;Database=ManavOrderDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
     depends_on:
       - order-db
       - identity
