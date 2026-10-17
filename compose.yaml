@@ -201,8 +201,6 @@ services:
       AWS__SecretAccessKey: "${AWS_SECRET_ACCESS_KEY}"
       AWSStorageOptions__BucketName: "${AWS_BUCKET_NAME}"
       AWSStorageOptions__CdnDomain: "${AWS_CDN_DOMAIN}"
-    ports:
-      - "80:8080"
     depends_on:
       - ocelot
       - identity

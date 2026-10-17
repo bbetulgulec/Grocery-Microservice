@@ -20,7 +20,7 @@ public class ContactController : Controller
         return Ok(new
         {
             success = true,
-            message = "Your message was sent successfully."
+            message = "Mesajınızı başarıyla döndürüldü"
         });
     }
 }
