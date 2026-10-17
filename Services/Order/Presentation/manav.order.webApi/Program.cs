@@ -41,7 +41,8 @@ builder.Services.AddScoped<RemoveOrderDetailCommandHandler>();
 
 #endregion
 
-
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(GetAddressQueryHandler).Assembly));
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
