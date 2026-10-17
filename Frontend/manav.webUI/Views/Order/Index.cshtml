@@ -3,6 +3,7 @@
 }
 
 <div class="container py-5">
+    <form asp-controller="Order" asp-action="CreateOrder" method="post">
         <div class="row g-4">
             <section class="col-lg-8">
                 @await Component.InvokeAsync("_OrderAddressUILayoutComponentPartial")
@@ -10,8 +11,10 @@
 
             <aside class="col-lg-4">
                 @await Component.InvokeAsync("_OrderProductListUILayoutComponentPartial")
-                </aside>
+            </aside>
         </div>
+    </form>
+
 </div>
 
 <script>
