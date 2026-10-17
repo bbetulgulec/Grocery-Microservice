@@ -1,4 +1,3 @@
-using AutoMapper;
 using manav.webUI.Services.Interfaces;
 using manav.webUI.Services.MessageServices;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +19,14 @@ public class MessageController : Controller
 
     public async Task<IActionResult> Inbox()
     {
-        var user= await _userService.GetUser();
+        var user = await _userService.GetUser();
         var values = await _messageService.GetAllMessageInboxAsync(user.Id);
         return View(values);
     }
+
     public async Task<IActionResult> Sendbox()
     {
-        var user= await _userService.GetUser();
+        var user = await _userService.GetUser();
         var values = await _messageService.GetAllMessageSendboxAsync(user.Id);
         return View(values);
     }

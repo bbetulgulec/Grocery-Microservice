@@ -20,4 +20,8 @@
       <ProjectReference Include="..\..\Core\manav.order.domain\manav.order.domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
+
 </Project>

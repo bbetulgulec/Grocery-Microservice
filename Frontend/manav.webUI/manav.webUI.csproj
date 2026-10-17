@@ -4,70 +4,74 @@
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
-      <_ContentIncludedByDefault Remove="wwwroot\images\front-of-shop-together.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\images\front-of-shop.jpeg" />
-      <_ContentIncludedByDefault Remove="wwwroot\favicon_io\android-chrome-192x192.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\favicon_io\android-chrome-512x512.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\favicon_io\apple-touch-icon.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\favicon_io\favicon-16x16.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\favicon_io\favicon-32x32.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\favicon_io\favicon.ico" />
-      <_ContentIncludedByDefault Remove="wwwroot\favicon_io\site.webmanifest" />
-      <_ContentIncludedByDefault Remove="Views\_FeedbackUILayoutComponentPartial\Index.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml"/>
+        <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml"/>
+        <_ContentIncludedByDefault Remove="wwwroot\images\front-of-shop-together.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\images\front-of-shop.jpeg"/>
+        <_ContentIncludedByDefault Remove="wwwroot\favicon_io\android-chrome-192x192.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\favicon_io\android-chrome-512x512.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\favicon_io\apple-touch-icon.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\favicon_io\favicon-16x16.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\favicon_io\favicon-32x32.png"/>
+        <_ContentIncludedByDefault Remove="wwwroot\favicon_io\favicon.ico"/>
+        <_ContentIncludedByDefault Remove="wwwroot\favicon_io\site.webmanifest"/>
+        <_ContentIncludedByDefault Remove="Views\_FeedbackUILayoutComponentPartial\Index.cshtml"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="wwwroot\MainDownload-OvioAdmin-html5-template\help-documentation\assets\.DS_Store" />
-      <Content Include="wwwroot\MainDownload-OvioAdmin-html5-template\help-documentation\assets\blueprint-css\plugins\.DS_Store" />
-      <Content Include="wwwroot\template\.DS_Store" />
+        <Content Include="..\..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
+        <Content Include="wwwroot\MainDownload-OvioAdmin-html5-template\help-documentation\assets\.DS_Store"/>
+        <Content Include="wwwroot\MainDownload-OvioAdmin-html5-template\help-documentation\assets\blueprint-css\plugins\.DS_Store"/>
+        <Content Include="wwwroot\template\.DS_Store"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Resource\Views\" />
+        <Folder Include="Resource\Views\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.102.1" />
-      <PackageReference Include="AWSSDK.S3" Version="4.0.104.1" />
-      <PackageReference Include="FluentValidation" Version="12.1.1" />
-      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
-      <PackageReference Include="IdentityModel.AspNetCore" Version="3.0.0" />
-      <PackageReference Include="IdentityServer4.Storage" Version="4.1.2" />
-      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.12" />
-      <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.12" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.102.1"/>
+        <PackageReference Include="AWSSDK.S3" Version="4.0.104.1"/>
+        <PackageReference Include="FluentValidation" Version="12.1.1"/>
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1"/>
+        <PackageReference Include="IdentityModel.AspNetCore" Version="3.0.0"/>
+        <PackageReference Include="IdentityServer4.Storage" Version="4.1.2"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.12"/>
+        <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.12"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\manav.DtoLayer\manav.DtoLayer.csproj" />
+        <ProjectReference Include="..\manav.DtoLayer\manav.DtoLayer.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Areas\Admin\Views\_ViewImports.cshtml" />
+        <AdditionalFiles Include="Areas\Admin\Views\_ViewImports.cshtml"/>
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Resource\Information\Index.en.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Index.en.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Resource\Information\Index.tr.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Index.tr.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Resource\Views\Information\Index.en.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Index.en.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Resource\Views\Information\Index.tr.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Index.tr.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
+        <EmbeddedResource Update="Resource\Information\Index.en.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Index.en.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resource\Information\Index.tr.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Index.tr.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resource\Views\Information\Index.en.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Index.en.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resource\Views\Information\Index.tr.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Index.tr.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
     </ItemGroup>
 
 </Project>

@@ -434,3 +434,4 @@ FodyWeavers.xsd
 *.pfx
 *.p12
 **/appsettings.Development.json
+.env

@@ -16,6 +16,9 @@ public class BasketService : IBasketService
     {
         var existBasket = await _redis.GetDb().StringGetAsync(userId);
 
+        if (existBasket.IsNullOrEmpty)
+            return new BasketTotalDto { UserId = userId };
+
         return JsonSerializer.Deserialize<BasketTotalDto>((string)existBasket);
     }
 
