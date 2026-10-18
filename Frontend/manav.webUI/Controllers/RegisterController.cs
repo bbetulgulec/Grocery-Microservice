@@ -25,6 +25,8 @@ public class RegisterController : Controller
         if (!ModelState.IsValid)
             return View(createRegisterDto);
 
+        if (string.IsNullOrWhiteSpace(createRegisterDto.UserName))
+            createRegisterDto.UserName = createRegisterDto.Email;
         var registered = await _identityService.SignUp(createRegisterDto);
 
         if (!registered)

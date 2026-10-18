@@ -1,151 +1,165 @@
 @model CreateRegisterDto
 @{
-    ViewBag.Title = "Register Form";
-    Layout = null;
+  ViewBag.Title = "Register Form";
+  Layout = null;
 }
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mevsim Manav Müşteri Oluşturma Formu</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="~/template/assets/css/main.css" />
+  <link rel="stylesheet" href="~/template/assets/css/main.css"/>
 
 </head>
 
 <body class="auth-body min-vh-100 d-flex align-items-center justify-content-center p-3 p-md-4">
-  <div class="card auth-card border-0 overflow-hidden shadow-lg" style="max-width: 1000px; width: 100%;">
-    <div class="row g-0 align-items-stretch">
-      <div class="col-md-5 auth-sidebar p-4 p-lg-5 d-flex flex-column justify-content-between text-white">
-        <div>
-          <div class="brand-logo mb-4 d-flex align-items-center gap-2">
-            <i class="bi bi-basket-fill brand-mark fs-3"></i>
-            <span class="fs-4 fw-bold">Mevsim Manav</span>
-          </div>
-
-          <span class="gh-pill is-cream mb-3 d-inline-block">Taze & Organik</span>
-
-          <h3 class="fw-bold mb-3 text-white">Hoş Geldiniz!</h3>
-
-          <p class="text-white-50 fs-6 lh-base">
-            Daha önce hesap oluşturduysanız giriş yap butonunu kullanın.
-          </p>
+<div class="card auth-card border-0 overflow-hidden shadow-lg" style="max-width: 1000px; width: 100%;">
+  <div class="row g-0 align-items-stretch">
+    <div class="col-md-5 auth-sidebar p-4 p-lg-5 d-flex flex-column justify-content-between text-white">
+      <div>
+        <div class="brand-logo mb-4 d-flex align-items-center gap-2">
+          <i class="bi bi-basket-fill brand-mark fs-3"></i>
+          <span class="fs-4 fw-bold">Mevsim Manav</span>
         </div>
 
-        <div class="pt-4">
-          <p class="small text-white-50 mb-2">Zaten hesabınız var mı?</p>
+        <span class="gh-pill is-cream mb-3 d-inline-block">Taze & Organik</span>
 
-          <a href="/Login/Index"
-             class="btn btn-gec-outline-cream d-inline-flex align-items-center gap-2">
-            <i class="bi bi-box-arrow-in-right"></i>
-            Hesabım Var
-          </a>
-        </div>
+        <h3 class="fw-bold mb-3 text-white">Hoş Geldiniz!</h3>
+
+        <p class="text-white-50 fs-6 lh-base">
+          Daha önce hesap oluşturduysanız giriş yap butonunu kullanın.
+        </p>
       </div>
 
-      <!-- Sağ Taraf (Form Alanı) - bg-white eklendi -->
-      <div class="col-md-7 p-4 p-lg-5 text-dark bg-white d-flex flex-column justify-content-center">
-
-        <div class="d-flex align-items-center justify-content-between mb-4">
-          <h2 class="fw-bold mb-0 text-dark"
-              style="font-family: var(--gec-font-heading);">
-            Kayıt Ol
-          </h2>
-
-          <a href="/Default/Index"
-             class="text-secondary text-decoration-none small d-flex align-items-center gap-1 hover-mint">
-            <i class="bi bi-house-door"></i>
-            Siteye Dön
-          </a>
-        </div>
-
-        <form asp-controller="Register" asp-action="Index" method="post">
-
-          <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0">
-              <label for="firstName"
-                     class="form-label text-dark fw-semibold small mb-1">
-                İsim
-              </label>
-
-              <input type="text"
-                     class="form-control form-control-gec"
-                     asp-for="Name"
-                     id="firstName"
-                     required placeholder="İsim ..."/>
-            </div>
-
-            <div class="col-md-6">
-              <label for="lastName"
-                     class="form-label text-dark fw-semibold small mb-1">
-                Soyisim
-              </label>
-
-              <input type="text"
-                     class="form-control form-control-gec"
-                     asp-for="SurName"
-                     id="lastName"
-                     required placeholder="Soyisim ..." />
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="yourEmail"
-                   class="form-label text-dark fw-semibold small mb-1">
-              Eposta
-            </label>
-            <input type="email"
-                   class="form-control form-control-gec"
-                   asp-for="Email"
-                   id="yourEmail"
-                   required placeholder="ornek@email.com"/>
-          </div>
-
-          <div class="row mb-4">
-
-            <div class="col-md-6 mb-3 mb-md-0">
-              <label for="password"
-                     class="form-label text-dark fw-semibold small mb-1">
-                Şifre
-              </label>
-
-              <input type="password"
-                     class="form-control form-control-gec"
-                     asp-for="Password"
-                     id="password"
-                     required placeholder="Şifre ..."/>
-            </div>
-
-            <div class="col-md-6">
-              <label for="confirmPassword"
-                     class="form-label text-dark fw-semibold small mb-1">
-                Şifre (Tekrar)
-              </label>
-
-              <input type="password"
-                     class="form-control form-control-gec"
-                     asp-for="ConfimPassword"
-                     id="confirmPassword"
-                     required placeholder="Şifre(Tekrar) ..." />
-            </div>
-
-          </div>
-
-          <div class="pt-2">
-            <button type="submit"
-                    class="btn btn-gec-main w-100 d-flex align-items-center justify-content-center gap-2 fs-6">
-              <i class="bi bi-person-plus-fill"></i>
-              Kayıt Ol
-            </button>
-          </div>
-
-        </form>
+      <div class="pt-4">
+        <p class="small text-white-50 mb-2">Zaten hesabınız var mı?</p>
+        <a href="/Login/Index"
+           class="btn btn-gec-outline-cream d-inline-flex align-items-center gap-2">
+          <i class="bi bi-box-arrow-in-right"></i>
+          Hesabım Var
+        </a>
       </div>
-
     </div>
+
+    <!-- Sağ Taraf (Form Alanı) - bg-white eklendi -->
+    <div class="col-md-7 p-4 p-lg-5 text-dark bg-white d-flex flex-column justify-content-center">
+
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <h2 class="fw-bold mb-0 text-dark"
+            style="font-family: var(--gec-font-heading);">
+          Kayıt Ol
+        </h2>
+
+        <a href="/Default/Index"
+           class="text-secondary text-decoration-none small d-flex align-items-center gap-1 hover-mint">
+          <i class="bi bi-house-door"></i>
+          Siteye Dön
+        </a>
+      </div>
+
+      <form asp-controller="Register" asp-action="Index" method="post" novalidate>
+
+        @if (ViewBag.ErrorMessage != null)
+        {
+          <div class="alert alert-danger d-flex align-items-center gap-2 py-2 small" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span>@ViewBag.ErrorMessage</span>
+          </div>
+        }
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label for="firstName"
+                   class="form-label text-dark fw-semibold small mb-1">
+              İsim
+            </label>
+            <input type="text"
+                   class="form-control form-control-gec"
+                   asp-for="Name"
+                   id="firstName"
+                   placeholder="İsim ..."/>
+            <span asp-validation-for="Name" class="text-danger small"></span>
+
+          </div>
+
+          <div class="col-md-6">
+            <label for="lastName"
+                   class="form-label text-dark fw-semibold small mb-1">
+              Soyisim
+            </label>
+            <input type="text"
+                   class="form-control form-control-gec"
+                   asp-for="SurName"
+                   id="lastName"
+                   placeholder="Soyisim ..."/>
+            <span asp-validation-for="SurName" class="text-danger small"></span>
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="yourEmail"
+                 class="form-label text-dark fw-semibold small mb-1">
+            Eposta
+          </label>
+          <input type="email"
+                 class="form-control form-control-gec"
+                 asp-for="Email"
+                 id="yourEmail"
+                 placeholder="ornek@email.com"/>
+          <span asp-validation-for="Email" class="text-danger small"></span>
+
+        </div>
+
+        <div class="row mb-4">
+
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label for="password"
+                   class="form-label text-dark fw-semibold small mb-1">
+              Şifre
+            </label>
+
+            <input type="password"
+                   class="form-control form-control-gec"
+                   asp-for="Password"
+                   id="password"
+                   placeholder="Şifre ..."/>
+            <span asp-validation-for="Password" class="text-danger small"></span>
+
+          </div>
+
+          <div class="col-md-6">
+            <label for="confirmPassword"
+                   class="form-label text-dark fw-semibold small mb-1">
+              Şifre (Tekrar)
+            </label>
+
+            <input type="password"
+                   class="form-control form-control-gec"
+                   asp-for="ConfimPassword"
+                   id="confirmPassword"
+                   placeholder="Şifre(Tekrar) ..."/>
+            <span asp-validation-for="ConfimPassword" class="text-danger small"></span>
+
+          </div>
+
+        </div>
+
+        <div class="pt-2">
+          <button type="submit"
+                  class="btn btn-gec-main w-100 d-flex align-items-center justify-content-center gap-2 fs-6">
+            <i class="bi bi-person-plus-fill"></i>
+            Kayıt Ol
+          </button>
+        </div>
+
+      </form>
+    </div>
+
   </div>
+</div>
 
 </body>
 </html>

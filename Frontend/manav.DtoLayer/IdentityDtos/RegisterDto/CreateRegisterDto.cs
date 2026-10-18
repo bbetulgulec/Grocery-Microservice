@@ -4,7 +4,6 @@ namespace manav.DtoLayer.IdentityDtos.RegisterDto;
 
 public class CreateRegisterDto
 {
-    [Required(ErrorMessage = "Username alanı zorunludur.")]
     public string UserName { get; set; }
 
     [Required(ErrorMessage = "E-posta alanı zorunludur.")]
