@@ -48,6 +48,9 @@ public class IdentityService : IIdentityService
         };
 
         var token = await _httpClient.RequestPasswordTokenAsync(passwordTokenRequest);
+        if (token.IsError || string.IsNullOrEmpty(token.AccessToken))
+            return false;
+
         var userInfoRequest = new UserInfoRequest
         {
             Token = token.AccessToken,
@@ -55,6 +58,9 @@ public class IdentityService : IIdentityService
         };
 
         var userValues = await _httpClient.GetUserInfoAsync(userInfoRequest);
+
+        if (userValues.IsError)
+            return false;
 
         var claimsIdentity = new ClaimsIdentity(userValues.Claims,
             CookieAuthenticationDefaults.AuthenticationScheme, "name", "role");
