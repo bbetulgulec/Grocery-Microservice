@@ -135,7 +135,6 @@ public class IdentityService : IIdentityService
             return false;
         }
 
-        // Sadece bu e-posta admin paneline girebilir
         const string adminEmail = "mevsimmanav@gmail.com";
 
         var emailClaim = userValues.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
@@ -152,6 +151,8 @@ public class IdentityService : IIdentityService
             "name",
             "role"
         );
+        claimsIdentity.AddClaim(new Claim("is_admin", "true"));
+
         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
         var authenticationProperties = new AuthenticationProperties();

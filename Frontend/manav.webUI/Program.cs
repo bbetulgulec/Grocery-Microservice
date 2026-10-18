@@ -3,6 +3,7 @@ using Amazon.Extensions.NETCore.Setup;
 using Amazon.Runtime;
 using Amazon.S3;
 using FluentValidation;
+using manav.webUI.Filters;
 using manav.webUI.Handlers;
 using manav.webUI.Services;
 using manav.webUI.Services.AwsS3Services;
@@ -78,6 +79,8 @@ if (!string.IsNullOrEmpty(awsSection["AccessKeyId"]))
         awsSection["AccessKeyId"], awsSection["SecretAccessKey"]);
 builder.Services.AddDefaultAWSOptions(awsOptions);
 builder.Services.AddAWSService<IAmazonS3>();
+
+builder.Services.AddControllersWithViews(options => { options.Filters.Add<AdminAuthFilter>(); });
 
 var values = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 builder.Services.AddHttpClient<IUserService, UserService>(options =>
