@@ -61,7 +61,7 @@
       </div>
 
       <form asp-controller="Register" asp-action="Index" method="post" novalidate>
-
+        <div asp-validation-summary="All" class="text-danger small mb-2"></div>
         @if (ViewBag.ErrorMessage != null)
         {
           <div class="alert alert-danger d-flex align-items-center gap-2 py-2 small" role="alert">
