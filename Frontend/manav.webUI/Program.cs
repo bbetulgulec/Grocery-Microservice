@@ -30,8 +30,6 @@ using Microsoft.AspNetCore.Mvc.Razor;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
-builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-    .AddDataAnnotationsLocalization();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(
     JwtBearerDefaults.AuthenticationScheme,
@@ -56,7 +54,6 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 builder.Services.AddAccessTokenManagement();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateAboutValidator>();
 builder.Services.AddScoped<ILoginServices, LoginServices>();
@@ -79,8 +76,9 @@ if (!string.IsNullOrEmpty(awsSection["AccessKeyId"]))
         awsSection["AccessKeyId"], awsSection["SecretAccessKey"]);
 builder.Services.AddDefaultAWSOptions(awsOptions);
 builder.Services.AddAWSService<IAmazonS3>();
-
-builder.Services.AddControllersWithViews(options => { options.Filters.Add<AdminAuthFilter>(); });
+builder.Services.AddControllersWithViews(options => { options.Filters.Add<AdminAuthFilter>(); })
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    .AddDataAnnotationsLocalization();
 
 var values = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 builder.Services.AddHttpClient<IUserService, UserService>(options =>
@@ -157,12 +155,9 @@ builder.Services.AddHttpClient<IUserIdentityService, UserIdentityService>(option
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
-
+if (!app.Environment.IsDevelopment()) app.UseHsts();
+app.UseExceptionHandler("/Error/Index");
+app.UseStatusCodePagesWithReExecute("/Error/Index", "?code={0}");
 app.UseHttpsRedirection();
 app.UseRouting();
 
