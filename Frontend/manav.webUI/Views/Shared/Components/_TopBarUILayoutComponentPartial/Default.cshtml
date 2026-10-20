@@ -1,4 +1,11 @@
+@using Microsoft.AspNetCore.Localization
 @model ResultUserListDto
+
+@{
+  var currentCulture = Context.Features.Get<IRequestCultureFeature>()?.RequestCulture.Culture.Name ?? "tr-TR";
+  var isEnglish = currentCulture.StartsWith("en", StringComparison.OrdinalIgnoreCase);
+}
+
 <header class="site-header">
   <nav class="navbar navbar-expand-lg container" aria-label="Primary">
     <a class="navbar-brand" href="/Default/Index/">
@@ -6,6 +13,36 @@
       @L["Mevsim_Manav"]
     </a>
     <div class="d-flex align-items-center gap-2 order-lg-last ms-lg-3">
+
+      <!-- DİL DEĞİŞTİRİCİ DROPDOWN (YENİ EKLENDİ) -->
+      <div class="dropdown">
+        <button class="btn btn-sm d-flex align-items-center gap-1 rounded-pill px-3 py-1 fw-bold text-light border-0"
+                type="button"
+                id="languageDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="background-color: rgba(255, 255, 255, 0.1); font-size: 0.85rem;">
+          <i class="fa-solid fa-globe"></i>
+          <span>@(isEnglish ? "EN" : "TR")</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2" aria-labelledby="languageDropdown"
+            style="min-width: 100px;">
+          <li>
+            <a class="dropdown-item d-flex align-items-center gap-2 @(!isEnglish ? "fw-bold active" : "")"
+               href="/Language/Change?culture=tr-TR&returnUrl=@Uri.EscapeDataString(Context.Request.Path + Context.Request.QueryString)">
+              <span>🇹🇷</span> TR
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center gap-2 @(isEnglish ? "fw-bold active" : "")"
+               href="/Language/Change?culture=en-US&returnUrl=@Uri.EscapeDataString(Context.Request.Path + Context.Request.QueryString)">
+              <span>🇬🇧</span> EN
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- TEMA DEĞİŞTİRME BUTONU -->
       <button
         class="theme-toggle"
         id="themeToggle"
@@ -77,4 +114,3 @@
     }
   </nav>
 </header>
-
