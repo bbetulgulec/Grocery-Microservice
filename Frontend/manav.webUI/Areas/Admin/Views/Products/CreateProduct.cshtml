@@ -27,6 +27,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Satış birimi</label>
+                            <select asp-for="Unit" class="form-control">
+                                <option value="Piece">Adet</option>
+                                <option value="Kg">Kilo (kg)</option>
+                                <option value="Pack">Paket</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>@L["Admin_ProductCreate_Category"]</label>
                             @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.categoryValues, new { @class = "form-control" })
                         </div>
