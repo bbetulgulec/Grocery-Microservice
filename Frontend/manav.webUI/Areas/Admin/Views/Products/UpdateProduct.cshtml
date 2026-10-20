@@ -19,13 +19,21 @@
                         </div>
                         <div class="form-group">
                             <label>@L["Admin_HighlightList_ProductPrice"]</label>
-                            <input type="text" class="form-control" asp-for="ProductPrice"/>
-
+                            <input type="number" step="0.01" class="form-control" asp-for="ProductStok"/>
                         </div>
                         <div class="form-group">
                             <label>@L["Admin_ProductCreate_Stock"]</label>
                             <input type="text" class="form-control" asp-for="ProductStok"/>
 
+                        </div>
+
+                        <div class="form-group">
+                            <label>Satış birimi</label>
+                            <select asp-for="Unit" class="form-control">
+                                <option value="Piece">Adet</option>
+                                <option value="Kg">Kilo (kg)</option>
+                                <option value="Pack">Paket</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>@L["Admin_ProductCreate_Category"]</label>
