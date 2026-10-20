@@ -1,25 +1,44 @@
 @{
     int currentPage = ViewBag.CurrentPage ?? 1;
     int totalPages = ViewBag.TotalPages ?? 1;
+
+    List<string> categoryIds =
+        ViewBag.SelectedCategoryIds ?? new List<string>();
+
+    var categoryQuery = string.Join("&",
+        categoryIds.Select(id =>
+            $"categoryIds={Uri.EscapeDataString(id)}"));
 }
-@if (12 > 1)
+
+@if (totalPages > 1)
 {
     <nav aria-label="Product pages" class="mt-5">
         <ul class="pagination justify-content-center">
+
             <li class="page-item @(currentPage <= 1 ? "disabled" : "")">
                 <a class="page-link"
-                   href="?page=@(currentPage - 1)&categoryId=@ViewBag.SelectedCategoryId">@L["UI_ProductCatalog_Pagination_Previous"]</a>
+                   href="?page=@(currentPage - 1)@Html.Raw(categoryQuery.Length > 0 ? "&" + categoryQuery : "")">
+                    @L["UI_ProductCatalog_Pagination_Previous"]
+                </a>
             </li>
+
             @for (var p = 1; p <= totalPages; p++)
             {
                 <li class="page-item @(p == currentPage ? "active" : "")">
-                    <a class="page-link" href="?page=@p&categoryId=@ViewBag.SelectedCategoryId">@p</a>
+                    <a class="page-link"
+                       href="?page=@p@Html.Raw(categoryQuery.Length > 0 ? "&" + categoryQuery : "")">
+                        @p
+                    </a>
                 </li>
             }
+
             <li class="page-item @(currentPage >= totalPages ? "disabled" : "")">
                 <a class="page-link"
-                   href="?page=@(currentPage + 1)&categoryId=@ViewBag.SelectedCategoryId">@L["UI_ProductCatalog_Pagination_Next"]</a>
+                   href="?page=@(currentPage + 1)@Html.Raw(categoryQuery.Length > 0 ? "&" + categoryQuery : "")">
+                    @L["UI_ProductCatalog_Pagination_Next"]
+                </a>
             </li>
+
         </ul>
     </nav>
 }

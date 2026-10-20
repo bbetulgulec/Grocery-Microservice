@@ -16,8 +16,14 @@
                 <div id="productListContainer">
                     @await Component.InvokeAsync("_ProductsProductListComponentPartial")
                 </div> <!-- Pagination -->
-                @await Component.InvokeAsync("_PaginationProductListComponentPartial")
-
+                @await Component.InvokeAsync(
+                    "_PaginationProductListComponentPartial",
+                    new
+                    {
+                        currentPage = (int)ViewBag.CurrentPage,
+                        totalPages = (int)ViewBag.TotalPages,
+                        categoryIds = (List<string>)ViewBag.SelectedCategoryIds
+                    })
             </div>
 
         </div>
@@ -25,29 +31,25 @@
 </section>
 <script>
     document.addEventListener('click', function (e) {
-        if (e.target && e.target.id === 'btnApplyFilter') {
-            e.preventDefault();
-            const checkedInputs = document.querySelectorAll('.category-checkbox:checked');
-            const selectedCategoryIds = Array.from(checkedInputs).map(cb => cb.value);
-            const params = new URLSearchParams();
-            selectedCategoryIds.forEach(id => params.append('categoryIds', id));
+        const button = e.target.closest('#btnApplyFilter');
 
-            fetch(`/ProductList/GetProductsByCategory?${params.toString()}`)
-                .then(response => {
-                    if (!response.ok) throw new Error('Hata oluştu.');
-                    return response.text();
-                })
-                .then(html => {
-                    const container = document.getElementById('productListContainer');
-                    if (container) {
-                        container.innerHTML = html;
-                    }
-                })
-                .catch(error => {
-                    console.error('Hata:', error);
-                    alert('Filtreleme yapılırken bir hata oluştu.');
-                });
-        }
+        if (!button) return;
+
+        e.preventDefault();
+
+        const checkedInputs =
+            document.querySelectorAll('.category-checkbox:checked');
+
+        const params = new URLSearchParams();
+
+        checkedInputs.forEach(cb => {
+            params.append('categoryIds', cb.value);
+        });
+
+        params.set('page', '1');
+
+        window.location.href =
+            `/ProductList/Index?${params.toString()}`;
     });
 </script>
 }
