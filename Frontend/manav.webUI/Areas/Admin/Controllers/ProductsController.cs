@@ -96,23 +96,35 @@ public class ProductsController : Controller
         return View(valuesProduct);
     }
 
+
     [Route("UpdateProduct/{id}")]
     [HttpPost]
     public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProductDto)
     {
-        if (updateProductDto.ImageFile != null && updateProductDto.ImageFile.Length > 0)
+        var existingProduct = await _productService
+            .GetByIdProductAsync(updateProductDto.ProductID);
+
+        if (existingProduct == null) return NotFound();
+        updateProductDto.ProductImageURL = existingProduct.ProductImageURL;
+        if (updateProductDto.ImageFile != null &&
+            updateProductDto.ImageFile.Length > 0)
         {
-            var existingProduct = await _productService.GetByIdProductAsync(updateProductDto.ProductID);
-            if (!string.IsNullOrEmpty(existingProduct?.ProductImageURL))
-                await _cloudStorageService.DeleteFileAsync(existingProduct.ProductImageURL);
             var folderPath = "HomePage/MenuImage/MenüList";
-            updateProductDto.ProductImageURL =
-                await _cloudStorageService.UploadFileAsync(updateProductDto.ImageFile, folderPath);
+
+            var newImageUrl = await _cloudStorageService
+                .UploadFileAsync(updateProductDto.ImageFile, folderPath);
+            if (!string.IsNullOrEmpty(existingProduct.ProductImageURL))
+                await _cloudStorageService
+                    .DeleteFileAsync(existingProduct.ProductImageURL);
+
+            updateProductDto.ProductImageURL = newImageUrl;
         }
 
         await _productService.UpdateProductDto(updateProductDto);
+
         return RedirectToAction("Index", "Products", new { area = "Admin" });
     }
+
 
     public void ViewBagProducts()
     {
