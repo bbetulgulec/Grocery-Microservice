@@ -832,7 +832,7 @@
         <value>Çiftlik Tazeliği</value>
     </data>
     <data name="UI_HomeHero_RotateWords" xml:space="preserve">
-        <value>Sebze|Meyve</value>
+        <value> Sebze | Meyve</value>
     </data>
     <data name="UI_HomeHero_Description" xml:space="preserve">
         <value>Çiftçiler tarafından yetiştirilen ve doğadan doğrudan sofranıza gelen, tarladan taze organik ürünlerle yaşam tarzınızı zenginleştirin.</value>

@@ -1,3 +1,4 @@
+using System.Text.Json;
 using manav.DtoLayer.BasketDtos;
 
 namespace manav.webUI.Services.BasketServices;
@@ -14,13 +15,31 @@ public class BasketService : IBasketService
     public async Task<BasketTotalDto> GetBasket()
     {
         var responseMassage = await _httpClient.GetAsync("basket");
-        var values = await responseMassage.Content.ReadFromJsonAsync<BasketTotalDto>();
+        if (!responseMassage.IsSuccessStatusCode)
+            return new BasketTotalDto { BasketItems = new List<BasketItemDto>() };
+        BasketTotalDto? values = null;
+        try
+        {
+            values = await responseMassage.Content.ReadFromJsonAsync<BasketTotalDto>();
+        }
+        catch (JsonException)
+        {
+            // boş gövde (yeni kullanıcı)
+        }
+
+        values ??= new BasketTotalDto();
+        values.BasketItems ??= new List<BasketItemDto>();
         return values;
     }
 
     public async Task SaveBasket(BasketTotalDto basket)
     {
-        await _httpClient.PostAsJsonAsync("basket", basket);
+        var response = await _httpClient.PostAsJsonAsync("basket", basket);
+        if (!response.IsSuccessStatusCode)
+        {
+            var body = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Sepet kaydetme hatası {(int)response.StatusCode}: {body}");
+        }
     }
 
     public async Task DeleteBasket(string userId)
@@ -31,18 +50,17 @@ public class BasketService : IBasketService
     public async Task AddItemToBasket(BasketItemDto basket)
     {
         var values = await GetBasket();
-        if (values != null)
+
+        var existingItem = values.BasketItems.FirstOrDefault(x => x.ProductId == basket.ProductId);
+        if (existingItem == null)
         {
-            var existingItem = values.BasketItems.FirstOrDefault(x => x.ProductId == basket.ProductId);
-            if (!values.BasketItems.Any(x => x.ProductId == basket.ProductId))
-            {
-                values.BasketItems.Add(basket);
-            }
-            else
-            {
-                existingItem.Quantity++;
-                if (!string.IsNullOrEmpty(basket.ProductName)) existingItem.ProductName = basket.ProductName;
-            }
+            values.BasketItems.Add(basket);
+        }
+        else
+        {
+            existingItem.Quantity++;
+            if (!string.IsNullOrEmpty(basket.ProductName))
+                existingItem.ProductName = basket.ProductName;
         }
 
         await SaveBasket(values);

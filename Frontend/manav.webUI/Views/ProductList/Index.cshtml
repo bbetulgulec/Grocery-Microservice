@@ -11,12 +11,10 @@
                 @await Component.InvokeAsync("_FilterProductListComponentPartial")
             </div>
             <div class="col-lg-9">
-                <!-- Toolbar: view toggle + sort + count -->
-                @await Component.InvokeAsync("_ToolbarProductListComponentPartial")
                 <!-- Grid -->
                 <div id="productListContainer">
                     @await Component.InvokeAsync("_ProductsProductListComponentPartial")
-                </div>                <!-- Pagination -->
+                </div> <!-- Pagination -->
                 @await Component.InvokeAsync("_PaginationProductListComponentPartial")
 
             </div>
