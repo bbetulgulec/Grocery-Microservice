@@ -11,9 +11,10 @@ public class ContactController : Controller
     private readonly IContactService _contactService;
     private readonly IStringLocalizer<SharedResource> _l;
 
-    public ContactController(IContactService contactService)
+    public ContactController(IContactService contactService, IStringLocalizer<SharedResource> l)
     {
         _contactService = contactService;
+        _l = l;
     }
 
     [Route("Index")]
