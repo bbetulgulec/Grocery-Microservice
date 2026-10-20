@@ -11,7 +11,7 @@ public class BasketItemDto
 
     [JsonPropertyName("price")] public decimal Price { get; set; }
 
-    [JsonPropertyName("quantity")] public decimal Quantity { get; set; }
+    [JsonPropertyName("quantity")] public int Quantity { get; set; }
 
     [JsonPropertyName("unit")] public SaleUnit Unit { get; set; }
 }
