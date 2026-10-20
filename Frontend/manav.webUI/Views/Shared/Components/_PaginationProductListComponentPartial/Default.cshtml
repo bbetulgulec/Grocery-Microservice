@@ -2,40 +2,41 @@
     int currentPage = ViewBag.CurrentPage ?? 1;
     int totalPages = ViewBag.TotalPages ?? 1;
 
-    List<string> categoryIds =
-        ViewBag.SelectedCategoryIds ?? new List<string>();
+    List<string> categoryIds = ViewBag.SelectedCategoryIds ?? new List<string>();
 
-    var categoryQuery = string.Join("&",
-        categoryIds.Select(id =>
-            $"categoryIds={Uri.EscapeDataString(id)}"));
+    var categoryQuery = string.Join("&", categoryIds.Select(id => $"categoryIds={Uri.EscapeDataString(id)}"));
 }
 
 @if (totalPages > 1)
 {
     <nav aria-label="Product pages" class="mt-5">
-        <ul class="pagination justify-content-center">
+        <ul class="pagination justify-content-center border-0">
 
+            <!-- Önceki Sayfa -->
             <li class="page-item @(currentPage <= 1 ? "disabled" : "")">
-                <a class="page-link"
+                <a class="page-link border-0 text-light bg-dark-subtle px-3 py-2 me-1 rounded"
                    href="?page=@(currentPage - 1)@Html.Raw(categoryQuery.Length > 0 ? "&" + categoryQuery : "")">
-                    @L["UI_ProductCatalog_Pagination_Previous"]
+                    <i class="bi bi-chevron-left small"></i> @L["UI_ProductCatalog_Pagination_Previous"]
                 </a>
             </li>
 
+            <!-- Sayfa Numaraları -->
             @for (var p = 1; p <= totalPages; p++)
             {
-                <li class="page-item @(p == currentPage ? "active" : "")">
-                    <a class="page-link"
+                var isActive = p == currentPage;
+                <li class="page-item @(isActive ? "active" : "")">
+                    <a class="page-link border-0 px-3 py-2 mx-1 rounded @(isActive ? "btn-gec-primary text-white font-weight-bold" : "text-light bg-dark-subtle")"
                        href="?page=@p@Html.Raw(categoryQuery.Length > 0 ? "&" + categoryQuery : "")">
                         @p
                     </a>
                 </li>
             }
 
+            <!-- Sonraki Sayfa -->
             <li class="page-item @(currentPage >= totalPages ? "disabled" : "")">
-                <a class="page-link"
+                <a class="page-link border-0 text-light bg-dark-subtle px-3 py-2 ms-1 rounded"
                    href="?page=@(currentPage + 1)@Html.Raw(categoryQuery.Length > 0 ? "&" + categoryQuery : "")">
-                    @L["UI_ProductCatalog_Pagination_Next"]
+                    @L["UI_ProductCatalog_Pagination_Next"] <i class="bi bi-chevron-right small"></i>
                 </a>
             </li>
 
