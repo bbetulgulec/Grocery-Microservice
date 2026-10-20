@@ -7,5 +7,5 @@ public class BasketTotalDto
     public int? DiscountRate { get; set; }
     public List<BasketItemDto> BasketItems { get; set; }
 
-    public decimal TotalPrice => BasketItems.Sum(x => x.Price * x.Quantity);
+    public decimal TotalPrice => BasketItems?.Sum(x => x.Price * x.Quantity) ?? 0m;
 }

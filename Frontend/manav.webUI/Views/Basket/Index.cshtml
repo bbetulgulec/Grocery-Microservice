@@ -10,7 +10,7 @@
     <div class="row g-4">
         <div class="col-lg-8">
             <div class="table-responsive basket-table-wrap">
-                <table class="able basket-table align-middle">
+                <table class="table basket-table align-middle">
                     <thead>
                     <tr>
                         <th>@L["Admin_HighlightList_Product"]</th>
@@ -23,34 +23,51 @@
                     <tbody>
                     @foreach (var item in Model.BasketItems)
                     {
+                        // Ürünün birimine göre artış/azalış miktarını belirliyoruz
+                        var step = item.Unit.ToString() == "Kg" ? 0.5m : 1m;
+                        var unitLabel = item.Unit.ToString() switch
+                        {
+                            "Kg" => "Kg",
+                            "Pack" => "Paket",
+                            _ => "Adet"
+                        };
+
                         <tr>
                             <td class="basket-product-name">
                                 @item.ProductName
                             </td>
                             <td>@item.Price ₺</td>
                             <td>
-                                <form asp-action="ChangeCount" asp-controller="Basket" method="post" class="d-inline">
-                                    @Html.AntiForgeryToken()
-                                    <input type="hidden" name="productId" value="@item.ProductId"/>
-                                    <input type="hidden" name="changeBy" value="-1"/>
-                                    <button type="submit" class="btn btn-outline-secondary">−</button>
-                                </form>
+                                <div class="d-flex align-items-center gap-2">
+                                    <!-- Azalt Butonu -->
+                                    <form asp-action="ChangeCount" asp-controller="Basket" method="post"
+                                          class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="productId" value="@item.ProductId"/>
+                                        <input type="hidden" name="changeBy" value="@(-step)"/>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">−</button>
+                                    </form>
 
-                                <span class="mx-2">@item.Quantity</span>
+                                    <!-- Miktar ve Birim Gösterimi (Örn: 1.5 Kg / 2 Adet) -->
+                                    <span class="fw-semibold">@item.Quantity @unitLabel</span>
 
-                                <form asp-action="ChangeCount" asp-controller="Basket" method="post" class="d-inline">
-                                    @Html.AntiForgeryToken()
-                                    <input type="hidden" name="productId" value="@item.ProductId"/>
-                                    <input type="hidden" name="changeBy" value="1"/>
-                                    <button type="submit" class="btn btn-outline-secondary">+</button>
-                                </form>
+                                    <!-- Artır Butonu -->
+                                    <form asp-action="ChangeCount" asp-controller="Basket" method="post"
+                                          class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="productId" value="@item.ProductId"/>
+                                        <input type="hidden" name="changeBy" value="@step"/>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">+</button>
+                                    </form>
+                                </div>
                             </td>
+                            <!-- Toplam Fiyat Hesabı (Çarpma Operatörü Düzeltildi) -->
                             <td>@((item.Price * item.Quantity).ToString("N2")) ₺</td>
                             <td>
                                 <form asp-controller="Basket" asp-action="RemoveFromBasket" method="post">
                                     @Html.AntiForgeryToken()
                                     <input type="hidden" name="productId" value="@item.ProductId"/>
-                                    <button type="submit" class="btn btn-danger">×</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">×</button>
                                 </form>
                             </td>
                         </tr>

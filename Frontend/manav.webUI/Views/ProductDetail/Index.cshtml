@@ -34,37 +34,105 @@
                     <p class="text-muted-2 mb-4">
                         @Model.ProductDescription
                     </p>
+                    <!-- DİNAMİK BİRİM / MİKTAR SEÇENEKLERİ -->
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <span class="fw-semibold" style="min-width: 80px;">@L["UI_ProductDetail_WeightLabel"]</span>
+                        <span class="fw-semibold" style="min-width: 80px;">Miktar:</span>
                         <div class="d-flex gap-3 flex-wrap align-items-center">
-                            <div class="form-check">
-                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="w1"
-                                       value="500" checked>
-                                <label class="form-check-label ms-1" for="w1">@L["UI_ProductDetail_Weight500g"]</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="w2"
-                                       value="1000">
-                                <label class="form-check-label ms-1" for="w2">@L["UI_ProductDetail_Weight1kg"]</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="w3"
-                                       value="2000">
-                                <label class="form-check-label ms-1" for="w3">@L["UI_ProductDetail_Weight2kg"]</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input weight-radio" type="radio" name="weightOption"
-                                       id="wCustomRadio" value="custom">
-                                <label class="form-check-label ms-1"
-                                       for="wCustomRadio">@L["UI_ProductDetail_WeightCustom"]</label>
-                            </div>
-                            <div id="customWeightWrapper" class="ms-2" style="display: none;">
-                                <div class="input-group input-group-sm" style="width: 140px;">
-                                    <input type="number" id="customWeightInput" class="form-control"
-                                           placeholder="Örn: 750" min="100" step="50">
-                                    <span class="input-group-text">@L["UI_ProductDetail_CustomWeightUnit"]</span>
+
+                            @if (Model.Unit.ToString() == "Kg")
+                            {
+                                <!-- Kiloluk Ürünler İçin -->
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="w1" value="500" checked>
+                                    <label class="form-check-label ms-1" for="w1">500 Gr</label>
                                 </div>
-                            </div>
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="w2" value="1000">
+                                    <label class="form-check-label ms-1" for="w2">1 Kg</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="w3" value="2000">
+                                    <label class="form-check-label ms-1" for="w3">2 Kg</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="customRadio" value="custom">
+                                    <label class="form-check-label ms-1" for="customRadio">Başka</label>
+                                </div>
+                                <div id="customQuantityWrapper" class="ms-2" style="display: none;">
+                                    <div class="input-group input-group-sm" style="width: 140px;">
+                                        <input type="number" id="customQuantityInput" class="form-control"
+                                               placeholder="Örn: 750" min="100" step="50">
+                                        <span class="input-group-text">Gr</span>
+                                    </div>
+                                </div>
+                            }
+                            else if (Model.Unit.ToString() == "Pack")
+                            {
+                                <!-- Paket Ürünler İçin -->
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="p1" value="1" checked>
+                                    <label class="form-check-label ms-1" for="p1">1 Paket</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="p2" value="2">
+                                    <label class="form-check-label ms-1" for="p2">2 Paket</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="p3" value="3">
+                                    <label class="form-check-label ms-1" for="p3">3 Paket</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="customRadio" value="custom">
+                                    <label class="form-check-label ms-1" for="customRadio">Başka</label>
+                                </div>
+                                <div id="customQuantityWrapper" class="ms-2" style="display: none;">
+                                    <div class="input-group input-group-sm" style="width: 140px;">
+                                        <input type="number" id="customQuantityInput" class="form-control"
+                                               placeholder="Örn: 5" min="1" step="1">
+                                        <span class="input-group-text">Paket</span>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <!-- Adet Ürünler İçin -->
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="a1" value="1" checked>
+                                    <label class="form-check-label ms-1" for="a1">1 Adet</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="a2" value="2">
+                                    <label class="form-check-label ms-1" for="a2">2 Adet</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="a3" value="3">
+                                    <label class="form-check-label ms-1" for="a3">3 Adet</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input quantity-radio" type="radio" name="quantityOption"
+                                           id="customRadio" value="custom">
+                                    <label class="form-check-label ms-1" for="customRadio">Başka</label>
+                                </div>
+                                <div id="customQuantityWrapper" class="ms-2" style="display: none;">
+                                    <div class="input-group input-group-sm" style="width: 140px;">
+                                        <input type="number" id="customQuantityInput" class="form-control"
+                                               placeholder="Örn: 10" min="1" step="1">
+                                        <span class="input-group-text">Adet</span>
+                                    </div>
+                                </div>
+                            }
+
                         </div>
                     </div>
                     <form asp-controller="Basket"
@@ -87,20 +155,22 @@
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const radios = document.querySelectorAll('.weight-radio');
-        const customWrapper = document.getElementById('customWeightWrapper');
-        const customInput = document.getElementById('customWeightInput');
+        const radios = document.querySelectorAll('.quantity-radio');
+        const customWrapper = document.getElementById('customQuantityWrapper');
+        const customInput = document.getElementById('customQuantityInput');
 
-        radios.forEach(radio => {
-            radio.addEventListener('change', function () {
-                if (this.id === 'wCustomRadio') {
-                    customWrapper.style.display = 'block'; // Kutuyu göster
-                    customInput.focus(); // İmleci kutuya odakla
-                } else {
-                    customWrapper.style.display = 'none'; // Kutuyu gizle
-                    customInput.value = ''; // İçeriği temizle
-                }
+        if (radios.length > 0 && customWrapper) {
+            radios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    if (this.id === 'customRadio') {
+                        customWrapper.style.display = 'block';
+                        customInput.focus();
+                    } else {
+                        customWrapper.style.display = 'none';
+                        customInput.value = '';
+                    }
+                });
             });
-        });
+        }
     });
 </script>
