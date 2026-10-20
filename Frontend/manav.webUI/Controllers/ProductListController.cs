@@ -13,9 +13,10 @@ public class ProductListController : Controller
         _productService = productService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var initialProducts = await _productService.GetProductsWithCategoryAsync();
+        return View(initialProducts);
     }
 
     [HttpGet]
