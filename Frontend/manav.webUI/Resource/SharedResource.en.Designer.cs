@@ -14,21 +14,21 @@ namespace manav.webUI.Views.Resource.Information {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Index_en {
+    internal class SharedResource_en {
         
         private static System.Resources.ResourceManager resourceMan;
         
         private static System.Globalization.CultureInfo resourceCulture;
         
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Index_en() {
+        internal SharedResource_en() {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("manav.webUI.Views.Resource.Information.Index_en", typeof(Index_en).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("manav.webUI.Resource.SharedResource_en", typeof(SharedResource_en).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -48,6 +48,48 @@ namespace manav.webUI.Views.Resource.Information {
         internal static string Merhaba {
             get {
                 return ResourceManager.GetString("Merhaba", resourceCulture);
+            }
+        }
+        
+        internal static string Required_Email {
+            get {
+                return ResourceManager.GetString("Required_Email", resourceCulture);
+            }
+        }
+        
+        internal static string Invalid_Email {
+            get {
+                return ResourceManager.GetString("Invalid_Email", resourceCulture);
+            }
+        }
+        
+        internal static string Required_Surname {
+            get {
+                return ResourceManager.GetString("Required_Surname", resourceCulture);
+            }
+        }
+        
+        internal static string Required_Name {
+            get {
+                return ResourceManager.GetString("Required_Name", resourceCulture);
+            }
+        }
+        
+        internal static string Required_Password {
+            get {
+                return ResourceManager.GetString("Required_Password", resourceCulture);
+            }
+        }
+        
+        internal static string Required_ConfirmPassword {
+            get {
+                return ResourceManager.GetString("Required_ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        internal static string Password_Mismatch {
+            get {
+                return ResourceManager.GetString("Password_Mismatch", resourceCulture);
             }
         }
     }

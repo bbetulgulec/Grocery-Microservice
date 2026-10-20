@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="Merhaba" xml:space="preserve">
+        <value>Merhaba</value>
+    </data>
+    <data name="Required_Email" xml:space="preserve">
+        <value>E-posta alanı zorunludur.</value>
+    </data>
+    <data name="Invalid_Email" xml:space="preserve">
+        <value>Geçerli bir e-posta adresi girin.</value>
+    </data>
+    <data name="Required_Name" xml:space="preserve">
+        <value>İsim alanı zorunludur.</value>
+    </data>
+    <data name="Required_Surname" xml:space="preserve">
+        <value>Soyisim alanı zorunludur.</value>
+    </data>
+    <data name="Required_Password" xml:space="preserve">
+        <value>Şifre alanı zorunludur.</value>
+    </data>
+    <data name="Required_ConfirmPassword" xml:space="preserve">
+        <value>Şifre tekrarı zorunludur.</value>
+    </data>
+    <data name="Password_Mismatch" xml:space="preserve">
+        <value>Şifreler eşleşmiyor.</value>
+    </data>
+    <data name="Admin_About_Title" xml:space="preserve">
+        <value>Hakkında İşlemleri</value>
+    </data>
+    <data name="Admin_About_Table" xml:space="preserve">
+        <value>Hakkında</value>
+    </data>
+    <data name="Admin_About_TableList" xml:space="preserve">
+        <value>Hakkında Bilgileri</value>
+    </data>
+    <data name="Common_Home" xml:space="preserve">
+        <value>Ana sayfa</value>
+    </data>
+    <data name="Admin_Category_Title" xml:space="preserve">
+        <value>Kategori İşlemleri</value>
+    </data>
+    <data name="Admin_Category_Table" xml:space="preserve">
+        <value>Kategoriler</value>
+    </data>
+    <data name="Admin_Category_TableList" xml:space="preserve">
+        <value>Kategori Listesi</value>
+    </data>
+    <data name="Admin_Comment_Title" xml:space="preserve">
+        <value>Yorum İşlemleri</value>
+    </data>
+    <data name="Admin_Comment_Table" xml:space="preserve">
+        <value>Yorumlar</value>
+    </data>
+    <data name="Admin_Comment_TableList" xml:space="preserve">
+        <value>Yorum Bilgileri</value>
+    </data>
+    <data name="Admin_Suggestion_Title" xml:space="preserve">
+        <value>Öneri İşlemleri</value>
+    </data>
+    <data name="Admin_Suggestion_Table" xml:space="preserve">
+        <value>Öneriler</value>
+    </data>
+    <data name="Admin_Suggestion_TableList" xml:space="preserve">
+        <value>Öneri Listesi</value>
+    </data>
+    <data name="Admin_Gallery_Title" xml:space="preserve">
+        <value>Galeri İşlemleri</value>
+    </data>
+    <data name="Admin_Gallery_Table" xml:space="preserve">
+        <value>Galeriler</value>
+    </data>
+    <data name="Admin_Gallery_TableList" xml:space="preserve">
+        <value>Galeri Listesi</value>
+    </data>
+    <data name="Admin_HighlightsProduct_Title" xml:space="preserve">
+        <value>Öne Çıkarılan Ürünlerin İşlemleri</value>
+    </data>
+    <data name="Admin_HighlightsProduct_Table" xml:space="preserve">
+        <value>Eve Sipariş İçin Aramanız Gereken Numara:</value>
+    </data>
+    <data name="Admin_HighlightsProduct_Tables" xml:space="preserve">
+        <value>Öne Çıkarılan Ürünler</value>
+    </data>
+    <data name="Admin_HighlightsProduct_TableList" xml:space="preserve">
+        <value>Öne çıkarılan ürünler Listesi</value>
+    </data>
+    <data name="Admin_Login_Error" xml:space="preserve">
+        <value>E-posta veya şifre hatalı ya da giriş başarısız.</value>
+    </data>
+    <data name="Admin_UserAddress_Title" xml:space="preserve">
+        <value>Kullanıcı Adresleri İşlemleri	</value>
+    </data>
+    <data name="Admin_UserAddress_Table" xml:space="preserve">
+        <value>Kullanıcı adresleri</value>
+    </data>
+    <data name="Admin_UserAddress_TableList" xml:space="preserve">
+        <value>Kullanıcı adresleri Listesi</value>
+    </data>
+    <data name="Admin_Product_Title" xml:space="preserve">
+        <value>Ürün İşlemleri</value>
+    </data>
+    <data name="Admin_Product_Table" xml:space="preserve">
+        <value>Ürünler</value>
+    </data>
+    <data name="Admin_Product_TableList" xml:space="preserve">
+        <value>Ürün Listesi</value>
+    </data>
+    <data name="Admin_User_Title" xml:space="preserve">
+        <value>Kullanıcı İşlemleri</value>
+    </data>
+    <data name="Admin_User_Table" xml:space="preserve">
+        <value>Kullanıcılar</value>
+    </data>
+    <data name="Admin_User_TableList" xml:space="preserve">
+        <value>Kullanıcı Listesi</value>
+    </data>
+    <data name="Admin_About_CreateTitle" xml:space="preserve">
+        <value>Hakkında Bilgileri Ekleme Sayfası</value>
+    </data>
+    <data name="Admin_About_Description" xml:space="preserve">
+        <value>Açıklama</value>
+    </data>
+    <data name="Admin_About_Address" xml:space="preserve">
+        <value>Konum</value>
+    </data>
+    <data name="Admin_About_Mail" xml:space="preserve">
+        <value>EMail</value>
+    </data>
+    <data name="Admin_About_Phone" xml:space="preserve">
+        <value>Telefon</value>
+    </data>
+    <data name="Admin_About_WorkTime" xml:space="preserve">
+        <value>Çalışma Saatleri</value>
+    </data>
+    <data name="Admin_About_CreateButton" xml:space="preserve">
+        <value>Hakkında Bilgisini Ekle</value>
+    </data>
+    <data name="Admin_About_UpdateTitle" xml:space="preserve">
+        <value>Hakkında Bilgileri Sayfası</value>
+    </data>
+    <data name="Admin_About_NotFoundAlert" xml:space="preserve">
+        <value>&lt;strong&gt;Kayıt Bulunamadı!&lt;/strong&gt; Lütfen aşağıdaki alanları doldurarak yeni Hakkında bilgisi ekleyin.</value>
+    </data>
+    <data name="Admin_About_UpdateButton" xml:space="preserve">
+        <value>Hakkında Bilgilerini Güncelle</value>
+    </data>
+    <data name="Admin_About_UpdateDeleteButton" xml:space="preserve">
+        <value>Hakkında Bilgilerini Sil</value>
+    </data>
+    <data name="Admin_About_UpdateDeleteConfirm" xml:space="preserve">
+        <value>Silmek istediğinize emin misiniz?</value>
+    </data>
+    <data name="Admin_About_UpdateTitleReal" xml:space="preserve">
+        <value>Hakkında Bilgilerini Güncelleme Sayfası</value>
+    </data>
+    <data name="Admin_Category_CreateTitle" xml:space="preserve">
+        <value>Kategori Ekleme Sayfası</value>
+    </data>
+    <data name="Admin_Category_Name" xml:space="preserve">
+        <value>Kategori Adı</value>
+    </data>
+    <data name="Admin_Category_Icon" xml:space="preserve">
+        <value>Kategori Icon Adı</value>
+    </data>
+    <data name="Admin_Category_CreateButton" xml:space="preserve">
+        <value>Kategoriyi Ekle</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+        <value>Sil</value>
+    </data>
+    <data name="Update" xml:space="preserve">
+        <value>Güncelle</value>
+    </data>
+    <data name="Admin_Category_UpdateTitle" xml:space="preserve">
+        <value>Kategori Güncelleme Sayfası</value>
+    </data>
+    <data name="Admin_Category_UpdateButton" xml:space="preserve">
+        <value>Kategoriyi Güncelle</value>
+    </data>
+    <data name="Admin_Comment_SyncGoogle" xml:space="preserve">
+        <value>Google Yorumlarını Senkronize Et</value>
+    </data>
+    <data name="Admin_Comment_FirstName" xml:space="preserve">
+        <value>Müşteri Adı</value>
+    </data>
+    <data name="Admin_Comment_LastName" xml:space="preserve">
+        <value>Müşteri Soyadı</value>
+    </data>
+    <data name="Admin_Comment_UserImage" xml:space="preserve">
+        <value>Müşteri Resmi</value>
+    </data>
+    <data name="Admin_Comment_CommentDetail" xml:space="preserve">
+        <value>Yorum</value>
+    </data>
+    <data name="Admin_Comment_Rating" xml:space="preserve">
+        <value>Puan</value>
+    </data>
+    <data name="Admin_Comment_CreatedDate" xml:space="preserve">
+        <value>Tarih</value>
+    </data>
+    <data name="Admin_Comment_IsAddedGoogle" xml:space="preserve">
+        <value>Google Akışı</value>
+    </data>
+    <data name="Admin_Comment_PublishStatus" xml:space="preserve">
+        <value>Sitede Yayın Durumu</value>
+    </data>
+    <data name="Admin_Comment_Status" xml:space="preserve">
+        <value>Durum</value>
+    </data>
+    <data name="Admin_Comment_Active" xml:space="preserve">
+        <value>Yayında</value>
+    </data>
+    <data name="Admin_Comment_Passive" xml:space="preserve">
+        <value>Pasif</value>
+    </data>
+    <data name="Admin_Comment_MakePassive" xml:space="preserve">
+        <value>Pasif Yap</value>
+    </data>
+    <data name="Admin_Comment_MakeActive" xml:space="preserve">
+        <value>Yayınla</value>
+    </data>
+    <data name="Admin_Contact_Title" xml:space="preserve">
+        <value>İletişim Mesajları</value>
+    </data>
+    <data name="Admin_Contact_FullName" xml:space="preserve">
+        <value>İsim Soyisim</value>
+    </data>
+    <data name="Admin_Contact_Subject" xml:space="preserve">
+        <value>Konu</value>
+    </data>
+    <data name="Admin_Contact_Message" xml:space="preserve">
+        <value>İçerik</value>
+    </data>
+    <data name="Admin_Contact_Read" xml:space="preserve">
+        <value>Okundu</value>
+    </data>
+    <data name="Admin_Contact_Unread" xml:space="preserve">
+        <value>Okunmadı</value>
+    </data>
+    <data name="Admin_Gallery_CreateTitle" xml:space="preserve">
+        <value>Galeri Ekleme Sayfası</value>
+    </data>
+    <data name="Admin_Gallery_Name" xml:space="preserve">
+        <value>Galeri Adı</value>
+    </data>
+    <data name="Admin_Gallery_Image" xml:space="preserve">
+        <value>Galeri Resmi</value>
+    </data>
+    <data name="Admin_Gallery_CreateButton" xml:space="preserve">
+        <value>Galeri Ekle</value>
+    </data>
+    <data name="Admin_GalleryList_Title" xml:space="preserve">
+        <value>Galeri Listesi</value>
+    </data>
+    <data name="Admin_GalleryList_ImageName" xml:space="preserve">
+        <value>Resim Adı</value>
+    </data>
+    <data name="Admin_GalleryList_Image" xml:space="preserve">
+        <value>Resim</value>
+    </data>
+    <data name="Admin_GalleryList_AddNewButton" xml:space="preserve">
+        <value>Yeni Galeri Girişi</value>
+    </data>
+    <data name="Admin_GalleryUpdate_Title" xml:space="preserve">
+        <value>Galeri Güncelleme Sayfası</value>
+    </data>
+    <data name="Admin_GalleryUpdate_ChangeButton" xml:space="preserve">
+        <value>Değiştir</value>
+    </data>
+    <data name="Admin_GalleryUpdate_SubmitButton" xml:space="preserve">
+        <value>Galeriyi Güncelle</value>
+    </data>
+    <data name="Admin_HighlightCreate_Title" xml:space="preserve">
+        <value>Öne Çıkarılan Ürün Ekleme Sayfası</value>
+    </data>
+    <data name="Admin_HighlightCreate_SelectProduct" xml:space="preserve">
+        <value>Öne Çıkarılacak Ürünü Seçin</value>
+    </data>
+    <data name="Admin_HighlightCreate_SelectPlaceholder" xml:space="preserve">
+        <value>--- Ürün Seçiniz ---</value>
+    </data>
+    <data name="Admin_HighlightCreate_ProductPrice" xml:space="preserve">
+        <value>Seçilen Ürün Fiyatı (Otomatik)</value>
+    </data>
+    <data name="Admin_HighlightCreate_ProductImage" xml:space="preserve">
+        <value>Seçilen Ürün Görseli (Otomatik)</value>
+    </data>
+    <data name="Admin_HighlightCreate_AutoPlaceholder" xml:space="preserve">
+        <value>Ürün seçilince gelecek...</value>
+    </data>
+    <data name="Admin_HighlightCreate_HighlightTitle" xml:space="preserve">
+        <value>Öne Çıkan Başlığı (Vitrin Sloganı)</value>
+    </data>
+    <data name="Admin_HighlightCreate_HighlightTitlePlaceholder" xml:space="preserve">
+        <value>Örn: Günün Fırsatı!</value>
+    </data>
+    <data name="Admin_HighlightCreate_HighlightDescription" xml:space="preserve">
+        <value>Öne Çıkan Açıklaması</value>
+    </data>
+    <data name="Admin_HighlightCreate_SubmitButton" xml:space="preserve">
+        <value>Öne Çıkarılanı Ekle</value>
+    </data>
+    <data name="Admin_HighlightList_Product" xml:space="preserve">
+        <value>Ürün</value>
+    </data>
+    <data name="Admin_HighlightList_ProductName" xml:space="preserve">
+        <value>Ürün Adı</value>
+    </data>
+    <data name="Admin_HighlightList_ProductDescription" xml:space="preserve">
+        <value>Ürün Açıklaması</value>
+    </data>
+    <data name="Admin_HighlightList_ProductPrice" xml:space="preserve">
+        <value>Ürün Fiyatı</value>
+    </data>
+    <data name="Admin_HighlightList_ProductImage" xml:space="preserve">
+        <value>Ürün Resmi</value>
+    </data>
+    <data name="Admin_HighlightList_AddNewButton" xml:space="preserve">
+        <value>Yeni Ürün Girişi</value>
+    </data>
+    <data name="Admin_HighlightUpdate_Title" xml:space="preserve">
+        <value>Öne Çıkarılan Ürün Güncelleme Sayfası</value>
+    </data>
+    <data name="Admin_Login_Title" xml:space="preserve">
+        <value>Giriş Yap</value>
+    </data>
+    <data name="Admin_Login_EmailLabel" xml:space="preserve">
+        <value>E-Posta Adresi</value>
+    </data>
+    <data name="Admin_Login_EmailPlaceholder" xml:space="preserve">
+        <value>ornek@email.com</value>
+    </data>
+    <data name="Admin_Login_PasswordLabel" xml:space="preserve">
+        <value>Şifre</value>
+    </data>
+    <data name="Admin_OrderSummary_Title" xml:space="preserve">
+        <value>Sipariş Veren Kullanıcılar</value>
+    </data>
+    <data name="Admin_OrderSummary_UserId" xml:space="preserve">
+        <value>Kullanıcı ID</value>
+    </data>
+    <data name="Admin_OrderSummary_TotalOrder" xml:space="preserve">
+        <value>Toplam Sipariş</value>
+    </data>
+    <data name="Admin_OrderSummary_LastOrderDate" xml:space="preserve">
+        <value>Son Sipariş Tarihi</value>
+    </data>
+    <data name="Admin_OrderSummary_OrderList" xml:space="preserve">
+        <value>Sipariş Listesi</value>
+    </data>
+    <data name="Admin_OrderSummary_Unit" xml:space="preserve">
+        <value>Adet</value>
+    </data>
+    <data name="Admin_OrderSummary_ListOrdersButton" xml:space="preserve">
+        <value>Siparişleri Listele</value>
+    </data>
+    <data name="Admin_OrderAddress_Title" xml:space="preserve">
+        <value>Sipariş Adresleri Listesi</value>
+    </data>
+    <data name="Admin_OrderAddress_AddressId" xml:space="preserve">
+        <value>Adres ID</value>
+    </data>
+    <data name="Admin_OrderAddress_AddressDetail" xml:space="preserve">
+        <value>Adres Detayı</value>
+    </data>
+    <data name="Admin_OrderAddress_FirstName" xml:space="preserve">
+        <value>Kullanıcı Adı</value>
+    </data>
+    <data name="Admin_OrderAddress_LastName" xml:space="preserve">
+        <value>Kullanıcı Soyadı</value>
+    </data>
+    <data name="Admin_OrderAddress_Phone" xml:space="preserve">
+        <value>Kullanıcı Telefonu</value>
+    </data>
+    <data name="Admin_OrderAddress_Email" xml:space="preserve">
+        <value>Kullanıcı Emaili</value>
+    </data>
+    <data name="Admin_OrderAddress_AddNewButton" xml:space="preserve">
+        <value>Yeni Adres Girişi</value>
+    </data>
+    <data name="Admin_UserOrderDetails_Title" xml:space="preserve">
+        <value>Sipariş geçmişi</value>
+    </data>
+    <data name="Admin_UserOrderDetails_Subtitle" xml:space="preserve">
+        <value>Müşterinin verdiği siparişler ve ürün detayları</value>
+    </data>
+    <data name="Admin_UserOrderDetails_BackToList" xml:space="preserve">
+        <value>Sipariş listesine dön</value>
+    </data>
+    <data name="Admin_UserOrderDetails_OrderPrefix" xml:space="preserve">
+        <value>Sipariş</value>
+    </data>
+    <data name="Admin_UserOrderDetails_TotalLabel" xml:space="preserve">
+        <value>Sipariş toplamı</value>
+    </data>
+    <data name="Admin_UserOrderDetails_TableHeaderUnitPrice" xml:space="preserve">
+        <value>Birim fiyat</value>
+    </data>
+    <data name="Admin_UserOrderDetails_TableHeaderSubtotal" xml:space="preserve">
+        <value>Tutar</value>
+    </data>
+    <data name="Admin_UserOrderDetails_EmptyItems" xml:space="preserve">
+        <value>Bu sipariş için ürün detayı bulunamadı.</value>
+    </data>
+    <data name="Admin_UserOrderDetails_EmptyOrdersTitle" xml:space="preserve">
+        <value>Henüz sipariş yok</value>
+    </data>
+    <data name="Admin_UserOrderDetails_EmptyOrdersText" xml:space="preserve">
+        <value>Bu müşteriye ait sipariş kaydı bulunmuyor.</value>
+    </data>
+    <data name="Admin_ProductCreate_Title" xml:space="preserve">
+        <value>Ürün Ekleme Sayfası</value>
+    </data>
+    <data name="Admin_ProductCreate_Stock" xml:space="preserve">
+        <value>Ürün Stoğu</value>
+    </data>
+    <data name="Admin_ProductCreate_Category" xml:space="preserve">
+        <value>Ürün Kategorisi</value>
+    </data>
+    <data name="Admin_ProductCreate_SubmitButton" xml:space="preserve">
+        <value>Ürünü Ekle</value>
+    </data>
+    <data name="Admin_ProductList_NoCategory" xml:space="preserve">
+        <value>Kategori Yok</value>
+    </data>
+    <data name="Admin_ProductUpdate_Title" xml:space="preserve">
+        <value>Ürün Güncelleme Sayfası</value>
+    </data>
+    <data name="Admin_ProductUpdate_SubmitButton" xml:space="preserve">
+        <value>Ürün Güncelle</value>
+    </data>
+    <data name="Mevsim_Manav_Admin_Panel" xml:space="preserve">
+        <value>Mevsim Manav Admin Paneli</value>
+    </data>
+    <data name="site" xml:space="preserve">
+        <value>Site</value>
+    </data>
+    <data name="Admin_User_Fullname" xml:space="preserve">
+        <value>Kullanıcı Adı Soyadı</value>
+    </data>
+    <data name="Contact_Message_Success" xml:space="preserve">
+        <value>Mesajınız başarıyla gönderildi.</value>
+    </data>
+    <data name="Login_Error" xml:space="preserve">
+        <value>E-posta adresi veya şifre hatalı. Lütfen bilgilerinizi kontrol edip tekrar deneyin.</value>
+    </data>
+    <data name="Register_Error" xml:space="preserve">
+        <value>Kayıt oluşturulamadı. Bu e-posta adresi zaten kayıtlı olabilir veya şifreniz kurallara uymuyor olabilir.</value>
+    </data>
+    <data name="Validation_About_DescriptionRequired" xml:space="preserve">
+        <value>Açıklama alanı boş bırakılamaz.</value>
+    </data>
+    <data name="Validation_About_DescriptionMinLength" xml:space="preserve">
+        <value>Açıklama en az 10 karakter olmalıdır.</value>
+    </data>
+    <data name="Validation_About_WorkTimeRequired" xml:space="preserve">
+        <value>Çalışma saatleri alanı boş bırakılamaz.</value>
+    </data>
+    <data name="Validation_About_PhoneRequired" xml:space="preserve">
+        <value>Telefon numarası boş bırakılamaz.</value>
+    </data>
+    <data name="Validation_About_AddressRequired" xml:space="preserve">
+        <value>Adres alanı boş bırakılamaz.</value>
+    </data>
+    <data name="Validation_About_MailRequired" xml:space="preserve">
+        <value>Mail adresi boş bırakılamaz.</value>
+    </data>
+    <data name="Validation_About_MailInvalid" xml:space="preserve">
+        <value>Lütfen geçerli bir mail adresi giriniz.</value>
+    </data>
+    <data name="Order_Call_Label" xml:space="preserve">
+        <value>Telefonla sipariş</value>
+    </data>
+    <data name="Order_Call_Title" xml:space="preserve">
+        <value>Siparişinizi birlikte oluşturalım</value>
+    </data>
+    <data name="Order_Call_Description" xml:space="preserve">
+        <value>Bizi aradığınızda ekibimiz teslimat konumunuzu ve ürünlerin stok durumunu kontrol eder. Siparişiniz uygunsa onaylayıp hazırlığa alır; değilse size bilgi verir.</value>
+    </data>
+    <data name="Order_Call_Step1" xml:space="preserve">
+        <value>Teslimat konumu kontrol edilir</value>
+    </data>
+    <data name="Order_Call_Step2" xml:space="preserve">
+        <value>Stok durumu doğrulanır</value>
+    </data>
+    <data name="Order_Call_Step3" xml:space="preserve">
+        <value>Uygunsa sipariş onaylanır</value>
+    </data>
+    <data name="Order_Call_Button" xml:space="preserve">
+        <value>Bizi Ara ve Sipariş Ver</value>
+    </data>
+    <data name="Price" xml:space="preserve">
+        <value>Fiyat</value>
+    </data>
+    <data name="amount" xml:space="preserve">
+        <value>Miktar</value>
+    </data>
+    <data name="total" xml:space="preserve">
+        <value>Toplam</value>
+    </data>
+    <data name="remove" xml:space="preserve">
+        <value>Kaldır</value>
+    </data>
+    <data name="Order_Summary" xml:space="preserve">
+        <value>Sipariş Özeti</value>
+    </data>
+    <data name="Total_Product_Price" xml:space="preserve">
+        <value>Toplam Ürün Fiyatı</value>
+    </data>
+    <data name="kdv" xml:space="preserve">
+        <value>KDV (%10)</value>
+    </data>
+    <data name="Payment_Method" xml:space="preserve">
+        <value>Ödeme yöntemi</value>
+    </data>
+    <data name="Kredi_Bank_Card" xml:space="preserve">
+        <value>Kredi / banka kartı</value>
+    </data>
+    <data name="Cash" xml:space="preserve">
+        <value>Nakit</value>
+    </data>
+    <data name="Pick_Up" xml:space="preserve">
+        <value>Gel Al</value>
+    </data>
+    <data name="Continue" xml:space="preserve">
+        <value>Continue</value>
+    </data>
+    <data name="Error_Label" xml:space="preserve">
+        <value>İşlem tamamlanamadı</value>
+    </data>
+    <data name="Error_Title" xml:space="preserve">
+        <value>Bir sorun oluştu</value>
+    </data>
+    <data name="Error_Description" xml:space="preserve">
+        <value>İsteğiniz şu anda tamamlanamadı. Lütfen tekrar deneyin. Sorun devam ederse destek ekibimizle iletişime geçin.</value>
+    </data>
+    <data name="Error_HomeButton" xml:space="preserve">
+        <value>Ana sayfaya dön</value>
+    </data>
+    <data name="Error_SupportCode" xml:space="preserve">
+        <value>Destek kodu :</value>
+    </data>
+    <data name="Login_PageTitle" xml:space="preserve">
+        <value>Mevsim Manav - Müşteri Girişi</value>
+    </data>
+    <data name="Mevsim_Manav" xml:space="preserve">
+        <value>Mevsim Manav</value>
+    </data>
+    <data name="Login_Pill" xml:space="preserve">
+        <value>Taze &amp; Organik</value>
+    </data>
+    <data name="Login_Welcome" xml:space="preserve">
+        <value>Hoş Geldiniz!</value>
+    </data>
+    <data name="Login_WelcomeText" xml:space="preserve">
+        <value>Henüz bir hesabınız yoksa üye olarak tarladan sofranıza en taze ürünleri hemen sipariş edebilirsiniz.</value>
+    </data>
+    <data name="Login_NoAccount" xml:space="preserve">
+        <value>Hesabınız yok mu?</value>
+    </data>
+    <data name="Login_RegisterButton" xml:space="preserve">
+        <value>Kayıt Ol</value>
+    </data>
+    <data name="Login_BackToSite" xml:space="preserve">
+        <value>Siteye Dön</value>
+    </data>
+    <data name="MyOrders_Title" xml:space="preserve">
+        <value>Siparişlerim</value>
+    </data>
+    <data name="MyOrders_Subtitle" xml:space="preserve">
+        <value>Verdiğiniz siparişleri ve ürün detaylarını buradan takip edebilirsiniz.</value>
+    </data>
+    <data name="orders" xml:space="preserve">
+        <value>sipariş</value>
+    </data>
+    <data name="MyOrders_NoDetails" xml:space="preserve">
+        <value>Bu siparişin ürün detayı bulunamadı.</value>
+    </data>
+    <data name="MyOrders_Empty" xml:space="preserve">
+        <value>Henüz sipariş vermediniz.</value>
+    </data>
+    <data name="Payment_Maintenance_PageTitle" xml:space="preserve">
+        <value>Ödeme Geçici Olarak Kullanılamıyo</value>
+    </data>
+    <data name="Payment_Maintenance_Title" xml:space="preserve">
+        <value>Ödeme şu anda tamamlanamıyor</value>
+    </data>
+    <data name="Payment_Maintenance_Description" xml:space="preserve">
+        <value>Ödeme sistemimizde kısa süreli bir bakım çalışması yürütüyoruz. Hizmetimizi en kısa sürede yeniden aktif hale getireceğiz.</value>
+    </data>
+    <data name="Payment_Maintenance_Footnote" xml:space="preserve">
+        <value>Anlayışınız için teşekkür ederiz.</value>
+    </data>
+    <data name="Payment_PageTitle" xml:space="preserve">
+        <value>Ödeme</value>
+    </data>
+    <data name="Payment_Pill" xml:space="preserve">
+        <value>Güvenli ödeme</value>
+    </data>
+    <data name="Payment_Title" xml:space="preserve">
+        <value>Ödeme bilgileri</value>
+    </data>
+    <data name="Payment_Subtitle" xml:space="preserve">
+        <value>Kart bilgilerinizi girerek siparişinizi tamamlayın.</value>
+    </data>
+    <data name="Payment_CardName" xml:space="preserve">
+        <value>Kart üzerindeki isim</value>
+    </data>
+    <data name="Payment_CardNamePlaceholder" xml:space="preserve">
+        <value>Ad Soyad</value>
+    </data>
+    <data name="Payment_CardNumber" xml:space="preserve">
+        <value>Kart numarası</value>
+    </data>
+    <data name="Payment_Expiry" xml:space="preserve">
+        <value>Son kullanma tarihi</value>
+    </data>
+    <data name="Payment_ExpiryPlaceholder" xml:space="preserve">
+        <value>AA/YY</value>
+    </data>
+    <data name="Payment_Cvv" xml:space="preserve">
+        <value>Güvenlik kodu</value>
+    </data>
+    <data name="Payment_SubmitButton" xml:space="preserve">
+        <value>Ödemeyi tamamla</value>
+    </data>
+    <data name="Payment_PreviewLabel" xml:space="preserve">
+        <value>Kart önizlemesi</value>
+    </data>
+    <data name="Payment_PreviewName" xml:space="preserve">
+        <value>AD SOYAD</value>
+    </data>
+    <data name="Payment_PreviewHolder" xml:space="preserve">
+        <value>KART SAHİBİ</value>
+    </data>
+    <data name="Payment_PreviewExpiry" xml:space="preserve">
+        <value>SON KULLANMA</value>
+    </data>
+    <data name="Payment_PreviewCvv" xml:space="preserve">
+        <value>GÜVENLİK KODU</value>
+    </data>
+    <data name="Payment_PreviewBack" xml:space="preserve">
+        <value>ARKA YÜZ</value>
+    </data>
+    <data name="Payment_PreviewNote" xml:space="preserve">
+        <value>Kart önizlemesi, girdiğiniz bilgileri gösterir.</value>
+    </data>
+    <data name="UI_ProductDetail_DefaultTitle" xml:space="preserve">
+        <value>Ürün Detayı</value>
+    </data>
+    <data name="UI_ProductDetail_StockSuffix" xml:space="preserve">
+        <value>kg stok</value>
+    </data>
+    <data name="UI_ProductDetail_WeightLabel" xml:space="preserve">
+        <value>Gramaj:</value>
+    </data>
+    <data name="UI_ProductDetail_Weight500g" xml:space="preserve">
+        <value>500 Gr</value>
+    </data>
+    <data name="UI_ProductDetail_Weight1kg" xml:space="preserve">
+        <value>1 Kg</value>
+    </data>
+    <data name="UI_ProductDetail_Weight2kg" xml:space="preserve">
+        <value>2 kg</value>
+    </data>
+    <data name="UI_ProductDetail_WeightCustom" xml:space="preserve">
+        <value>Başka</value>
+    </data>
+    <data name="UI_ProductDetail_CustomWeightPlaceholder" xml:space="preserve">
+        <value>Örn: 750</value>
+    </data>
+    <data name="UI_ProductDetail_CustomWeightUnit" xml:space="preserve">
+        <value>Gr</value>
+    </data>
+    <data name="UI_ProductDetail_AddToCartButton" xml:space="preserve">
+        <value>Sepete Ekle</value>
+    </data>
+    <data name="UI_Register_PageTitle" xml:space="preserve">
+        <value>Mevsim Manav Müşteri Oluşturma Formu</value>
+    </data>
+    <data name="UI_Register_WelcomeDescription" xml:space="preserve">
+        <value>Daha önce hesap oluşturduysanız giriş yap butonunu kullanın.</value>
+    </data>
+    <data name="UI_Register_HaveAccountPrompt" xml:space="preserve">
+        <value>Zaten hesabınız var mı?</value>
+    </data>
+    <data name="UI_Register_HaveAccountButtons" xml:space="preserve">
+        <value>Hesabım Var</value>
+    </data>
+    <data name="UI_Register_FormTitle" xml:space="preserve">
+        <value>Kayıt Ol</value>
+    </data>
+    <data name="UI_Register_FirstNameLabel" xml:space="preserve">
+        <value>İsim</value>
+    </data>
+    <data name="UI_Register_LastNameLabel" xml:space="preserve">
+        <value>Soyisim</value>
+    </data>
+    <data name="UI_Register_ConfirmPasswordLabel" xml:space="preserve">
+        <value>Şifre (Tekrar)</value>
+    </data>
+    <data name="UI_HomeVideo_Eyebrow" xml:space="preserve">
+        <value>Manavımızdan</value>
+    </data>
+    <data name="UI_HomeVideo_Heading" xml:space="preserve">
+        <value>Özenli sebze ve meyvenin , samimi müşteriler ile buluştuğu yer</value>
+    </data>
+    <data name="UI_HomeVideo_Description" xml:space="preserve">
+        <value>Toprağa ekilen ilk tohumdan rafa konan son pakete kadar her adım, toprağa ve ailenize ulaşan ürünlere özen gösteren insanlar tarafından gerçekleştirilir.</value>
+    </data>
+    <data name="UI_HomeVideo_Stat1Label" xml:space="preserve">
+        <value>Ortak Aile İşi</value>
+    </data>
+    <data name="UI_HomeVideo_Stat2Label" xml:space="preserve">
+        <value>Taze Ürünler</value>
+    </data>
+    <data name="UI_HomeVideo_Stat3Label" xml:space="preserve">
+        <value>Müşteriler yeniden sipariş veriyor</value>
+    </data>
+    <data name="UI_HomeCertificates_Eyebrow" xml:space="preserve">
+        <value>Güven &amp; Kalite</value>
+    </data>
+    <data name="UI_HomeCertificates_Heading" xml:space="preserve">
+        <value>Her aşamada sertifikalı</value>
+    </data>
+    <data name="UI_HomeCertificates_Card1Title" xml:space="preserve">
+        <value>Sertifikalı ve Güvenilir Tedarik</value>
+    </data>
+    <data name="UI_HomeCertificates_Card1Description" xml:space="preserve">
+        <value>Güvenilir üreticilerden, doğal ve ilaçsız yetiştirilen ürünleri özenle seçiyoruz.</value>
+    </data>
+    <data name="UI_HomeCertificates_Card2Title" xml:space="preserve">
+        <value>Hijyenik İşletme ve Paketleme Standartları</value>
+    </data>
+    <data name="UI_HomeCertificates_Card2Description" xml:space="preserve">
+        <value>Ürünlerimizi iş yerimizde hijyenik standartlarda muhafaza edip paketliyoruz.</value>
+    </data>
+    <data name="UI_HomeCertificates_Description" xml:space="preserve">
+        <value>Her sattığımız üründe bağımsız denetimler ve kabul görmüş standartlarla desteklenmektedir; bu sayede sofranıza gelen ürünler konusunda tam bir güvenle alışveriş yapabilirsiniz.</value>
+    </data>
+    <data name="UI_HomeFeatures_HighQualityTitle" xml:space="preserve">
+        <value>Yüksek Kalite</value>
+    </data>
+    <data name="UI_HomeFeatures_HighQualityDesc" xml:space="preserve">
+        <value>Sağlığınızı ve esenliğinizi destekleyen taze ürünler.</value>
+    </data>
+    <data name="UI_HomeFeatures_WideVarietyTitle" xml:space="preserve">
+        <value>Geniş Çeşitlilik</value>
+    </data>
+    <data name="UI_HomeFeatures_WideVarietyDesc" xml:space="preserve">
+        <value>Kolay ve rahat alışveriş için ihtiyacınız olan her şey.</value>
+    </data>
+    <data name="UI_HomeFeatures_FastDeliveryTitle" xml:space="preserve">
+        <value>Hızlı Teslimat</value>
+    </data>
+    <data name="UI_HomeFeatures_FastDeliveryDesc" xml:space="preserve">
+        <value>Güvenilir kapıdan kapıya teslimat, doğrudan evinize.</value>
+    </data>
+    <data name="UI_HomeFeatures_AffordablePricesTitle" xml:space="preserve">
+        <value>Uygun Fiyatlar</value>
+    </data>
+    <data name="UI_HomeFeatures_AffordablePricesDesc" xml:space="preserve">
+        <value>Daha akıllı alışveriş ve daha iyi tasarruf için harika fırsatlar.</value>
+    </data>
+    <data name="UI_Contact_Heading" xml:space="preserve">
+        <value>BİZE YAZIN</value>
+    </data>
+    <data name="UI_Contact_NamePlaceholder" xml:space="preserve">
+        <value>İsim Soyisim ...</value>
+    </data>
+    <data name="UI_Contact_EmailPlaceholder" xml:space="preserve">
+        <value>Email ...</value>
+    </data>
+    <data name="UI_Contact_SubjectPlaceholder" xml:space="preserve">
+        <value>Konu Başlığı ...</value>
+    </data>
+    <data name="UI_Contact_MessagePlaceholder" xml:space="preserve">
+        <value>Mesaj ...</value>
+    </data>
+    <data name="UI_Contact_SubmitButton" xml:space="preserve">
+        <value>Mesajı Gönder</value>
+    </data>
+    <data name="Filter" xml:space="preserve">
+        <value>Filtrele</value>
+    </data>
+    <data name="Contact" xml:space="preserve">
+        <value>İletişim</value>
+    </data>
+    <data name="Get_Directions" xml:space="preserve">
+        <value>Yol Tarifi Al</value>
+    </data>
+    <data name="Mevsim_Manav_all_rights_reserved." xml:space="preserve">
+        <value> Mevsim Manav. Tüm hakları saklıdır.</value>
+    </data>
+    <data name="Our_Memories" xml:space="preserve">
+        <value>Anılarımız</value>
+    </data>
+    <data name="UI_Gallery_Heading" xml:space="preserve">
+        <value>Yılların Esnaflığı</value>
+    </data>
+    <data name="UI_Gallery_Description" xml:space="preserve">
+        <value>Fotoğraflardan herhangi birine dokunarak tam boyutlu halini görüntüleyebilir ve tüm seti inceleyebilirsiniz.</value>
+    </data>
+    <data name="UI_HomeHero_Eyebrow" xml:space="preserve">
+        <value>%100 Organik ve Taze</value>
+    </data>
+    <data name="UI_HomeHero_TitlePrefix" xml:space="preserve">
+        <value>Çiftlik Tazeliği</value>
+    </data>
+    <data name="UI_HomeHero_RotateWords" xml:space="preserve">
+        <value>Sebze|Meyve</value>
+    </data>
+    <data name="UI_HomeHero_Description" xml:space="preserve">
+        <value>Çiftçiler tarafından yetiştirilen ve doğadan doğrudan sofranıza gelen, tarladan taze organik ürünlerle yaşam tarzınızı zenginleştirin.</value>
+    </data>
+    <data name="UI_HomeHero_MoreInfoButton" xml:space="preserve">
+        <value>Daha fazla bilgi</value>
+    </data>
+    <data name="Vegetables" xml:space="preserve">
+        <value>Sebze</value>
+    </data>
+    <data name="UI_HomeSideMenu_Eyebrow" xml:space="preserve">
+        <value>Tarladan sofraya</value>
+    </data>
+    <data name="UI_HomeSideMenu_Heading" xml:space="preserve">
+        <value>Sezonluk Yiyecekler</value>
+    </data>
+    <data name="UI_HomeSideMenu_Description" xml:space="preserve">
+        <value>Her gün stoklanan, özenle seçilmiş temel gıda ürünleri. Listeyi kaydırarak mevsimlik tüm ürünleri keşfedin.</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_Title" xml:space="preserve">
+        <value>Teslimat Adresi</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_SavedAddressesLabel" xml:space="preserve">
+        <value>Kayıtlı Adresleriniz:</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_AddNewToggle" xml:space="preserve">
+        <value>+ Farklı / Yeni Adres Ekle</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_FirstNameLabel" xml:space="preserve">
+        <value>Adınız :</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_LastNameLabel" xml:space="preserve">
+        <value>Soyadınız :</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_EmailLabel" xml:space="preserve">
+        <value>E-mail :</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_PhoneLabel" xml:space="preserve">
+        <value>Telefon Numarası :</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_FullAddressLabel" xml:space="preserve">
+        <value>Adress tam hali</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_NewAddressHeading" xml:space="preserve">
+        <value>Yeni Adres Bilgileri</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_Title" xml:space="preserve">
+        <value>Sipariş Özeti</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_EmptyBasketAlert" xml:space="preserve">
+        <value>Sepetinizde ürün bulunmamaktadır.</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_Subtotal" xml:space="preserve">
+        <value>Ara Toplam</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_ShippingFee" xml:space="preserve">
+        <value>Kargo Ücreti</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_FreeShipping" xml:space="preserve">
+        <value>Ücretsiz</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_GrandTotal" xml:space="preserve">
+        <value>Ödenecek Tutar</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_CompleteOrderButton" xml:space="preserve">
+        <value>Siparişi Tamamla</value>
+    </data>
+    <data name="UI_ProductCatalog_Pagination_Previous" xml:space="preserve">
+        <value>Önceki</value>
+    </data>
+    <data name="UI_ProductCatalog_Pagination_Next" xml:space="preserve">
+        <value>Sonraki</value>
+    </data>
+    <data name="UI_Comment_AddModal_TitleThankYou" xml:space="preserve">
+        <value>Teşekkür Ederiz!</value>
+    </data>
+    <data name="UI_Comment_AddModal_TitleDefault" xml:space="preserve">
+        <value>Yorumunuzu Paylaşın</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value>Kapat</value>
+    </data>
+    <data name="UI_Comment_AddModal_SuccessHeader" xml:space="preserve">
+        <value>Geri bildiriminiz başarıyla alındı!</value>
+    </data>
+    <data name="UI_Comment_AddModal_GooglePrompt" xml:space="preserve">
+        <value>Google üzerinden yapılan yorumlar web sitemizde öncelikli olarak öne çıkarılmaktadır. Yorumunuzu Google Haritalar üzerinde de paylaşarak bize destek olmak ister misiniz?</value>
+    </data>
+    <data name="UI_Comment_AddModal_ShareOnGoogleButton" xml:space="preserve">
+        <value/>
+    </data>
+    <data name="UI_Comment_AddModal_ShareOnGoogleButtons" xml:space="preserve">
+        <value>Google'da da Paylaş</value>
+    </data>
+    <data name="UI_Comment_AddModal_RatingLabel" xml:space="preserve">
+        <value>Puanınız</value>
+    </data>
+    <data name="UI_Comment_AddModal_CommentDetailLabel" xml:space="preserve">
+        <value>Yorumunuz</value>
+    </data>
+    <data name="UI_Comment_AddModal_CancelButton" xml:space="preserve">
+        <value>Vazgeç</value>
+    </data>
+    <data name="Submit" xml:space="preserve">
+        <value>Gönder</value>
+    </data>
+    <data name="UI_ProductCatalog_Grid_FreshBadge" xml:space="preserve">
+        <value>Taze</value>
+    </data>
+    <data name="UI_FeaturedProducts_Eyebrow" xml:space="preserve">
+        <value>ÖNE ÇIKAN ÜRÜNLER</value>
+    </data>
+    <data name="UI_FeaturedProducts_Heading" xml:space="preserve">
+        <value>Haftanın taze seçilenleri</value>
+    </data>
+    <data name="UI_FeaturedProducts_Description" xml:space="preserve">
+        <value>Günlük ihtiyaçlarınız ve ötesi için özenle seçilmiş organik favoriler.</value>
+    </data>
+    <data name="UI_FeaturedProducts_BadgeBestSeller" xml:space="preserve">
+        <value>Çintik / Çok Satan</value>
+    </data>
+    <data name="UI_FeaturedProducts_BadgeTrending" xml:space="preserve">
+        <value>Trend</value>
+    </data>
+    <data name="UI_FeaturedProducts_BadgeOnSale" xml:space="preserve">
+        <value>İndirimde</value>
+    </data>
+    <data name="UI_FeaturedProducts_ViewAllButton" xml:space="preserve">
+        <value>Tüm Ürünler</value>
+    </data>
+    <data name="UI_UserReviews_Eyebrow" xml:space="preserve">
+        <value>Kullanıcı yorumları</value>
+    </data>
+    <data name="UI_UserReviews_Heading" xml:space="preserve">
+        <value>Semtin Emektar Manavı</value>
+    </data>
+    <data name="UI_UserReviews_Description" xml:space="preserve">
+        <value>Bizden değil, her gün kullananlardan dinleyin...</value>
+    </data>
+    <data name="UI_UserReviews_AddCommentButton" xml:space="preserve">
+        <value>Yorum Yap</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_GridViewTitle" xml:space="preserve">
+        <value>Izgara Görünümü</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_ListViewTitle" xml:space="preserve">
+        <value>Liste Görünümü</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_ProductCountFormat" xml:space="preserve">
+        <value>{0} ürün</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortByButton" xml:space="preserve">
+        <value>Sırala</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortLatest" xml:space="preserve">
+        <value>En Yeniler</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortPriceAsc" xml:space="preserve">
+        <value>Fiyat: Düşükten Yükseğe</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortPriceDesc" xml:space="preserve">
+        <value>Fiyat: Yüksekten Düşüğe</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortRating" xml:space="preserve">
+        <value>En Çok Değerlendirilenler</value>
+    </data>
+    <data name="UI_Navbar_About" xml:space="preserve">
+        <value>Hakkımda</value>
+    </data>
+    <data name="Menü" xml:space="preserve">
+        <value>Menü</value>
+    </data>
+    <data name="UI_Navbar_Gallery" xml:space="preserve">
+        <value>Galeri</value>
+    </data>
+    <data name="UI_Navbar_Reviews" xml:space="preserve">
+        <value>Yorumlar</value>
+    </data>
+    <data name="UI_Navbar_Contact" xml:space="preserve">
+        <value>İletişim</value>
+    </data>
+    <data name="UI_Navbar_Sing_Out" xml:space="preserve">
+        <value>Çıkış Yap</value>
+    </data>
+    <data name="UI_WhyChooseUs_ExperienceBadgeNum" xml:space="preserve">
+        <value>90+</value>
+    </data>
+    <data name="UI_WhyChooseUs_ExperienceBadgeLabel" xml:space="preserve">
+        <value>Yıllardır süren organik tazelik, manavınızda</value>
+    </data>
+    <data name="UI_WhyChooseUs_Eyebrow" xml:space="preserve">
+        <value>İnsanlar neden bizi tercih ediyor?</value>
+    </data>
+    <data name="UI_WhyChooseUs_Heading" xml:space="preserve">
+        <value>Daha sağlıklı bir yaşam için kaliteli organik ürünler</value>
+    </data>
+    <data name="UI_WhyChooseUs_Description" xml:space="preserve">
+        <value>Ürünlerimiz halden iki günde bir özenle seçilip alınır, en taze haliyle mutfağınıza ulaşır ve siparişinize göre istediğiniz miktarca getirilir.</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature1_Title" xml:space="preserve">
+        <value>100% Doğal</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature1_Desc" xml:space="preserve">
+        <value>Sıfır kimyasal, Mevsimlik ürünler — günlük taze ve kaliteli meyveler.</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature2_Title" xml:space="preserve">
+        <value>Eve Servis</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature2_Desc" xml:space="preserve">
+        <value>Belirli miktardaki alişverişler eve ücretsiz sipariş ile ulaştırılır</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature3_Title" xml:space="preserve">
+        <value>Hastalıklara Doğal çözümler</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature3_Desc" xml:space="preserve">
+        <value>Bir çok sebze ve meyvede antibiyotik geliştirip bitkisel çözümler sunar</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature4_Title" xml:space="preserve">
+        <value>Özel Sipariş</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature4_Desc" xml:space="preserve">
+        <value>İstenilen ürünler özel sipariş ile getirme ihtimali</value>
+    </data>
+</root>

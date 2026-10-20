@@ -3,6 +3,7 @@ using Amazon.Extensions.NETCore.Setup;
 using Amazon.Runtime;
 using Amazon.S3;
 using FluentValidation;
+using manav.webUI;
 using manav.webUI.Filters;
 using manav.webUI.Handlers;
 using manav.webUI.Services;
@@ -29,7 +30,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
+builder.Services.AddLocalization(options => { options.ResourcesPath = "Resource"; });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(
     JwtBearerDefaults.AuthenticationScheme,
@@ -78,7 +79,11 @@ builder.Services.AddDefaultAWSOptions(awsOptions);
 builder.Services.AddAWSService<IAmazonS3>();
 builder.Services.AddControllersWithViews(options => { options.Filters.Add<AdminAuthFilter>(); })
     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-    .AddDataAnnotationsLocalization();
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+            factory.Create(typeof(SharedResource));
+    });
 
 var values = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 builder.Services.AddHttpClient<IUserService, UserService>(options =>
@@ -153,6 +158,12 @@ builder.Services.AddHttpClient<IUserIdentityService, UserIdentityService>(option
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 var app = builder.Build();
+var supportedCultures = new[] { "tr", "en" };
+app.UseRequestLocalization(new RequestLocalizationOptions()
+    .SetDefaultCulture("tr")
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures));
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment()) app.UseHsts();
@@ -165,13 +176,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapStaticAssets();
 
-var supportedCulture = new[] { "en", "tr" };
-var locaritationOptions = new RequestLocalizationOptions()
-    .SetDefaultCulture(supportedCulture[1])
-    .AddSupportedCultures(supportedCulture)
-    .AddSupportedUICultures(supportedCulture);
-
-app.UseRequestLocalization(locaritationOptions);
 // AREA ROUTE - default'tan ÖNCE olmalı
 app.MapControllerRoute(
         "areas",

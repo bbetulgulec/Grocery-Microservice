@@ -1,6 +1,6 @@
 @model List<ResultAddressDto>
 @{
-    ViewBag.Title = "Order";
+    ViewBag.Title = L["Admin_OrderAddress_Title"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
     var count = 0;
 }
@@ -12,13 +12,13 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>AdresId</th>
-                        <th>Adres Detayı</th>
-                        <th>Kullanıcı Adı</th>
-                        <th>Kullanıcı Soyadı</th>
-                        <th>Kullanıcı Telefonu</th>
-                        <th>Kullanıcı Emaili</th>
-                        <th>Sil</th>
+                        <th>@L["Admin_OrderAddress_AddressId"]</th>
+                        <th>@L["Admin_OrderAddress_AddressDetail"]</th>
+                        <th>@L["Admin_OrderAddress_FirstName"]</th>
+                        <th>@L["Admin_OrderAddress_LastName"]</th>
+                        <th>@L["Admin_OrderAddress_Phone"]</th>
+                        <th>@L["Admin_OrderAddress_Email"]</th>
+                        <th>@L["Delete"]</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,12 +33,14 @@
                             <td>@item.LastName</td>
                             <td>@item.Number</td>
                             <td>@item.Email</td>
-                            <td><a href='/Admin/Order/DeleteAddress/@item.adressID' class="btn btn-danger"> Sil</a></td>
+                            <td><a href='/Admin/Order/DeleteAddress/@item.adressID'
+                                   class="btn btn-danger"> @L["Delete"]</a></td>
                         </tr>
                     }
                     </tbody>
                 </table>
-                <a href="/Admin/Order/CreateOrder/" class="btn btn-success btn-top-space"> Yeni Adress girişi </a>
+                <a href="/Admin/Order/CreateOrder/"
+                   class="btn btn-success btn-top-space"> @L["Admin_OrderAddress_AddNewButton"] </a>
             </div>
         </div>
     </div>

@@ -1,14 +1,14 @@
 @model List<ResultCategoryDtos>
 
 <div class="gec-card mb-4">
-    <h5 class="mb-3">Kategoriler</h5>
+    <h5 class="mb-3">@L["Admin_Category_Table"]</h5>
     <div class="d-flex flex-column gap-2">
         @foreach (var item in Model)
         {
             <div class="form-check">
-                <input class="form-check-input category-checkbox" 
-                       type="checkbox" 
-                       name="categoryId" 
+                <input class="form-check-input category-checkbox"
+                       type="checkbox"
+                       name="categoryId"
                        id="cat-@item.CategoryID"
                        value="@item.CategoryID">
                 <label class="form-check-label" for="cat-@item.CategoryID">

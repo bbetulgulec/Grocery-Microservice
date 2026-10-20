@@ -112,14 +112,7 @@ public class IdentityService : IIdentityService
 
         var token = await _httpClient.RequestPasswordTokenAsync(passwordTokenRequest);
 
-        if (token.IsError || string.IsNullOrEmpty(token.AccessToken))
-        {
-            Console.WriteLine("--- TOKEN ALMA HATASI ---");
-            Console.WriteLine($"Error: {token.Error}");
-            Console.WriteLine($"Error Description: {token.ErrorDescription}");
-            Console.WriteLine($"HTTP Error: {token.HttpResponse?.ReasonPhrase}");
-            return false;
-        }
+        if (token.IsError || string.IsNullOrEmpty(token.AccessToken)) return false;
 
         var userInfoRequest = new UserInfoRequest
         {
@@ -129,21 +122,13 @@ public class IdentityService : IIdentityService
 
         var userValues = await _httpClient.GetUserInfoAsync(userInfoRequest);
 
-        if (userValues.IsError)
-        {
-            Console.WriteLine($"UserInfo hatası: {userValues.Error}");
-            return false;
-        }
+        if (userValues.IsError) return false;
 
         const string adminEmail = "mevsimmanav@gmail.com";
 
         var emailClaim = userValues.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
 
-        if (!string.Equals(emailClaim, adminEmail, StringComparison.OrdinalIgnoreCase))
-        {
-            Console.WriteLine($"Admin yetkisi yok: {emailClaim}");
-            return false;
-        }
+        if (!string.Equals(emailClaim, adminEmail, StringComparison.OrdinalIgnoreCase)) return false;
 
         var claimsIdentity = new ClaimsIdentity(
             userValues.Claims,
@@ -187,11 +172,7 @@ public class IdentityService : IIdentityService
         var response = await _httpClient.PostAsJsonAsync(url, createRegisterDto);
         var body = await response.Content.ReadAsStringAsync();
 
-        if (!response.IsSuccessStatusCode)
-        {
-            Console.WriteLine($"Kayıt API hatası {(int)response.StatusCode}: {body}");
-            return false;
-        }
+        if (!response.IsSuccessStatusCode) return false;
 
         return true;
     }

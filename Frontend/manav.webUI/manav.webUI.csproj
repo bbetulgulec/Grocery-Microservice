@@ -20,6 +20,17 @@
         <_ContentIncludedByDefault Remove="wwwroot\favicon_io\favicon.ico"/>
         <_ContentIncludedByDefault Remove="wwwroot\favicon_io\site.webmanifest"/>
         <_ContentIncludedByDefault Remove="Views\_FeedbackUILayoutComponentPartial\Index.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\Message\Inbox.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\Message\Sendbox.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\MyOrder\MyOrderList.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\Profile\Index.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\Shared\Components\_UserFooterViewComponentPartial\Default.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\Shared\Components\_UserLayoutHeadViewComponentPartial\Default.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\Shared\Components\_UserLayoutSidebarComponentPartial\Default.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\Shared\Components\_UserNavbarViewComponentPartial\Default.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\Shared\Components\_UserScriptViewComponentPartial\Default.cshtml"/>
+        <_ContentIncludedByDefault Remove="Areas\User\Views\_ViewImports.cshtml"/>
+        <_ContentIncludedByDefault Remove="Views\Shared\Components\_PriceFilterProductListComponentPartial\Default.cshtml"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -29,10 +40,6 @@
         <Content Include="wwwroot\MainDownload-OvioAdmin-html5-template\help-documentation\assets\.DS_Store"/>
         <Content Include="wwwroot\MainDownload-OvioAdmin-html5-template\help-documentation\assets\blueprint-css\plugins\.DS_Store"/>
         <Content Include="wwwroot\template\.DS_Store"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Resource\Views\"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -64,11 +71,11 @@
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Index.tr.Designer.cs</LastGenOutput>
         </EmbeddedResource>
-        <EmbeddedResource Update="Resource\Views\Information\Index.en.resx">
+        <EmbeddedResource Update="Resource\SharedResource.en.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Index.en.Designer.cs</LastGenOutput>
         </EmbeddedResource>
-        <EmbeddedResource Update="Resource\Views\Information\Index.tr.resx">
+        <EmbeddedResource Update="Resource\SharedResource.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Index.tr.Designer.cs</LastGenOutput>
         </EmbeddedResource>

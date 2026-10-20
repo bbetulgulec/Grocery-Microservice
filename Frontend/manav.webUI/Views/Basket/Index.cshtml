@@ -11,13 +11,13 @@
         <div class="col-lg-8">
             <div class="table-responsive basket-table-wrap">
                 <table class="able basket-table align-middle">
-                    <thead >
+                    <thead>
                     <tr>
-                        <th>Ürün</th>
-                        <th>Fiyat</th>
-                        <th>Miktar</th>
-                        <th>Toplam</th>
-                        <th>Kaldır</th>
+                        <th>@L["Admin_HighlightList_Product"]</th>
+                        <th>@L["Price"]</th>
+                        <th>@L["amount"]</th>
+                        <th>@L["total"]</th>
+                        <th>@L["remove"]</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,8 +31,8 @@
                             <td>
                                 <form asp-action="ChangeCount" asp-controller="Basket" method="post" class="d-inline">
                                     @Html.AntiForgeryToken()
-                                    <input type="hidden" name="productId" value="@item.ProductId" />
-                                    <input type="hidden" name="changeBy" value="-1" />
+                                    <input type="hidden" name="productId" value="@item.ProductId"/>
+                                    <input type="hidden" name="changeBy" value="-1"/>
                                     <button type="submit" class="btn btn-outline-secondary">−</button>
                                 </form>
 
@@ -40,8 +40,8 @@
 
                                 <form asp-action="ChangeCount" asp-controller="Basket" method="post" class="d-inline">
                                     @Html.AntiForgeryToken()
-                                    <input type="hidden" name="productId" value="@item.ProductId" />
-                                    <input type="hidden" name="changeBy" value="1" />
+                                    <input type="hidden" name="productId" value="@item.ProductId"/>
+                                    <input type="hidden" name="changeBy" value="1"/>
                                     <button type="submit" class="btn btn-outline-secondary">+</button>
                                 </form>
                             </td>
@@ -49,10 +49,10 @@
                             <td>
                                 <form asp-controller="Basket" asp-action="RemoveFromBasket" method="post">
                                     @Html.AntiForgeryToken()
-                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                    <input type="hidden" name="productId" value="@item.ProductId"/>
                                     <button type="submit" class="btn btn-danger">×</button>
                                 </form>
-                            </td>             
+                            </td>
                         </tr>
                     }
                     </tbody>
@@ -63,22 +63,22 @@
             <div class="row g-3">
                 <div class="col-12">
                     <aside class="gec-card p-4">
-                        <h3 class="h4 mb-4">Sipariş Özeti</h3>
+                        <h3 class="h4 mb-4">@L["Order_Summary"]</h3>
 
                         <div class="d-flex justify-content-between mb-3">
-                            <span>Toplam Ürün Fiyatı</span>
+                            <span>@L["Total_Product_Price"]</span>
                             <strong>@subtotal.ToString("N2") ₺</strong>
                         </div>
 
                         <div class="d-flex justify-content-between mb-3">
-                            <span>KDV (%10)</span>
+                            <span>@L["kdv"]</span>
                             <strong>@tax.ToString("N2") ₺</strong>
                         </div>
 
                         <hr>
 
                         <div class="d-flex justify-content-between fs-5">
-                            <span>Toplam</span>
+                            <span>@L["total"]</span>
                             <strong>@grandTotal.ToString("N2") ₺</strong>
                         </div>
                     </aside>
@@ -89,32 +89,32 @@
                               asp-action="ContinueToPayment"
                               method="post">
                             <fieldset>
-                                <legend class="h4 mb-4">Ödeme yöntemi</legend>
+                                <legend class="h4 mb-4">@L["Payment_Method"]</legend>
 
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="radio"
                                            name="paymentMethod" id="paymentCard"
                                            value="Card" checked>
                                     <label class="form-check-label" for="paymentCard">
-                                        Kredi / banka kartı
+                                        @L["Kredi_Bank_Card"]
                                     </label>
                                 </div>
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="radio"
                                            name="paymentMethod" id="paymentCash"
                                            value="Cash">
-                                    <label class="form-check-label" for="paymentCash">Nakit</label>
+                                    <label class="form-check-label" for="paymentCash">@L["Cash"]</label>
                                 </div>
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="radio"
                                            name="paymentMethod" id="paymentPickup"
                                            value="Pickup">
-                                    <label class="form-check-label" for="paymentPickup">Gel al</label>
+                                    <label class="form-check-label" for="paymentPickup">@L["Pick_Up"]</label>
                                 </div>
                             </fieldset>
 
                             <button type="submit" class="btn-gec-main w-100 mt-4">
-                                Devam Et
+                                @L["Continue"]
                             </button>
                         </form>
                     </aside>

@@ -1,16 +1,20 @@
 using manav.DtoLayer.IdentityDtos.LoginDto;
 using manav.webUI.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 
 namespace manav.webUI.Controllers;
 
 public class LoginController : Controller
 {
     private readonly IIdentityService _identityService;
+    private readonly IStringLocalizer<SharedResource> _l;
 
-    public LoginController(IIdentityService identityService)
+
+    public LoginController(IIdentityService identityService, IStringLocalizer<SharedResource> l)
     {
         _identityService = identityService;
+        _l = l;
     }
 
     [HttpGet]
@@ -29,8 +33,7 @@ public class LoginController : Controller
 
         if (!result)
         {
-            ViewBag.ErrorMessage =
-                "E-posta adresi veya şifre hatalı. Lütfen bilgilerinizi kontrol edip tekrar deneyin.";
+            ViewBag.ErrorMessage = _l["Login_Error"].Value;
             return View(createLoginDto);
         }
 

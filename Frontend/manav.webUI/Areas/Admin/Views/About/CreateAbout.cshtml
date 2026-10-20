@@ -8,35 +8,35 @@
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>Hakkında Bilgileri Ekleme Sayfası</h4>
+                <h4>@L["Admin_About_CreateTitle"]</h4>
                 <br/>
                 <div class="bs-example" data-example-id="bordered-table">
                     <form method="post" asp-action="CreateAbout" asp-controller="About" asp-area="Admin">
                         <div asp-validation-summary="All" class="text-danger"></div>
-                        <label>Açıklama</label>
+                        <label>@L["Admin_About_Description"]</label>
                         <input type="text" class="form-control" asp-for="AboutDescription"/>
                         <span asp-validation-for="AboutDescription" class="text-danger"></span>
                         <br/>
-                        <label>Konum</label>
+                        <label>@L["Admin_About_Address"]</label>
                         <input type="text" class="form-control" asp-for="AboutAdress"/>
                         <span asp-validation-for="AboutAdress" class="text-danger"></span>
                         <br/>
 
-                        <label>Mail</label>
+                        <label>@L["Admin_About_Mail"]</label>
                         <input type="text" class="form-control" asp-for="AboutMail"/>
                         <span asp-validation-for="AboutMail" class="text-danger"></span>
                         <br/>
 
-                        <label>Telefon</label>
+                        <label>@L["Admin_About_Phone"]</label>
                         <input type="text" class="form-control" asp-for="AboutNumber"/>
                         <span asp-validation-for="AboutNumber" class="text-danger"></span>
                         <br/>
 
-                        <label>Çalışma Saatleri</label>
+                        <label>@L["Admin_About_WorkTime"]</label>
                         <input type="text" class="form-control" asp-for="AboutWorkTime"/>
                         <span asp-validation-for="AboutWorkTime" class="text-danger"></span>
                         <br/>
-                        <button type="submit" class="btn btn-primary">Hakkında Bilgisini Ekle</button>
+                        <button type="submit" class="btn btn-primary">@L["Admin_About_CreateButton"]</button>
                     </form>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 using manav.DtoLayer.CommentDtos.CommentDtos;
 using manav.webUI.Services.CatalogServices.CommentServices;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 
 namespace manav.webUI.Areas.Admin.Controllers;
 
@@ -9,6 +10,8 @@ namespace manav.webUI.Areas.Admin.Controllers;
 public class CommentController : Controller
 {
     private readonly IAdminCommentService _commentService;
+    private readonly IStringLocalizer<SharedResource> _l;
+
 
     public CommentController(IAdminCommentService commentService)
     {
@@ -75,9 +78,9 @@ public class CommentController : Controller
 
     public void ViewbagComment()
     {
-        ViewBag.titles = "Yorum İşlemleri";
-        ViewBag.home = "Ana sayfa";
-        ViewBag.table = "Yorumlar";
-        ViewBag.tableList = "Yorum Bilgileri";
+        ViewBag.titles = _l["Admin_Comment_Title"].Value;
+        ViewBag.home = _l["Common_Home"].Value;
+        ViewBag.table = _l["Admin_Comment_Table"].Value;
+        ViewBag.tableList = _l["Admin_Comment_TableList"].Value;
     }
 }

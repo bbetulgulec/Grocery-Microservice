@@ -1,22 +1,22 @@
 @model UpdateGalleryDto
 @{
-    ViewBag.Title = "Update Gallery";
+    ViewBag.Title = L["Admin_GalleryUpdate_Title"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 <section class="content container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>Galeri Güncelleme Sayfası</h4>
+                <h4>@L["Admin_GalleryUpdate_Title"]</h4>
                 <br/>
                 <div class="bs-example" data-example-id="bordered-table">
                     <form method="post" enctype="multipart/form-data">
                         <input type="hidden" asp-for="GallaryId"/>
-                        <label>Galeri Adı</label>
+                        <label>@L["Admin_Gallery_Name"]</label>
                         <input type="text" class="form-control" asp-for="GallaryName"/>
                         <br/>
                         <div class="form-group">
-                            <label>Resim</label>
+                            <label>@L["Admin_GalleryList_Image"]</label>
                             <div class="product-image-container">
                                 <img src="@Model.GalleryUrl"
                                      alt="@Model.GallaryName"
@@ -26,7 +26,7 @@
                                     <button type="button"
                                             class="btn btn-primary"
                                             onclick="document.getElementById('imageFileInput').click();">
-                                        Değiştir
+                                        @L["Admin_GalleryUpdate_ChangeButton"]
                                     </button>
                                     <span id="selectedFileName"
                                           style="margin-left: 10px; color: #666; font-size: 12px;"></span>
@@ -39,7 +39,7 @@
                                        onchange="handleFileSelect(this)"/>
                             </div>
                         </div>
-                        <button class="btn btn-primary">Galeriyi Güncelle</button>
+                        <button class="btn btn-primary"> @L["Admin_GalleryUpdate_SubmitButton"]</button>
                     </form>
                 </div>
             </div>

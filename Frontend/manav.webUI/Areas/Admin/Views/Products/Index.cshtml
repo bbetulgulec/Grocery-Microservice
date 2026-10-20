@@ -1,6 +1,6 @@
 @model List<ResultProductDto>
 @{
-    ViewBag.Title = "Ürünler Listesi";
+    ViewBag.Title = L["Admin_Product_TableList"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
     var count = 0;
 }
@@ -12,10 +12,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Ürün Adı</th>
-                        <th>Ürün Fiyatı</th>
-                        <th>Sil</th>
-                        <th>Güncelle</th>
+                        <th>@L["Admin_HighlightList_ProductName"]</th>
+                        <th>@L["Admin_HighlightList_ProductPrice"]</th>
+                        <th>@L["Delete"]</th>
+                        <th>@L["Update"]</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -26,15 +26,17 @@
                             <th scope="row">@count</th>
                             <td>@item.ProductName</td>
                             <td>@item.ProductPrice</td>
-                            <td><a href='/Admin/Product/DeleteProduct/@item.ProductID' class="btn btn-danger"> Sil</a>
+                            <td><a href='/Admin/Product/DeleteProduct/@item.ProductID'
+                                   class="btn btn-danger"> @L["Delete"]</a>
                             </td>
                             <td><a href='/Admin/Product/UpdateProduct/@item.ProductID' class="btn btn-success">
-                                    Güncelle</a></td>
+                                    @L["Update"]</a></td>
                         </tr>
                     }
                     </tbody>
                 </table>
-                <a href="/Admin/Product/ProductCreate/" class="btn btn-success btn-top-space"> Yeni Ürün girişi </a>
+                <a href="/Admin/Product/ProductCreate/"
+                   class="btn btn-success btn-top-space"> @L["Admin_HighlightList_AddNewButton"] </a>
             </div>
         </div>
     </div>

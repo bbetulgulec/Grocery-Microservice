@@ -1,6 +1,6 @@
 @model List<ResultHighlightsProductWithProductDto>
 @{
-    ViewBag.Title = "Highlight Product List";
+    ViewBag.Title = L["Admin_HighlightsProduct_TableList"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
     var count = 0;
 }
@@ -8,18 +8,18 @@
     <div class="row">
         <div class="col-md-12">
             <div class="bs-example" data-example-id="bordered-table">
-                <table class="table table-bordered" >
+                <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Ürün </th>
-                        <th>Ürün Adı</th>
-                        <th>Ürün Açıklaması</th>
-                        <th>Ürün Fiyatı</th>
-                        <th>Ürün Resmi</th>
-                        <th>Sil</th>
-                        <th>Güncelle</th>
-                        </tr>
+                        <th>@L["Admin_HighlightList_Product"] </th>
+                        <th>@L["Admin_HighlightList_ProductName"]</th>
+                        <th>@L["Admin_HighlightList_ProductDescription"]</th>
+                        <th>@L["Admin_HighlightList_ProductPrice"]</th>
+                        <th>@L["Admin_HighlightList_ProductImage"]</th>
+                        <th>@L["Delete"]</th>
+                        <th>@L["Update"]</th>
+                    </tr>
                     </thead>
                     <tbody>
                     @foreach (var item in Model)
@@ -31,19 +31,22 @@
                             <td>@item.HighlightsProductsName</td>
                             <td>@item.Product.ProductDescription</td>
                             <td>@item.Product.ProductPrice</td>
-                                <td>
+                            <td>
                                 <img src="@item.Product.ProductImageURL"
                                      alt="@item.Product.ProductName"
-                                     class="highlight-product-image" />
-                                </td>
-                            <td><a href='/Admin/HighlightsProduct/DeleteHighlightsProduct/@item.HighlightsProductsID' class="btn btn-danger"> Sil</a></td>
-                            <td><a href='/Admin/HighlightsProduct/UpdateHighlightsProduct/@item.HighlightsProductsID' class="btn btn-success"> Güncelle</a></td>
-                            </tr>
+                                     class="highlight-product-image"/>
+                            </td>
+                            <td><a href='/Admin/HighlightsProduct/DeleteHighlightsProduct/@item.HighlightsProductsID'
+                                   class="btn btn-danger"> @L["Delete"]</a></td>
+                            <td><a href='/Admin/HighlightsProduct/UpdateHighlightsProduct/@item.HighlightsProductsID'
+                                   class="btn btn-success"> @L["Update"]</a></td>
+                        </tr>
                     }
                     </tbody>
-                    </table>
-                <a href='/Admin/HighlightsProduct/CreateHighlightsProduct/' class="btn btn-success btn-top-space" > Yeni Ürün girişi </a>
-                </div>
+                </table>
+                <a href="/Admin/HighlightsProduct/CreateHighlightsProduct/" class="btn btn-success btn-top-space"> Yeni
+                    @L["Admin_HighlightList_AddNewButton"] </a>
+            </div>
         </div>
     </div>
 </section>

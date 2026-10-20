@@ -6,20 +6,20 @@ public class CreateRegisterDto
 {
     public string? UserName { get; set; }
 
-    [Required(ErrorMessage = "E-posta alanı zorunludur.")]
-    [EmailAddress(ErrorMessage = "Geçerli bir e-posta adresi girin.")]
+    [Required(ErrorMessage = "Required_Email")]
+    [EmailAddress(ErrorMessage = "Invalid_Email")]
     public string Email { get; set; }
 
-    [Required(ErrorMessage = "İsim alanı zorunludur.")]
+    [Required(ErrorMessage = "Required_Name")]
     public string Name { get; set; }
 
-    [Required(ErrorMessage = "Soyisim alanı zorunludur.")]
+    [Required(ErrorMessage = "Required_Surname")]
     public string SurName { get; set; }
 
-    [Required(ErrorMessage = "Şifre alanı zorunludur.")]
+    [Required(ErrorMessage = "Required_Password")]
     public string Password { get; set; }
 
-    [Required(ErrorMessage = "Şifre tekrarı zorunludur.")]
-    [Compare("Password", ErrorMessage = "Şifreler eşleşmiyor.")]
+    [Required(ErrorMessage = "Required_ConfirmPassword")]
+    [Compare("Password", ErrorMessage = "Password_Mismatch")]
     public string ConfimPassword { get; set; }
 }

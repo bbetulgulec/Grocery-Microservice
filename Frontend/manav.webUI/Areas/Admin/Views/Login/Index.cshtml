@@ -1,6 +1,6 @@
 @model manav.DtoLayer.IdentityDtos.LoginDto.CreateLoginDto
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = L["Admin_Login_Title"];
     Layout = null;
 }
 
@@ -14,23 +14,6 @@
     <link rel="stylesheet" href="~/MainDownload-OvioAdmin-html5-template/html/dist/css/style.css"/>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
-
-    <style>
-        .login-card {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .login-card .form-control {
-            height: 45px;
-            border-radius: 6px;
-            border: 1px solid #d2d6de;
-        }
-
-        .login-card .form-control:focus {
-            border-color: #002628;
-            box-shadow: none;
-        }
-    </style>
 </head>
 
 <body class="body-bg-color min-vh-100 d-flex align-items-center justify-content-center p-3 p-md-4">
@@ -39,7 +22,7 @@
     <div class="p-4 p-lg-5 text-dark bg-white">
 
         <div class="d-flex align-items-center justify-content-between mb-4">
-            <h2 class="fw-bold mb-0 text-dark">Giriş Yap</h2>
+            <h2 class="fw-bold mb-0 text-dark">@L["Admin_Login_Title"]</h2>
         </div>
 
         <form asp-controller="Login" asp-action="Index" method="post">
@@ -48,19 +31,19 @@
 
             <div class="mb-3">
                 <label asp-for="Email" class="form-label text-dark fw-semibold small mb-1">
-                    E-Posta Adresi
+                    @L["Admin_Login_EmailLabel"]
                 </label>
                 <input asp-for="Email"
                        type="email"
                        class="form-control"
-                       placeholder="ornek@email.com"
+                       placeholder=" @L["Admin_Login_EmailPlaceholder"]"
                        required/>
                 <span asp-validation-for="Email" class="text-danger small"></span>
             </div>
 
             <div class="mb-4">
                 <label asp-for="Password" class="form-label text-dark fw-semibold small mb-1">
-                    Şifre
+                    @L["Admin_Login_PasswordLabel"]
                 </label>
                 <input asp-for="Password"
                        type="password"
@@ -73,7 +56,7 @@
             <button type="submit"
                     class="btn btn-dark w-100 d-flex align-items-center justify-content-center gap-2">
                 <i class="bi bi-box-arrow-in-right"></i>
-                Giriş Yap
+                @L["Admin_Login_Title"]
             </button>
 
         </form>

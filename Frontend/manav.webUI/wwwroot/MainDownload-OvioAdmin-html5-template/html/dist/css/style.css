@@ -83,6 +83,21 @@ a:hover, a:active, a:focus {
     margin: auto;
 }
 
+.login-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.login-card .form-control {
+    height: 45px;
+    border-radius: 6px;
+    border: 1px solid #d2d6de;
+}
+
+.login-card .form-control:focus {
+    border-color: #002628;
+    box-shadow: none;
+}
+
 /* Content Wrapper */
 .content-wrapper, .main-footer {
     -webkit-transition: -webkit-transform 0.3s ease-in-out, margin 0.3s ease-in-out;

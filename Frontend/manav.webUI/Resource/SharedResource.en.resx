@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="Merhaba" xml:space="preserve">
+        <value>Hello</value>
+    </data>
+    <data name="Required_Email" xml:space="preserve">
+        <value>Email is required.	</value>
+    </data>
+    <data name="Invalid_Email" xml:space="preserve">
+        <value>Please enter a valid email address.</value>
+    </data>
+    <data name="Required_Surname" xml:space="preserve">
+        <value>Last name is required.</value>
+    </data>
+    <data name="Required_Name" xml:space="preserve">
+        <value>First name is required.</value>
+    </data>
+    <data name="Required_Password" xml:space="preserve">
+        <value>Password is required.</value>
+    </data>
+    <data name="Required_ConfirmPassword" xml:space="preserve">
+        <value>Password confirmation is required.</value>
+    </data>
+    <data name="Password_Mismatch" xml:space="preserve">
+        <value>Passwords do not match.</value>
+    </data>
+    <data name="Admin_About_Title" xml:space="preserve">
+        <value>About Management</value>
+    </data>
+    <data name="Admin_About_Table" xml:space="preserve">
+        <value>About</value>
+    </data>
+    <data name="Admin_About_TableList" xml:space="preserve">
+        <value>About Information</value>
+    </data>
+    <data name="Common_Home" xml:space="preserve">
+        <value>Home</value>
+    </data>
+    <data name="Admin_Category_Title" xml:space="preserve">
+        <value>Category Management</value>
+    </data>
+    <data name="Admin_Category_Table" xml:space="preserve">
+        <value>Categories</value>
+    </data>
+    <data name="Admin_Category_TableList" xml:space="preserve">
+        <value>Category List</value>
+    </data>
+    <data name="Admin_Comment_Title" xml:space="preserve">
+        <value>Comment Management</value>
+    </data>
+    <data name="Admin_Comment_Table" xml:space="preserve">
+        <value>Comments</value>
+    </data>
+    <data name="Admin_Comment_TableList" xml:space="preserve">
+        <value>Comment Information</value>
+    </data>
+    <data name="Admin_Suggestion_Title" xml:space="preserve">
+        <value>Suggestion Management</value>
+    </data>
+    <data name="Admin_Suggestion_Table" xml:space="preserve">
+        <value>Suggestions</value>
+    </data>
+    <data name="Admin_Suggestion_TableList" xml:space="preserve">
+        <value>Suggestion List</value>
+    </data>
+    <data name="Admin_Gallery_Title" xml:space="preserve">
+        <value>Gallery Management</value>
+    </data>
+    <data name="Admin_Gallery_Table" xml:space="preserve">
+        <value>Galleries</value>
+    </data>
+    <data name="Admin_Gallery_TableList" xml:space="preserve">
+        <value>Gallery List</value>
+    </data>
+    <data name="Admin_HighlightsProduct_Title" xml:space="preserve">
+        <value>Featured Products Management</value>
+    </data>
+    <data name="Admin_HighlightsProduct_Tables" xml:space="preserve">
+        <value>Featured products</value>
+    </data>
+    <data name="Admin_HighlightsProduct_TableList" xml:space="preserve">
+        <value>Featured Products List</value>
+    </data>
+    <data name="Admin_Login_Error" xml:space="preserve">
+        <value>Invalid email or password, or sign-in failed.</value>
+    </data>
+    <data name="Admin_UserAddress_Title" xml:space="preserve">
+        <value>User Addresses Management</value>
+    </data>
+    <data name="Admin_UserAddress_Table" xml:space="preserve">
+        <value>User addresses</value>
+    </data>
+    <data name="Admin_UserAddress_TableList" xml:space="preserve">
+        <value>User Addresses List</value>
+    </data>
+    <data name="Admin_Product_Title" xml:space="preserve">
+        <value>Product Management</value>
+    </data>
+    <data name="Admin_Product_Table" xml:space="preserve">
+        <value>Products</value>
+    </data>
+    <data name="Admin_Product_TableList" xml:space="preserve">
+        <value>Product List</value>
+    </data>
+    <data name="Admin_User_Title" xml:space="preserve">
+        <value>User Management</value>
+    </data>
+    <data name="Admin_User_Table" xml:space="preserve">
+        <value>Users</value>
+    </data>
+    <data name="Admin_User_TableList" xml:space="preserve">
+        <value>User List</value>
+    </data>
+    <data name="Admin_About_CreateTitle" xml:space="preserve">
+        <value>Add About Information</value>
+    </data>
+    <data name="Admin_About_Description" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="Admin_About_Address" xml:space="preserve">
+        <value>Location</value>
+    </data>
+    <data name="Admin_About_Mail" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="Admin_About_Phone" xml:space="preserve">
+        <value>Phone</value>
+    </data>
+    <data name="Admin_About_CreateButton" xml:space="preserve">
+        <value>Add About Information</value>
+    </data>
+    <data name="Admin_About_WorkTime" xml:space="preserve">
+        <value>Working Hours</value>
+    </data>
+    <data name="Admin_About_UpdateTitle" xml:space="preserve">
+        <value>About Information Page</value>
+    </data>
+    <data name="Admin_About_NotFoundAlert" xml:space="preserve">
+        <value>&lt;strong&gt;Record Not Found!&lt;/strong&gt; Please fill in the fields below to add new About information.</value>
+    </data>
+    <data name="Admin_About_UpdateButton" xml:space="preserve">
+        <value>Update About Information</value>
+    </data>
+    <data name="Admin_About_UpdateDeleteButton" xml:space="preserve">
+        <value>Delete About Information</value>
+    </data>
+    <data name="Admin_About_UpdateDeleteConfirm" xml:space="preserve">
+        <value>Are you sure you want to delete?</value>
+    </data>
+    <data name="Admin_About_UpdateTitleReal" xml:space="preserve">
+        <value>Update About Information Page</value>
+    </data>
+    <data name="Admin_Category_CreateTitle" xml:space="preserve">
+        <value>Add Category Page</value>
+    </data>
+    <data name="Admin_Category_Name" xml:space="preserve">
+        <value>Category Name</value>
+    </data>
+    <data name="Admin_Category_Icon" xml:space="preserve">
+        <value>Category Icon Name</value>
+    </data>
+    <data name="Admin_Category_CreateButton" xml:space="preserve">
+        <value>Add Category</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+        <value>Delete</value>
+    </data>
+    <data name="Update" xml:space="preserve">
+        <value>Update</value>
+    </data>
+    <data name="Admin_Category_UpdateTitle" xml:space="preserve">
+        <value>Update Category Page</value>
+    </data>
+    <data name="Admin_Category_UpdateButton" xml:space="preserve">
+        <value>Update Category</value>
+    </data>
+    <data name="Admin_Comment_SyncGoogle" xml:space="preserve">
+        <value>Sync Google Reviews</value>
+    </data>
+    <data name="Admin_Comment_FirstName" xml:space="preserve">
+        <value>Customer First Name</value>
+    </data>
+    <data name="Admin_Comment_LastName" xml:space="preserve">
+        <value>Customer Last Name</value>
+    </data>
+    <data name="Admin_Comment_UserImage" xml:space="preserve">
+        <value>Customer Image</value>
+    </data>
+    <data name="Admin_Comment_CommentDetail" xml:space="preserve">
+        <value>Comment</value>
+    </data>
+    <data name="Admin_Comment_Rating" xml:space="preserve">
+        <value>Rating</value>
+    </data>
+    <data name="Admin_Comment_CreatedDate" xml:space="preserve">
+        <value>Date</value>
+    </data>
+    <data name="Admin_Comment_IsAddedGoogle" xml:space="preserve">
+        <value>Google Stream</value>
+    </data>
+    <data name="Admin_Comment_PublishStatus" xml:space="preserve">
+        <value>Site Status</value>
+    </data>
+    <data name="Admin_Comment_Status" xml:space="preserve">
+        <value>Status</value>
+    </data>
+    <data name="Admin_Comment_Active" xml:space="preserve">
+        <value>Active</value>
+    </data>
+    <data name="Admin_Comment_Passive" xml:space="preserve">
+        <value>Passive</value>
+    </data>
+    <data name="Admin_Comment_MakePassive" xml:space="preserve">
+        <value>Make Passive</value>
+    </data>
+    <data name="Admin_Comment_MakeActive" xml:space="preserve">
+        <value>Publish</value>
+    </data>
+    <data name="Admin_Contact_Title" xml:space="preserve">
+        <value>Contact Messages</value>
+    </data>
+    <data name="Admin_Contact_FullName" xml:space="preserve">
+        <value>Full Name</value>
+    </data>
+    <data name="Admin_Contact_Subject" xml:space="preserve">
+        <value>Subject</value>
+    </data>
+    <data name="Admin_Contact_Message" xml:space="preserve">
+        <value>Message</value>
+    </data>
+    <data name="Admin_Contact_Read" xml:space="preserve">
+        <value>Read</value>
+    </data>
+    <data name="Admin_Contact_Unread" xml:space="preserve">
+        <value>Unread</value>
+    </data>
+    <data name="Admin_Gallery_CreateTitle" xml:space="preserve">
+        <value>Add Gallery Page</value>
+    </data>
+    <data name="Admin_Gallery_Name" xml:space="preserve">
+        <value>Gallery Name</value>
+    </data>
+    <data name="Admin_Gallery_Image" xml:space="preserve">
+        <value>Gallery Image</value>
+    </data>
+    <data name="Admin_Gallery_CreateButton" xml:space="preserve">
+        <value>Add Gallery</value>
+    </data>
+    <data name="Admin_GalleryList_Title" xml:space="preserve">
+        <value>Gallery List</value>
+    </data>
+    <data name="Admin_GalleryList_ImageName" xml:space="preserve">
+        <value>Image Name</value>
+    </data>
+    <data name="Admin_GalleryList_Image" xml:space="preserve">
+        <value>Image</value>
+    </data>
+    <data name="Admin_GalleryList_AddNewButton" xml:space="preserve">
+        <value>Add New Gallery</value>
+    </data>
+    <data name="Admin_GalleryUpdate_Title" xml:space="preserve">
+        <value>Gallery Update Page</value>
+    </data>
+    <data name="Admin_GalleryUpdate_ChangeButton" xml:space="preserve">
+        <value>Change</value>
+    </data>
+    <data name="Admin_GalleryUpdate_SubmitButton" xml:space="preserve">
+        <value>Update Gallery</value>
+    </data>
+    <data name="Admin_HighlightCreate_Title" xml:space="preserve">
+        <value>Add Featured Product Page</value>
+    </data>
+    <data name="Admin_HighlightCreate_SelectProduct" xml:space="preserve">
+        <value>Select Product to Feature</value>
+    </data>
+    <data name="Admin_HighlightCreate_SelectPlaceholder" xml:space="preserve">
+        <value>--- Select Product ---</value>
+    </data>
+    <data name="Admin_HighlightCreate_ProductPrice" xml:space="preserve">
+        <value>Selected Product Price (Auto)</value>
+    </data>
+    <data name="Admin_HighlightCreate_ProductImage" xml:space="preserve">
+        <value>Selected Product Image (Auto)</value>
+    </data>
+    <data name="Admin_HighlightCreate_AutoPlaceholder" xml:space="preserve">
+        <value>Will appear when product is selected...</value>
+    </data>
+    <data name="Admin_HighlightCreate_HighlightTitle" xml:space="preserve">
+        <value>Featured Title (Showcase Slogan)</value>
+    </data>
+    <data name="Admin_HighlightCreate_HighlightTitlePlaceholder" xml:space="preserve">
+        <value>Ex: Deal of the Day!</value>
+    </data>
+    <data name="Admin_HighlightCreate_HighlightDescription" xml:space="preserve">
+        <value>Add Featured Product</value>
+    </data>
+    <data name="Admin_HighlightCreate_SubmitButton" xml:space="preserve">
+        <value>Add Featured Product</value>
+    </data>
+    <data name="Admin_HighlightList_Product" xml:space="preserve">
+        <value>Product</value>
+    </data>
+    <data name="Admin_HighlightList_ProductName" xml:space="preserve">
+        <value>Product Name</value>
+    </data>
+    <data name="Admin_HighlightList_ProductDescription" xml:space="preserve">
+        <value>Product Description</value>
+    </data>
+    <data name="Admin_HighlightList_ProductPrice" xml:space="preserve">
+        <value>Product Price</value>
+    </data>
+    <data name="Admin_HighlightList_ProductImage" xml:space="preserve">
+        <value>Product Image</value>
+    </data>
+    <data name="Admin_HighlightList_AddNewButton" xml:space="preserve">
+        <value>Add New Product</value>
+    </data>
+    <data name="Admin_HighlightUpdate_Title" xml:space="preserve">
+        <value>Update Featured Product Page</value>
+    </data>
+    <data name="Admin_Login_Title" xml:space="preserve">
+        <value>Sign In</value>
+    </data>
+    <data name="Admin_Login_EmailLabel" xml:space="preserve">
+        <value>Email Address</value>
+    </data>
+    <data name="Admin_Login_EmailPlaceholder" xml:space="preserve">
+        <value>example@email.com</value>
+    </data>
+    <data name="Admin_Login_PasswordLabel" xml:space="preserve">
+        <value>Password</value>
+    </data>
+    <data name="Admin_OrderSummary_Title" xml:space="preserve">
+        <value>Users Who Placed Orders</value>
+    </data>
+    <data name="Admin_OrderSummary_UserId" xml:space="preserve">
+        <value>User ID</value>
+    </data>
+    <data name="Admin_OrderSummary_TotalOrder" xml:space="preserve">
+        <value>Total Orders</value>
+    </data>
+    <data name="Admin_OrderSummary_LastOrderDate" xml:space="preserve">
+        <value>Last Order Date</value>
+    </data>
+    <data name="Admin_OrderSummary_OrderList" xml:space="preserve">
+        <value>Order List</value>
+    </data>
+    <data name="Admin_OrderSummary_Unit" xml:space="preserve">
+        <value>Pcs</value>
+    </data>
+    <data name="Admin_OrderSummary_ListOrdersButton" xml:space="preserve">
+        <value>List Orders</value>
+    </data>
+    <data name="Admin_OrderAddress_Title" xml:space="preserve">
+        <value>Order Addresses List</value>
+    </data>
+    <data name="Admin_OrderAddress_AddressId" xml:space="preserve">
+        <value>Address ID</value>
+    </data>
+    <data name="Admin_OrderAddress_AddressDetail" xml:space="preserve">
+        <value>Address Detail</value>
+    </data>
+    <data name="Admin_OrderAddress_FirstName" xml:space="preserve">
+        <value>User First Name</value>
+    </data>
+    <data name="Admin_OrderAddress_LastName" xml:space="preserve">
+        <value>User Last Name</value>
+    </data>
+    <data name="Admin_OrderAddress_Phone" xml:space="preserve">
+        <value>User Phone</value>
+    </data>
+    <data name="Admin_OrderAddress_Email" xml:space="preserve">
+        <value>User Email</value>
+    </data>
+    <data name="Admin_OrderAddress_AddNewButton" xml:space="preserve">
+        <value>Add New Address</value>
+    </data>
+    <data name="Admin_UserOrderDetails_Title" xml:space="preserve">
+        <value>Order History</value>
+    </data>
+    <data name="Admin_UserOrderDetails_Subtitle" xml:space="preserve">
+        <value>Customer's orders and product details</value>
+    </data>
+    <data name="Admin_UserOrderDetails_BackToList" xml:space="preserve">
+        <value>Back to order list</value>
+    </data>
+    <data name="Admin_UserOrderDetails_OrderPrefix" xml:space="preserve">
+        <value>Order</value>
+    </data>
+    <data name="Admin_UserOrderDetails_TotalLabel" xml:space="preserve">
+        <value>Order total</value>
+    </data>
+    <data name="Admin_UserOrderDetails_TableHeaderUnitPrice" xml:space="preserve">
+        <value>Unit price</value>
+    </data>
+    <data name="Admin_UserOrderDetails_TableHeaderSubtotal" xml:space="preserve">
+        <value>Subtotal</value>
+    </data>
+    <data name="Admin_UserOrderDetails_EmptyItems" xml:space="preserve">
+        <value>No product details found for this order.</value>
+    </data>
+    <data name="Admin_UserOrderDetails_EmptyOrdersTitle" xml:space="preserve">
+        <value>No orders yet</value>
+    </data>
+    <data name="Admin_UserOrderDetails_EmptyOrdersText" xml:space="preserve">
+        <value>There are no order records for this customer.</value>
+    </data>
+    <data name="Admin_ProductCreate_Title" xml:space="preserve">
+        <value>Add Product Page</value>
+    </data>
+    <data name="Admin_ProductCreate_Stock" xml:space="preserve">
+        <value>Product Stock</value>
+    </data>
+    <data name="Admin_ProductCreate_Category" xml:space="preserve">
+        <value>Product Category</value>
+    </data>
+    <data name="Admin_ProductCreate_SubmitButton" xml:space="preserve">
+        <value>Add Product</value>
+    </data>
+    <data name="Admin_ProductList_NoCategory" xml:space="preserve">
+        <value>No Category</value>
+    </data>
+    <data name="Admin_ProductUpdate_Title" xml:space="preserve">
+        <value>Update Product Page</value>
+    </data>
+    <data name="Admin_ProductUpdate_SubmitButton" xml:space="preserve">
+        <value>Update Product</value>
+    </data>
+    <data name="Mevsim_Manav_Admin_Panel" xml:space="preserve">
+        <value>Mevsim Manav Admin Panel</value>
+    </data>
+    <data name="site" xml:space="preserve">
+        <value>Site</value>
+    </data>
+    <data name="Admin_User_Fullname" xml:space="preserve">
+        <value>User Fullname</value>
+    </data>
+    <data name="Contact_Message_Success" xml:space="preserve">
+        <value>Your message was successfully processed</value>
+    </data>
+    <data name="Login_Error" xml:space="preserve">
+        <value>Incorrect email or password. Please check your details and try again.</value>
+    </data>
+    <data name="Register_Error" xml:space="preserve">
+        <value>Registration failed. This email address may already be registered, or your password may not meet the requirements.</value>
+    </data>
+    <data name="Validation_About_DescriptionRequired" xml:space="preserve">
+        <value>Description cannot be empty.</value>
+    </data>
+    <data name="Validation_About_DescriptionMinLength" xml:space="preserve">
+        <value>Description must be at least 10 characters.</value>
+    </data>
+    <data name="Validation_About_WorkTimeRequired" xml:space="preserve">
+        <value>Working hours cannot be empty.</value>
+    </data>
+    <data name="Validation_About_PhoneRequired" xml:space="preserve">
+        <value>Phone number cannot be empty.</value>
+    </data>
+    <data name="Validation_About_AddressRequired" xml:space="preserve">
+        <value>Address cannot be empty.</value>
+    </data>
+    <data name="Validation_About_MailRequired" xml:space="preserve">
+        <value>Email address cannot be empty.</value>
+    </data>
+    <data name="Validation_About_MailInvalid" xml:space="preserve">
+        <value>adresi giriniz.	Please enter a valid email address.</value>
+    </data>
+    <data name="Order_Call_Label" xml:space="preserve">
+        <value>Order by phone</value>
+    </data>
+    <data name="Order_Call_Title" xml:space="preserve">
+        <value>Let’s place your order together</value>
+    </data>
+    <data name="Order_Call_Description" xml:space="preserve">
+        <value>When you call us, our team checks your delivery location and product availability. If your order is possible, we confirm it and start preparing it; otherwise, we will let you know.</value>
+    </data>
+    <data name="Order_Call_Step1" xml:space="preserve">
+        <value>Delivery location is checked</value>
+    </data>
+    <data name="Order_Call_Step2" xml:space="preserve">
+        <value>Stock availability is verified</value>
+    </data>
+    <data name="Order_Call_Step3" xml:space="preserve">
+        <value>Order is confirmed if available</value>
+    </data>
+    <data name="Order_Call_Button" xml:space="preserve">
+        <value>Call Us and Place Your Order</value>
+    </data>
+    <data name="Price" xml:space="preserve">
+        <value>Price</value>
+    </data>
+    <data name="amount" xml:space="preserve">
+        <value>Amount</value>
+    </data>
+    <data name="total" xml:space="preserve">
+        <value>Total</value>
+    </data>
+    <data name="remove" xml:space="preserve">
+        <value>Remove</value>
+    </data>
+    <data name="Order_Summary" xml:space="preserve">
+        <value>Order Summary</value>
+    </data>
+    <data name="Total_Product_Price" xml:space="preserve">
+        <value>Total Product Price</value>
+    </data>
+    <data name="kdv" xml:space="preserve">
+        <value>KDV (%10)</value>
+    </data>
+    <data name="Payment_Method" xml:space="preserve">
+        <value>Payment method</value>
+    </data>
+    <data name="Kredi_Bank_Card" xml:space="preserve">
+        <value>Kredi / bank card</value>
+    </data>
+    <data name="Cash" xml:space="preserve">
+        <value>Cash</value>
+    </data>
+    <data name="Pick_Up" xml:space="preserve">
+        <value>Pick up</value>
+    </data>
+    <data name="Continue" xml:space="preserve">
+        <value>Devam</value>
+    </data>
+    <data name="Error_Label" xml:space="preserve">
+        <value>Action could not be completed</value>
+    </data>
+    <data name="Error_Title" xml:space="preserve">
+        <value>Something went wrong</value>
+    </data>
+    <data name="Error_Description" xml:space="preserve">
+        <value>Your request could not be completed right now. Please try again. If the problem persists, contact our support team.</value>
+    </data>
+    <data name="Error_HomeButton" xml:space="preserve">
+        <value>Back to home</value>
+    </data>
+    <data name="Error_SupportCode" xml:space="preserve">
+        <value>Support code :</value>
+    </data>
+    <data name="Login_PageTitle" xml:space="preserve">
+        <value>Mevsim Manav - Customer Login</value>
+    </data>
+    <data name="Mevsim_Manav" xml:space="preserve">
+        <value>Mevsim Manav</value>
+    </data>
+    <data name="Login_Pill" xml:space="preserve">
+        <value>Fresh &amp; Organic</value>
+    </data>
+    <data name="Login_Welcome" xml:space="preserve">
+        <value>Welcome!</value>
+    </data>
+    <data name="Login_WelcomeText" xml:space="preserve">
+        <value>If you don’t have an account yet, sign up and order the freshest produce from the field to your table right away.</value>
+    </data>
+    <data name="Login_NoAccount" xml:space="preserve">
+        <value>Don’t have an account?</value>
+    </data>
+    <data name="Login_RegisterButton" xml:space="preserve">
+        <value>	Sign Up</value>
+    </data>
+    <data name="Login_BackToSite" xml:space="preserve">
+        <value>Back to Site</value>
+    </data>
+    <data name="MyOrders_Title" xml:space="preserve">
+        <value>My Orders</value>
+    </data>
+    <data name="MyOrders_Subtitle" xml:space="preserve">
+        <value>You can track your orders and product details here.</value>
+    </data>
+    <data name="orders" xml:space="preserve">
+        <value>orders</value>
+    </data>
+    <data name="MyOrders_NoDetails" xml:space="preserve">
+        <value>Bu siparişin ürün detayı bulunamadı.	No product details found for this order.</value>
+    </data>
+    <data name="MyOrders_Empty" xml:space="preserve">
+        <value>You have not placed any orders yet.</value>
+    </data>
+    <data name="Payment_Maintenance_PageTitle" xml:space="preserve">
+        <value>Payment Temporarily Unavailable</value>
+    </data>
+    <data name="Payment_Maintenance_Title" xml:space="preserve">
+        <value>Payment cannot be completed right now</value>
+    </data>
+    <data name="Payment_Maintenance_Description" xml:space="preserve">
+        <value>We are carrying out a short maintenance on our payment system. We will bring the service back online as soon as possible.</value>
+    </data>
+    <data name="Payment_Maintenance_Footnote" xml:space="preserve">
+        <value>Thank you for your understanding.</value>
+    </data>
+    <data name="Payment_PageTitle" xml:space="preserve">
+        <value>Payment</value>
+    </data>
+    <data name="Payment_Pill" xml:space="preserve">
+        <value>Secure payment</value>
+    </data>
+    <data name="Payment_Title" xml:space="preserve">
+        <value>Payment details</value>
+    </data>
+    <data name="Payment_Subtitle" xml:space="preserve">
+        <value>Enter your card details to complete your order.</value>
+    </data>
+    <data name="Payment_CardName" xml:space="preserve">
+        <value>Name on card</value>
+    </data>
+    <data name="Payment_CardNamePlaceholder" xml:space="preserve">
+        <value>Full name</value>
+    </data>
+    <data name="Payment_CardNumber" xml:space="preserve">
+        <value>Card number</value>
+    </data>
+    <data name="Payment_Expiry" xml:space="preserve">
+        <value>Expiry date</value>
+    </data>
+    <data name="Payment_ExpiryPlaceholder" xml:space="preserve">
+        <value>MM/YY</value>
+    </data>
+    <data name="Payment_Cvv" xml:space="preserve">
+        <value>Security code</value>
+    </data>
+    <data name="Payment_SubmitButton" xml:space="preserve">
+        <value>Complete payment</value>
+    </data>
+    <data name="Payment_PreviewLabel" xml:space="preserve">
+        <value>Card preview</value>
+    </data>
+    <data name="Payment_PreviewName" xml:space="preserve">
+        <value>FULL NAME</value>
+    </data>
+    <data name="Payment_PreviewHolder" xml:space="preserve">
+        <value>CARD HOLDER</value>
+    </data>
+    <data name="Payment_PreviewExpiry" xml:space="preserve">
+        <value>EXPIRES</value>
+    </data>
+    <data name="Payment_PreviewCvv" xml:space="preserve">
+        <value>SECURITY CODE</value>
+    </data>
+    <data name="Payment_PreviewBack" xml:space="preserve">
+        <value>BACK</value>
+    </data>
+    <data name="Payment_PreviewNote" xml:space="preserve">
+        <value>The card preview shows the details you enter.</value>
+    </data>
+    <data name="UI_ProductDetail_DefaultTitle" xml:space="preserve">
+        <value>Product Details</value>
+    </data>
+    <data name="UI_ProductDetail_StockSuffix" xml:space="preserve">
+        <value>kg stock</value>
+    </data>
+    <data name="UI_ProductDetail_WeightLabel" xml:space="preserve">
+        <value>Weight:</value>
+    </data>
+    <data name="UI_ProductDetail_Weight500g" xml:space="preserve">
+        <value>500 g</value>
+    </data>
+    <data name="UI_ProductDetail_Weight1kg" xml:space="preserve">
+        <value>1 Kg</value>
+    </data>
+    <data name="UI_ProductDetail_Weight2kg" xml:space="preserve">
+        <value>2 kg</value>
+    </data>
+    <data name="UI_ProductDetail_WeightCustom" xml:space="preserve">
+        <value>Başka</value>
+    </data>
+    <data name="UI_ProductDetail_CustomWeightPlaceholder" xml:space="preserve">
+        <value>Ex: 750</value>
+    </data>
+    <data name="UI_ProductDetail_CustomWeightUnit" xml:space="preserve">
+        <value>g</value>
+    </data>
+    <data name="UI_ProductDetail_AddToCartButton" xml:space="preserve">
+        <value>Add to Cart</value>
+    </data>
+    <data name="UI_Register_PageTitle" xml:space="preserve">
+        <value>Mevsim Manav Customer Creation Form</value>
+    </data>
+    <data name="UI_Register_WelcomeDescription" xml:space="preserve">
+        <value>If you already have an account, use the login button.</value>
+    </data>
+    <data name="UI_Register_HaveAccountPrompt" xml:space="preserve">
+        <value>Already have an account?</value>
+    </data>
+    <data name="UI_Register_HaveAccountButtons" xml:space="preserve">
+        <value>I Have an Account</value>
+    </data>
+    <data name="UI_Register_FormTitle" xml:space="preserve">
+        <value>Register</value>
+    </data>
+    <data name="UI_Register_FirstNameLabel" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="UI_Register_LastNameLabel" xml:space="preserve">
+        <value>LastName</value>
+    </data>
+    <data name="UI_Register_ConfirmPasswordLabel" xml:space="preserve">
+        <value>Confirm Password</value>
+    </data>
+    <data name="UI_HomeVideo_Eyebrow" xml:space="preserve">
+        <value>From Our Greengrocer</value>
+    </data>
+    <data name="UI_HomeVideo_Heading" xml:space="preserve">
+        <value>Where careful fruits and vegetables meet sincere customers</value>
+    </data>
+    <data name="UI_HomeVideo_Description" xml:space="preserve">
+        <value>From the first seed planted in the soil to the final package placed on the shelf, every step is carried out by people who care about the earth and the products reaching your family.</value>
+    </data>
+    <data name="UI_HomeVideo_Stat1Label" xml:space="preserve">
+        <value>Partner Family Business</value>
+    </data>
+    <data name="UI_HomeVideo_Stat2Label" xml:space="preserve">
+        <value>Fresh Products</value>
+    </data>
+    <data name="UI_HomeVideo_Stat3Label" xml:space="preserve">
+        <value>Customers reorder</value>
+    </data>
+    <data name="UI_HomeCertificates_Eyebrow" xml:space="preserve">
+        <value>Trust &amp; Quality</value>
+    </data>
+    <data name="UI_HomeCertificates_Card1Title" xml:space="preserve">
+        <value>Certified and Reliable Sourcing</value>
+    </data>
+    <data name="UI_HomeCertificates_Card1Description" xml:space="preserve">
+        <value>We carefully select naturally and pesticide-free grown products from trusted producers.</value>
+    </data>
+    <data name="UI_HomeCertificates_Card2Title" xml:space="preserve">
+        <value>Hygienic Store &amp; Packaging Standards</value>
+    </data>
+    <data name="UI_HomeCertificates_Heading" xml:space="preserve">
+        <value>Certified at every stage</value>
+    </data>
+    <data name="UI_HomeCertificates_Card2Description" xml:space="preserve">
+        <value>We store and package our products under hygienic standards in our facility.</value>
+    </data>
+    <data name="UI_HomeCertificates_Description" xml:space="preserve">
+        <value>Every product we sell is backed by independent audits and accepted standards, so you can shop with complete confidence in what reaches your table.</value>
+    </data>
+    <data name="UI_HomeFeatures_HighQualityTitle" xml:space="preserve">
+        <value>High Quality</value>
+    </data>
+    <data name="UI_HomeFeatures_HighQualityDesc" xml:space="preserve">
+        <value>Fresh products supporting your health and well-being.</value>
+    </data>
+    <data name="UI_HomeFeatures_WideVarietyTitle" xml:space="preserve">
+        <value>Wide Variety</value>
+    </data>
+    <data name="UI_HomeFeatures_WideVarietyDesc" xml:space="preserve">
+        <value>Everything you need for an easy and comfortable shopping experience.</value>
+    </data>
+    <data name="UI_HomeFeatures_FastDeliveryTitle" xml:space="preserve">
+        <value>Fast Delivery</value>
+    </data>
+    <data name="UI_HomeFeatures_FastDeliveryDesc" xml:space="preserve">
+        <value>Reliable door-to-door delivery directly to your home.</value>
+    </data>
+    <data name="UI_HomeFeatures_AffordablePricesTitle" xml:space="preserve">
+        <value>Affordable Prices</value>
+    </data>
+    <data name="UI_HomeFeatures_AffordablePricesDesc" xml:space="preserve">
+        <value>Great deals for smarter shopping and better savings.</value>
+    </data>
+    <data name="UI_Contact_Heading" xml:space="preserve">
+        <value>WRITE TO US</value>
+    </data>
+    <data name="UI_Contact_NamePlaceholder" xml:space="preserve">
+        <value>Full Name ...</value>
+    </data>
+    <data name="UI_Contact_EmailPlaceholder" xml:space="preserve">
+        <value>Email ...</value>
+    </data>
+    <data name="UI_Contact_SubjectPlaceholder" xml:space="preserve">
+        <value>Subject ...</value>
+    </data>
+    <data name="UI_Contact_MessagePlaceholder" xml:space="preserve">
+        <value>Message ...</value>
+    </data>
+    <data name="UI_Contact_SubmitButton" xml:space="preserve">
+        <value>Send Message</value>
+    </data>
+    <data name="Admin_HighlightsProduct_Table" xml:space="preserve">
+        <value>Phone Number to Call for Home Delivery:</value>
+    </data>
+    <data name="Filter" xml:space="preserve">
+        <value>Filter</value>
+    </data>
+    <data name="Contact" xml:space="preserve">
+        <value>Contact</value>
+    </data>
+    <data name="Get_Directions" xml:space="preserve">
+        <value>Get Directions</value>
+    </data>
+    <data name="Mevsim_Manav_all_rights_reserved." xml:space="preserve">
+        <value> Mevsim Manav. All rights reserved.</value>
+    </data>
+    <data name="Our_Memories" xml:space="preserve">
+        <value>Our Memories</value>
+    </data>
+    <data name="UI_Gallery_Heading" xml:space="preserve">
+        <value>Years of Local Craftsmanship</value>
+    </data>
+    <data name="UI_Gallery_Description" xml:space="preserve">
+        <value>You can tap any photo to view it in full size and browse through the entire set.</value>
+    </data>
+    <data name="UI_HomeHero_Eyebrow" xml:space="preserve">
+        <value>100% Organic &amp; Fresh</value>
+    </data>
+    <data name="UI_HomeHero_TitlePrefix" xml:space="preserve">
+        <value>Farm Freshness</value>
+    </data>
+    <data name="UI_HomeHero_RotateWords" xml:space="preserve">
+        <value>Vegetables|Fruits</value>
+    </data>
+    <data name="UI_HomeHero_Description" xml:space="preserve">
+        <value>Enrich your lifestyle with farm-fresh organic products grown by farmers, delivered straight from nature to your table.</value>
+    </data>
+    <data name="UI_HomeHero_MoreInfoButton" xml:space="preserve">
+        <value>More Info</value>
+    </data>
+    <data name="Vegetables" xml:space="preserve">
+        <value>Vegatables</value>
+    </data>
+    <data name="UI_HomeSideMenu_Eyebrow" xml:space="preserve">
+        <value>From farm to table</value>
+    </data>
+    <data name="UI_HomeSideMenu_Heading" xml:space="preserve">
+        <value>Seasonal Foods</value>
+    </data>
+    <data name="UI_HomeSideMenu_Description" xml:space="preserve">
+        <value>Handpicked staple foods restocked daily. Scroll through the list to discover all seasonal products.</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_Title" xml:space="preserve">
+        <value>Delivery Address</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_SavedAddressesLabel" xml:space="preserve">
+        <value>Your Saved Addresses:</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_AddNewToggle" xml:space="preserve">
+        <value>+ Add Different / New Address</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_FirstNameLabel" xml:space="preserve">
+        <value>First Name :</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_LastNameLabel" xml:space="preserve">
+        <value>Last Name :</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_EmailLabel" xml:space="preserve">
+        <value>Email :</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_PhoneLabel" xml:space="preserve">
+        <value>Phone Number :</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_FullAddressLabel" xml:space="preserve">
+        <value>Full Address</value>
+    </data>
+    <data name="UI_Checkout_DeliveryAddress_NewAddressHeading" xml:space="preserve">
+        <value>New Address Details</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_Title" xml:space="preserve">
+        <value>Order Summary</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_EmptyBasketAlert" xml:space="preserve">
+        <value>Your cart is empty.</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_Subtotal" xml:space="preserve">
+        <value>Subtotal</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_ShippingFee" xml:space="preserve">
+        <value>Shipping Fee</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_FreeShipping" xml:space="preserve">
+        <value>Free</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_GrandTotal" xml:space="preserve">
+        <value>Total Amount</value>
+    </data>
+    <data name="UI_Checkout_OrderSummary_CompleteOrderButton" xml:space="preserve">
+        <value>Complete Order</value>
+    </data>
+    <data name="UI_ProductCatalog_Pagination_Previous" xml:space="preserve">
+        <value>Previous</value>
+    </data>
+    <data name="UI_ProductCatalog_Pagination_Next" xml:space="preserve">
+        <value>Next</value>
+    </data>
+    <data name="UI_Comment_AddModal_TitleThankYou" xml:space="preserve">
+        <value>Thank You!</value>
+    </data>
+    <data name="UI_Comment_AddModal_TitleDefault" xml:space="preserve">
+        <value>Share Your Review</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value>Close</value>
+    </data>
+    <data name="UI_Comment_AddModal_SuccessHeader" xml:space="preserve">
+        <value>Your feedback has been received successfully!</value>
+    </data>
+    <data name="UI_Comment_AddModal_GooglePrompt" xml:space="preserve">
+        <value>Reviews posted on Google are featured with priority on our website. Would you like to support us by sharing your review on Google Maps as well?</value>
+    </data>
+    <data name="UI_Comment_AddModal_ShareOnGoogleButtons" xml:space="preserve">
+        <value>Share on Google</value>
+    </data>
+    <data name="UI_Comment_AddModal_RatingLabel" xml:space="preserve">
+        <value>Your Rating</value>
+    </data>
+    <data name="UI_Comment_AddModal_CommentDetailLabel" xml:space="preserve">
+        <value>Your Review</value>
+    </data>
+    <data name="UI_Comment_AddModal_CancelButton" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="Submit" xml:space="preserve">
+        <value>Submit</value>
+    </data>
+    <data name="UI_ProductCatalog_Grid_FreshBadge" xml:space="preserve">
+        <value>Fresh</value>
+    </data>
+    <data name="UI_FeaturedProducts_Eyebrow" xml:space="preserve">
+        <value>FEATURED PRODUCTS</value>
+    </data>
+    <data name="UI_FeaturedProducts_Heading" xml:space="preserve">
+        <value>Weekly fresh picks</value>
+    </data>
+    <data name="UI_FeaturedProducts_Description" xml:space="preserve">
+        <value>Handpicked organic favorites for your daily needs and beyond.</value>
+    </data>
+    <data name="UI_FeaturedProducts_BadgeBestSeller" xml:space="preserve">
+        <value>Best Seller</value>
+    </data>
+    <data name="UI_FeaturedProducts_BadgeTrending" xml:space="preserve">
+        <value>Trending</value>
+    </data>
+    <data name="UI_FeaturedProducts_BadgeOnSale" xml:space="preserve">
+        <value>On Sale</value>
+    </data>
+    <data name="UI_FeaturedProducts_ViewAllButton" xml:space="preserve">
+        <value>All Products</value>
+    </data>
+    <data name="UI_UserReviews_Eyebrow" xml:space="preserve">
+        <value>User Reviews</value>
+    </data>
+    <data name="UI_UserReviews_Heading" xml:space="preserve">
+        <value>The Neighborhood's Veteran Greengrocer</value>
+    </data>
+    <data name="UI_UserReviews_Description" xml:space="preserve">
+        <value>Don't take it from us, listen to our daily customers...</value>
+    </data>
+    <data name="UI_UserReviews_AddCommentButton" xml:space="preserve">
+        <value>Leave a Review</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_GridViewTitle" xml:space="preserve">
+        <value>Grid view</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_ListViewTitle" xml:space="preserve">
+        <value>List view</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_ProductCountFormat" xml:space="preserve">
+        <value>{0} products</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortByButton" xml:space="preserve">
+        <value>Sort by</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortLatest" xml:space="preserve">
+        <value>Latest</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortPriceAsc" xml:space="preserve">
+        <value>Price: Low to High</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortPriceDesc" xml:space="preserve">
+        <value>Price: High to Low</value>
+    </data>
+    <data name="UI_ProductCatalog_Toolbar_SortRating" xml:space="preserve">
+        <value>Best Rating</value>
+    </data>
+    <data name="UI_Navbar_About" xml:space="preserve">
+        <value>About Us</value>
+    </data>
+    <data name="Menü" xml:space="preserve">
+        <value>Menu</value>
+    </data>
+    <data name="UI_Navbar_Gallery" xml:space="preserve">
+        <value>Gallery</value>
+    </data>
+    <data name="UI_Navbar_Reviews" xml:space="preserve">
+        <value>Reviews</value>
+    </data>
+    <data name="UI_Navbar_Contact" xml:space="preserve">
+        <value>Contact</value>
+    </data>
+    <data name="UI_Navbar_Sing_Out" xml:space="preserve">
+        <value>Sign Out</value>
+    </data>
+    <data name="UI_WhyChooseUs_ExperienceBadgeNum" xml:space="preserve">
+        <value>90+</value>
+    </data>
+    <data name="UI_WhyChooseUs_ExperienceBadgeLabel" xml:space="preserve">
+        <value>Years of organic freshness at your local greengrocer</value>
+    </data>
+    <data name="UI_WhyChooseUs_Eyebrow" xml:space="preserve">
+        <value>Why people choose us</value>
+    </data>
+    <data name="UI_WhyChooseUs_Heading" xml:space="preserve">
+        <value>Quality organic products for a healthier lifestyle</value>
+    </data>
+    <data name="UI_WhyChooseUs_Description" xml:space="preserve">
+        <value>Our products are handpicked every two days from the central wholesale market, reaching your kitchen at peak freshness in whatever quantity you order.</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature1_Title" xml:space="preserve">
+        <value>100% Natural</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature1_Desc" xml:space="preserve">
+        <value>Zero chemicals, seasonal produce — daily fresh and premium fruits.</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature2_Title" xml:space="preserve">
+        <value>Home Delivery</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature2_Desc" xml:space="preserve">
+        <value>Orders over a certain amount are delivered to your door free of charge</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature3_Title" xml:space="preserve">
+        <value>Natural Remedies</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature3_Desc" xml:space="preserve">
+        <value>Natural herbal remedies and health benefits packed in fresh fruits and vegetables</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature4_Title" xml:space="preserve">
+        <value>Custom Orders</value>
+    </data>
+    <data name="UI_WhyChooseUs_Feature4_Desc" xml:space="preserve">
+        <value>Option to source specific requested products upon custom order</value>
+    </data>
+</root>

@@ -10,29 +10,28 @@
             <svg viewBox="0 0 24 24" fill="none">
                 <path d="M12 3.5 21 19H3L12 3.5Z"
                       stroke="currentColor" stroke-width="1.8"
-                      stroke-linecap="round" stroke-linejoin="round" />
+                      stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M12 9v4.5M12 16.5h.01"
                       stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" />
+                      stroke-linecap="round"/>
             </svg>
         </div>
 
-        <span class="maintenance-label">Geçici sistem bakımı</span>
-        <h1 id="maintenance-title">Ödeme şu anda tamamlanamıyor</h1>
+        <span class="maintenance-label">@L["Payment_Maintenance_PageTitle"]</span>
+        <h1 id="maintenance-title">@L["Payment_Maintenance_Title"]</h1>
 
         <p class="maintenance-description">
-            Ödeme sistemimizde kısa süreli bir bakım çalışması yürütüyoruz.
-            Hizmetimizi en kısa sürede yeniden aktif hale getireceğiz.
+            @L["Payment_Maintenance_Description"]
         </p>
-        
-            <a class="maintenance-button maintenance-button-primary"
-               href="/Default/Index">
-                Ana sayfaya dön
-            </a>
+
+        <a class="maintenance-button maintenance-button-primary"
+           href="/Default/Index">
+            @L["Error_HomeButton"]
+        </a>
 
 
         <p class="maintenance-footnote">
-            Anlayışınız için teşekkür ederiz.
+            @L["Payment_Maintenance_Footnote"]
         </p>
     </section>
 </main>

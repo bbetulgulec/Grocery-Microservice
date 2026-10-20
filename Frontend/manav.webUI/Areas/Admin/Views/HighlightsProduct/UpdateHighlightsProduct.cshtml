@@ -1,13 +1,13 @@
 @model UpdateHighlightsProductDto
 @{
-    ViewBag.Title = "Highlight Product Update";
+    ViewBag.Title = L["Admin_HighlightUpdate_Title"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 <section class="content container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>Öne Çıkarılan Ürün Güncelleme Sayfası</h4>
+                <h4>@L["Admin_HighlightUpdate_Title"]</h4>
                 @if (ViewBag.ErrorMessage != null)
                 {
                     <div class="alert alert-danger">
@@ -30,41 +30,42 @@
                         <input type="hidden" asp-for="Product.CategoryID" id="productCategoryHidden"/>
 
                         <div class="form-group">
-                            <label>Öne Çıkarılacak Ürünü Seçin</label>
+                            <label>@L["Admin_HighlightCreate_SelectProduct"]</label>
                             <select asp-for="Product.ProductID"
                                     asp-items="ViewBag.ProductList"
                                     class="form-control"
                                     id="productSelect"
                                     required>
-                                <option value="">--- Ürün Seçiniz ---</option>
+                                <option value="">@L["Admin_HighlightCreate_SelectPlaceholder"]</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Seçilen Ürün Fiyatı (Otomatik)</label>
+                            <label>@L["Admin_HighlightCreate_ProductPrice"]</label>
                             <input type="text" id="productPrice" class="form-control" disabled
-                                   placeholder="Ürün seçilince gelecek..."/>
+                                   placeholder="@L["Admin_HighlightCreate_AutoPlaceholder"]"/>
                         </div>
                         <div class="form-group">
-                            <label>Seçilen Ürün Görseli (Otomatik)</label>
+                            <label>@L["Admin_HighlightCreate_ProductImage"]</label>
                             <div class="product-image-container">
                                 <img src="@Model.Product.ProductImageURL"
                                      alt="@Model.Product.ProductName"
                                      id="productImage"
                                      class="highlight-product-image"
-                                     readonly placeholder="Ürün seçilince gelecek..."/>
+                                     readonly placeholder="@L["Admin_HighlightCreate_AutoPlaceholder"]"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Öne Çıkan Başlığı (Vitrin Sloganı)</label>
+                            <label>@L["Admin_HighlightCreate_HighlightTitle"]</label>
                             <input type="text" class="form-control" asp-for="HighlightsProductsName"
-                                   placeholder="Örn: Günün Fırsatı!" required/>
+                                   placeholder="@L["Admin_HighlightCreate_HighlightTitlePlaceholder"]" required/>
                         </div>
                         <div class="form-group">
-                            <label>Öne Çıkan Açıklaması</label>
+                            <label>@L["Admin_HighlightCreate_HighlightDescription"]</label>
                             <input type="text" id="productDescription" class="form-control" disabled
-                                   placeholder="Ürün seçilince gelecek..."/>
+                                   placeholder="@L["Admin_HighlightCreate_AutoPlaceholder"]"/>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-top-space">Öne Çıkarılanı Güncelle</button>
+                        <button type="submit"
+                                class="btn btn-primary btn-top-space">@L["Admin_HighlightUpdate_Title"]</button>
                     </form>
                 </div>
             </div>
@@ -75,7 +76,6 @@
 <script>
     document.getElementById("productSelect").addEventListener("change", function () {
         var productId = this.value;
-
         if (!productId) {
             document.getElementById("productPrice").value = "";
             document.getElementById("productImage").src = "";
@@ -90,8 +90,6 @@
                 return response.json();
             })
             .then(data => {
-                console.log("API'den gelen ürün detay verisi:", data);
-
                 var price = data.productPrice ?? data.ProductPrice ?? 0;
                 var image = data.productImageURL ?? data.ProductImageURL ?? "";
                 var description = data.productDescription ?? data.ProductDescription ?? "";
@@ -110,7 +108,6 @@
                 document.getElementById("productCategoryHidden").value = categoryId;
             })
             .catch(err => {
-                console.error("Ürün bilgileri alınamadı:", err);
                 document.getElementById("productPrice").value = "";
                 document.getElementById("productDescription").value = "";
                 document.getElementById("productImage").src = "";
@@ -127,7 +124,6 @@
         if (input.files && input.files[0]) {
             var file = input.files[0];
             document.getElementById("selectedFileName").innerText = file.name;
-
             var reader = new FileReader();
             reader.onload = function (e) {
                 document.getElementById("productImage").src = e.target.result;

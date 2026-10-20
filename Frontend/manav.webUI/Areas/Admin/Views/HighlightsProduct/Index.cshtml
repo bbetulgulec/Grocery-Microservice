@@ -1,6 +1,6 @@
 @model List<ResultHighlightsProductDto>
 @{
-    ViewBag.Title = "Highlight Products";
+    ViewBag.Title = L["Admin_HighlightsProduct_TableList"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
     var count = 0;
 }
@@ -12,9 +12,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Kategori Adı</th>
-                        <th>Sil</th>
-                        <th>Güncelle</th>
+                        <th>@L["Admin_Category_Name"]</th>
+                        <th>@L["Delete"]</th>
+                        <th> @L["Update"]</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -25,15 +25,16 @@
                             <th scope="row">@count</th>
                             <td>@item.HighlightsProductsName</td>
                             <td><a href='/Admin/HighlightsProduct/DeleteHighlightsProduct/@item.HighlightsProductsID'
-                                   class="btn btn-danger"> Sil</a></td>
+                                   class="btn btn-danger"> @L["Delete"]</a></td>
                             <td><a href='/Admin/HighlightsProduct/UpdateHighlightsProduct/@item.HighlightsProductsID'
-                                   class="btn btn-success"> Güncelle</a></td>
+                                   class="btn btn-success"> @L["Update"]</a></td>
                         </tr>
                     }
                     </tbody>
                 </table>
-                <a href="/Admin/HighlightsProduct/CreateHighlightsProduct/" class="btn btn-success btn-top-space"> Yeni
-                    öne çıkarılan girişi </a>
+                <a href="/Admin/HighlightsProduct/CreateHighlightsProduct/"
+                   class="btn btn-success btn-top-space"> @L["Admin_HighlightList_AddNewButton"]
+                </a>
             </div>
         </div>
     </div>

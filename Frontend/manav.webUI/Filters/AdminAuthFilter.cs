@@ -12,8 +12,6 @@ public class AdminAuthFilter : IActionFilter
             return;
 
         var controller = context.RouteData.Values["controller"]?.ToString();
-
-        // Admin login sayfasına herkes girebilsin (döngü olmasın)
         if (string.Equals(controller, "Login", StringComparison.OrdinalIgnoreCase))
             return;
 

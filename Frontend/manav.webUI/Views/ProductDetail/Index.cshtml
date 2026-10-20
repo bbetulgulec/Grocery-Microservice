@@ -9,9 +9,9 @@
         <div class="row g-4 align-items-center">
             <div class="col-lg-6">
                 <div class="gec-media rounded-4 overflow-hidden position-relative">
-                    <img src="@Model.ProductImageURL" 
-                         class="d-block w-100 object-fit-cover" 
-                         style="max-height: 420px; background-color: var(--gec-bg-alt);" 
+                    <img src="@Model.ProductImageURL"
+                         class="d-block w-100 object-fit-cover"
+                         style="max-height: 420px; background-color: var(--gec-bg-alt);"
                          alt="@Model.ProductName">
                 </div>
             </div>
@@ -26,47 +26,52 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star-half-stroke"></i>
                         </div>
-                        <span class="text-muted-2 fs-7">(128 değerlendirme)</span>
                     </div>
                     <div class="h3 fw-bold mb-3" style="color: var(--gec-accent);">
-                        ₺@Model.ProductPrice <span class="fs-6 text-muted-2 fw-normal">/ @Model.ProductStok kg stok</span>
+                        ₺@Model.ProductPrice <span
+                            class="fs-6 text-muted-2 fw-normal">/ @Model.ProductStok @L["UI_ProductDetail_StockSuffix"]</span>
                     </div>
                     <p class="text-muted-2 mb-4">
                         @Model.ProductDescription
                     </p>
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <span class="fw-semibold" style="min-width: 80px;">Gramaj:</span>
+                        <span class="fw-semibold" style="min-width: 80px;">@L["UI_ProductDetail_WeightLabel"]</span>
                         <div class="d-flex gap-3 flex-wrap align-items-center">
                             <div class="form-check">
-                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="w1" value="500" checked>
-                                <label class="form-check-label ms-1" for="w1">500 Gr</label>
+                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="w1"
+                                       value="500" checked>
+                                <label class="form-check-label ms-1" for="w1">@L["UI_ProductDetail_Weight500g"]</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="w2" value="1000">
-                                <label class="form-check-label ms-1" for="w2">1 Kg</label>
+                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="w2"
+                                       value="1000">
+                                <label class="form-check-label ms-1" for="w2">@L["UI_ProductDetail_Weight1kg"]</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="w3" value="2000">
-                                <label class="form-check-label ms-1" for="w3">2 Kg</label>
+                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="w3"
+                                       value="2000">
+                                <label class="form-check-label ms-1" for="w3">@L["UI_ProductDetail_Weight2kg"]</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input weight-radio" type="radio" name="weightOption" id="wCustomRadio" value="custom">
-                                <label class="form-check-label ms-1" for="wCustomRadio">Başka</label>
+                                <input class="form-check-input weight-radio" type="radio" name="weightOption"
+                                       id="wCustomRadio" value="custom">
+                                <label class="form-check-label ms-1"
+                                       for="wCustomRadio">@L["UI_ProductDetail_WeightCustom"]</label>
                             </div>
                             <div id="customWeightWrapper" class="ms-2" style="display: none;">
                                 <div class="input-group input-group-sm" style="width: 140px;">
-                                    <input type="number" id="customWeightInput" class="form-control" placeholder="Örn: 750" min="100" step="50">
-                                    <span class="input-group-text">Gr</span>
+                                    <input type="number" id="customWeightInput" class="form-control"
+                                           placeholder="Örn: 750" min="100" step="50">
+                                    <span class="input-group-text">@L["UI_ProductDetail_CustomWeightUnit"]</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Miktar & Sepet -->
                     <form asp-controller="Basket"
                           asp-action="AddToBasket"
                           method="post"
                           class="d-flex align-items-center gap-3 my-4">
-                        <input type="hidden" name="productId" value="@Model.ProductID" />
+                        <input type="hidden" name="productId" value="@Model.ProductID"/>
 
                         <button type="submit"
                                 class="btn btn-gec-cream px-4 py-2 d-inline-flex align-items-center gap-2">
@@ -74,16 +79,6 @@
                             Sepete Ekle
                         </button>
                     </form>
-                    <!-- Sosyal Paylaşım -->
-                    <div class="d-flex align-items-center gap-3 pt-3 border-top" style="border-color: var(--gec-border) !important;">
-                        <span class="text-muted-2 fw-semibold">Paylaş:</span>
-                        <div class="d-flex gap-3">
-                            <a href="#" class="text-muted-2 hover-accent"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="text-muted-2 hover-accent"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#" class="text-muted-2 hover-accent"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" class="text-muted-2 hover-accent"><i class="fa-brands fa-pinterest"></i></a>
-                        </div>
-                    </div>
                 </div>
             </div>
 
