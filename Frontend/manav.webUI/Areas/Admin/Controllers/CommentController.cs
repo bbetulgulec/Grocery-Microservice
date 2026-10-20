@@ -13,9 +13,10 @@ public class CommentController : Controller
     private readonly IStringLocalizer<SharedResource> _l;
 
 
-    public CommentController(IAdminCommentService commentService)
+    public CommentController(IAdminCommentService commentService, IStringLocalizer<SharedResource> l)
     {
         _commentService = commentService;
+        _l = l;
     }
 
     [HttpGet]
