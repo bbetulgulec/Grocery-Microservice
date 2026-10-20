@@ -1,8 +1,8 @@
-namespace manav.webUI.Enums;
+namespace manav.DtoLayer.CatalogDtos.ProductsDtos;
 
 public enum SaleUnit
 {
-    Piece,
-    Kg,
-    Pack
+    Piece = 0,
+    Kg = 1,
+    Pack = 2
 }

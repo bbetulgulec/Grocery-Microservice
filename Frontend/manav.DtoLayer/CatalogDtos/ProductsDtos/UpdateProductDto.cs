@@ -1,4 +1,3 @@
-using manav.catalog.Enum;
 using Microsoft.AspNetCore.Http;
 
 namespace manav.DtoLayer.CatalogDtos.ProductsDtos;

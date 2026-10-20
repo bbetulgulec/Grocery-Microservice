@@ -1,4 +1,3 @@
-using manav.catalog.Enum;
 using manav.DtoLayer.CatalogDtos.CategoryDtos;
 
 namespace manav.DtoLayer.CatalogDtos.ProductsDtos;
