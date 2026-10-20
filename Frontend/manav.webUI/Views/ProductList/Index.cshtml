@@ -5,6 +5,12 @@
 }
 
 
+@model List<ResultProductWithCategoryDto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+}
+
 <section id="products" class="section">
     <div class="container">
         <div class="row g-4 align-items-start">
@@ -14,8 +20,11 @@
             <div class="col-lg-9">
                 <!-- Grid -->
                 <div id="productListContainer">
-                    @await Component.InvokeAsync("_ProductsProductListComponentPartial")
-                </div> <!-- Pagination -->
+                    <!-- Model üzerinden gelen filtrelenmiş listeyi buraya veriyoruz -->
+                    @await Component.InvokeAsync("_ProductsProductListComponentPartial", new { products = Model })
+                </div>
+
+                <!-- Pagination -->
                 @await Component.InvokeAsync(
                     "_PaginationProductListComponentPartial",
                     new
@@ -25,7 +34,6 @@
                         categoryIds = (List<string>)ViewBag.SelectedCategoryIds
                     })
             </div>
-
         </div>
     </div>
 </section>
