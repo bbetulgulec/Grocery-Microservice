@@ -14,6 +14,7 @@
                         <th>#</th>
                         <th>@L["Admin_HighlightList_ProductName"]</th>
                         <th>@L["Admin_HighlightList_ProductPrice"]</th>
+                        <th>Tür</th>
                         <th>@L["Admin_ProductCreate_Category"]</th>
                         <th>@L["Delete"]</th>
                         <th>@L["Update"]</th>
@@ -27,6 +28,15 @@
                             <th scope="row">@count</th>
                             <td>@item.ProductName</td>
                             <td>@item.ProductPrice</td>
+                            <td>
+                                @(item.Unit.ToString() switch
+                                {
+                                    "Piece" => "Adet",
+                                    "Kg" => "Kilogram",
+                                    "Pack" => "Paket",
+                                    _ => "Bilinmiyor"
+                                })
+                            </td>
                             <td>@(item.Category?.CategoryName)</td>
                             <td><a href='/Admin/Product/DeleteProduct/@item.ProductID'
                                    class="btn btn-danger"> @L["Delete"]</a>
