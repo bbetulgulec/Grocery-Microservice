@@ -171,7 +171,7 @@ app.UseExceptionHandler("/Error/Index");
 app.UseStatusCodePagesWithReExecute("/Error/Index", "?code={0}");
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapStaticAssets();
