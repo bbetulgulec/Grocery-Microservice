@@ -1,6 +1,6 @@
 @model List<ResultGalleryDto>
 @{
-    ViewBag.Title = "Gallery Index";
+    ViewBag.Title = L["Admin_GalleryList_Title"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
     var count = 0;
 }
@@ -12,10 +12,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Resim Adı</th>
-                        <th>Resim</th>
-                        <th>Sil</th>
-                        <th>Güncelle</th>
+                        <th>@L["Admin_GalleryList_ImageName"]</th>
+                        <th>@L["Admin_GalleryList_Image"]</th>
+                        <th>@L["Delete"]</th>
+                        <th>@L["Update"]</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,15 +30,17 @@
                                      alt="@item.GallaryName"
                                      class="highlight-product-image"/>
                             </td>
-                            <td><a href='/Admin/Gallery/DeleteGallery/@item.GallaryId' class="btn btn-danger"> Sil</a>
+                            <td><a href='/Admin/Gallery/DeleteGallery/@item.GallaryId'
+                                   class="btn btn-danger"> @L["Delete"]</a>
                             </td>
                             <td><a href='/Admin/Gallery/UpdateGallery/@item.GallaryId' class="btn btn-success">
-                                    Güncelle</a></td>
+                                    @L["Update"]</a></td>
                         </tr>
                     }
                     </tbody>
                 </table>
-                <a href="/Admin/Gallery/CreateGallery/" class="btn btn-success"> Yeni Kategori girişi </a>
+                <a href="/Admin/Gallery/CreateGallery/"
+                   class="btn btn-success"> @L["Admin_GalleryList_AddNewButton"] </a>
             </div>
         </div>
     </div>

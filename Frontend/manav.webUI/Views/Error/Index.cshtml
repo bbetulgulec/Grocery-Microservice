@@ -9,23 +9,22 @@
             <i class="fa-solid fa-triangle-exclamation"></i>
         </div>
 
-        <span class="maintenance-label">İşlem tamamlanamadı</span>
+        <span class="maintenance-label">@L["Error_Label"]</span>
 
-        <h1 id="error-title">Bir sorun oluştu</h1>
+        <h1 id="error-title">@L["Error_Title"]</h1>
 
         <p class="maintenance-description">
-            İsteğiniz şu anda tamamlanamadı. Lütfen tekrar deneyin.
-            Sorun devam ederse destek ekibimizle iletişime geçin.
+            @L["Error_Description"]
         </p>
 
         <a class="maintenance-button maintenance-button-primary"
            href="/Default/Index">
             <i class="fa-solid fa-house"></i>
-            Ana sayfaya dön
+            @L["Error_HomeButton"]
         </a>
 
         <p class="mt-4 mb-0 small text-muted">
-            Destek kodu: @requestId
+            @L["Error_SupportCode"] @requestId
         </p>
     </div>
 </section>

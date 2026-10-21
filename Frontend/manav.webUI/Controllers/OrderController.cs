@@ -43,9 +43,15 @@ public class OrderController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateOrder()
+    public async Task<IActionResult> CreateOrder(string? SelectedAddressId, CreateAddressDto address)
     {
         var user = await _userService.GetUser();
+        if (string.IsNullOrEmpty(SelectedAddressId) || SelectedAddressId == "0")
+        {
+            address.UserID = user.Id;
+            await _addressService.CreateAddressAsync(address);
+        }
+
         var basket = await _basketService.GetBasket();
         if (!basket.BasketItems.Any()) return RedirectToAction("Index", "Basket");
         var createOrderingDto = new CreateOrderingDto

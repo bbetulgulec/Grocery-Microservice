@@ -1,19 +1,23 @@
+using manav.DtoLayer.CatalogDtos.ProductsDtos;
 using manav.webUI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace manav.webUI.ViewComponents.ProductListViewComponents;
 
-public class _ProductsProductListComponentPartial:ViewComponent
+public class _ProductsProductListComponentPartial : ViewComponent
 {
-    
     private readonly IProductService _productService;
-    public _ProductsProductListComponentPartial( IProductService productService)
+
+    public _ProductsProductListComponentPartial(IProductService productService)
     {
         _productService = productService;
     }
-    public async Task<IViewComponentResult> InvokeAsync()
+
+    public async Task<IViewComponentResult> InvokeAsync(List<ResultProductWithCategoryDto>? products = null)
     {
-        var values = await _productService.GetProductsWithCategoryAsync();
-        return View(values);
+        if (products == null)
+            products = await _productService.GetProductsWithCategoryAsync() ?? new List<ResultProductWithCategoryDto>();
+
+        return View(products);
     }
 }

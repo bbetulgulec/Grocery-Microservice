@@ -4,27 +4,34 @@
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.11" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.11"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.8"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.11">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.11">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\manav.cargo.businessLayer\manav.cargo.businessLayer.csproj" />
-      <ProjectReference Include="..\manav.cargo.dataAccessLayer\manav.cargo.dataAccessLayer.csproj" />
-      <ProjectReference Include="..\manav.cargo.dtoLayer\manav.cargo.dtoLayer.csproj" />
-      <ProjectReference Include="..\manav.cargo.entityLayer\manav.cargo.entityLayer.csproj" />
+        <ProjectReference Include="..\manav.cargo.businessLayer\manav.cargo.businessLayer.csproj"/>
+        <ProjectReference Include="..\manav.cargo.dataAccessLayer\manav.cargo.dataAccessLayer.csproj"/>
+        <ProjectReference Include="..\manav.cargo.dtoLayer\manav.cargo.dtoLayer.csproj"/>
+        <ProjectReference Include="..\manav.cargo.entityLayer\manav.cargo.entityLayer.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\..\..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@ using manav.DtoLayer.CatalogDtos.ProductsDtos;
 
 namespace manav.webUI.Services.ProductServices;
 
-public class ProductService:IProductService
+public class ProductService : IProductService
 {
     private readonly HttpClient _httpClient;
 
@@ -20,25 +20,29 @@ public class ProductService:IProductService
 
     public async Task<UpdateProductDto> GetByIdProductAsync(string id)
     {
-        var responseMassage = await _httpClient.GetAsync("products/"+id);
+        var responseMassage = await _httpClient.GetAsync("products/" + id);
         var values = await responseMassage.Content.ReadFromJsonAsync<UpdateProductDto>();
-        return values;    
+        return values;
     }
 
     public async Task UpdateProductDto(UpdateProductDto updateProductDto)
     {
-        await _httpClient.PutAsJsonAsync<UpdateProductDto>("products", updateProductDto);
+        var response = await _httpClient.PutAsJsonAsync("products", updateProductDto);
+        if (!response.IsSuccessStatusCode)
+        {
+            var body = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Ürün güncelleme hatası {(int)response.StatusCode}: {body}");
+        }
     }
 
-    public  async Task CreateProductDto(CreateProductDto createProductDto)
+    public async Task CreateProductDto(CreateProductDto createProductDto)
     {
-        await  _httpClient.PostAsJsonAsync<CreateProductDto>("products", createProductDto);
+        await _httpClient.PostAsJsonAsync("products", createProductDto);
     }
 
     public async Task DeleteProductAsync(string id)
     {
         await _httpClient.DeleteAsync($"products?id={id}");
-        
     }
 
     public async Task<List<ResultProductWithCategoryDto>> GetProductsWithCategoryAsync()

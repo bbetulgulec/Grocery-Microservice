@@ -4,28 +4,35 @@
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="MediatR" Version="14.2.0" />
-        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.11" />
+        <PackageReference Include="MediatR" Version="14.2.0"/>
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.11"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.8"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.11">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.11">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Core\manav.order.application\manav.order.application.csproj" />
-      <ProjectReference Include="..\..\Core\manav.order.domain\manav.order.domain.csproj" />
-      <ProjectReference Include="..\..\Infrastructure\manav.order.persstance\manav.order.persstance.csproj" />
+        <ProjectReference Include="..\..\Core\manav.order.application\manav.order.application.csproj"/>
+        <ProjectReference Include="..\..\Core\manav.order.domain\manav.order.domain.csproj"/>
+        <ProjectReference Include="..\..\Infrastructure\manav.order.persstance\manav.order.persstance.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\..\..\..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
 </Project>
