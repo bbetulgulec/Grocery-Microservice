@@ -177,11 +177,14 @@ AWS__AccessKey / AWS__SecretKey / AWS__BucketName=[...]
 
 ## 🗺️ Yol Haritası
 
-- [x] Mikroservis yapısı ve API Gateway
-- [x] IdentityServer ile kimlik doğrulama
-- [x] Docker ile paketleme ve AWS'ye yayın
-- [x] Çoklu dil desteği
-- [ ] [Eklemeyi düşündüğün özellik, örn. CI/CD pipeline]
+-  Mikroservis yapısı ve API Gateway
+-  IdentityServer ile kimlik doğrulama
+-  Docker ile paketleme ve AWS'ye yayın
+-  Çoklu dil desteği
+-  CI: GitHub Actions ile otomatik build ve test
+-  CD: Otomatik deploy (GitHub Actions ile AWS EC2'ye)
+-  Entity Framework Core entegrasyonu
+-  Unit ve entegrasyon testlerinin artırılması
 
 ## 🌐 Web Sitesi
 
