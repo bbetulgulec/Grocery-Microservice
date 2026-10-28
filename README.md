@@ -160,15 +160,6 @@ cd [repo-adi]
 # 3. Tüm servisleri ayağa kaldır
 docker compose up -d
 ```
-
-| Servis | Adres |
-|--------|-------|
-| Web Arayüzü | `http://localhost:[port]` |
-| API Gateway | `http://localhost:[port]` |
-| IdentityServer | `http://localhost:[port]` |
-| RabbitMQ Yönetim Paneli | `http://localhost:15672` |
-| Portainer | `https://localhost:9443` |
-
 ### ⚙️ Yapılandırma
 
 Bağlantı bilgileri ve gizli anahtarlar koda yazılmadı, ortam değişkenleri ile verilir:
@@ -192,13 +183,11 @@ AWS__AccessKey / AWS__SecretKey / AWS__BucketName=[...]
 - [x] Çoklu dil desteği
 - [ ] [Eklemeyi düşündüğün özellik, örn. CI/CD pipeline]
 
-## 👩‍💻 Geliştirici
+## 🌐 Web Sitesi
 
-**Betül Güleç**
+🔗 **[www.mevsimmanav.com.tr](https://www.mevsimmanav.com.tr/)**
 
-- GitHub: [@kullanici-adi](https://github.com/kullanici-adi)
-- E-posta: [e-posta adresin]
 
 ## 📄 Lisans
 
-Bu proje [MIT] lisansı ile paylaşılmaktadır.
+Bu proje MIT lisansı ile paylaşılmaktadır.
