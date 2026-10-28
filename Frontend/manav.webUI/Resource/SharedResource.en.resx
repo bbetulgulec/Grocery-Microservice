@@ -1053,4 +1053,7 @@
     <data name="UI_WhyChooseUs_Feature4_Desc" xml:space="preserve">
         <value>Option to source specific requested products upon custom order</value>
     </data>
+    <data name="Highlight_not_found_product" xml:space="preserve">
+        <value>There are no featured products at this time.</value>
+    </data>
 </root>

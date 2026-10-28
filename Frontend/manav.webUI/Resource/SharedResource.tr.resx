@@ -1044,4 +1044,7 @@
     <data name="UI_WhyChooseUs_Feature4_Desc" xml:space="preserve">
         <value>İstenilen ürünler özel sipariş ile getirme ihtimali</value>
     </data>
+    <data name="Highlight_not_found_product" xml:space="preserve">
+        <value>Henüz öne çıkarılan bir ürün bulunmamaktadır.</value>
+    </data>
 </root>

@@ -24,7 +24,6 @@ public class BasketService : IBasketService
         }
         catch (JsonException)
         {
-            // boş gövde (yeni kullanıcı)
         }
 
         values ??= new BasketTotalDto();
