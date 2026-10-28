@@ -1,48 +1,56 @@
 @model CreateProductDto
 @{
-    ViewBag.title = "CreateProduct";
+    ViewBag.title = L["Admin_ProductCreate_Title"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 <section class="content container-fluid" xmlns="http://www.w3.org/1999/html">
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>Ürün Ekleme Sayfası</h4>
+                <h4>@L["Admin_ProductCreate_Title"]</h4>
                 <br/>
                 <div class="bs-example" data-example-id="bordered-table">
                     <form method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label>Ürün Adı</label>
+                            <label>@L["Admin_HighlightList_ProductName"]</label>
                             <input type="text" class="form-control" asp-for="ProductName"/>
                         </div>
 
                         <div class="form-group">
-                            <label>Ürün Fiyatı</label>
+                            <label>@L["Admin_HighlightList_ProductPrice"]</label>
                             <input type="text" class="form-control" asp-for="ProductPrice"/>
                         </div>
 
                         <div class="form-group">
-                            <label>Ürün Stoğu</label>
+                            <label>@L["Admin_ProductCreate_Stock"]</label>
                             <input type="text" class="form-control" asp-for="ProductStok"/>
                         </div>
 
                         <div class="form-group">
-                            <label>Ürün Kategorisi</label>
+                            <label>Satış birimi</label>
+                            <select asp-for="Unit" class="form-control">
+                                <option value="Piece">Adet</option>
+                                <option value="Kg">Kilo (kg)</option>
+                                <option value="Pack">Paket</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>@L["Admin_ProductCreate_Category"]</label>
                             @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.categoryValues, new { @class = "form-control" })
                         </div>
 
                         <div class="form-group">
-                            <label>Ürün Açıklaması</label>
+                            <label>@L["Admin_HighlightList_ProductDescription"]</label>
                             <textarea class="form-control" rows="5" asp-for="ProductDescription"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label>Ürün Resmi</label>
+                            <label>@L["Admin_HighlightList_ProductImage"]</label>
                             <input type="file" class="form-control" asp-for="ImageFile" accept="image/*"/>
                         </div>
 
                         <div class="form-group m-top-2">
-                            <button class="btn btn-primary">Ürünü Ekle</button>
+                            <button class="btn btn-primary">@L["Admin_ProductCreate_SubmitButton"]</button>
                         </div>
                     </form>
                 </div>

@@ -8,37 +8,38 @@
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>Hakkında Bilgileri Sayfası</h4>
+                <h4>@L["Admin_About_UpdateTitle"]</h4>
                 <br/>
                 @if (string.IsNullOrEmpty(Model?.AboutId))
                 {
                     <div class="alert alert-warning">
-                        <strong>Kayıt Bulunamadı!</strong> Lütfen aşağıdaki alanları doldurarak yeni Hakkında bilgisi ekleyin.
+                        @Html.Raw(L["Admin_About_UpdateNotFoundAlert"])
                     </div>
                 }
                 <div class="bs-example" data-example-id="bordered-table">
                     <form method="post" asp-action="UpdateAbout" asp-controller="About" asp-area="Admin">
                         <input type="hidden" asp-for="AboutId"/>
-                        
-                        <label>Açıklama</label>
+
+                        <label>@L["Admin_About_Description"]</label>
                         <input type="text" class="form-control" asp-for="AboutDescription"/>
                         <br/>
-                        <label>Adres</label>
+                        <label>@L["Admin_About_Address"]</label>
                         <input type="text" class="form-control" asp-for="AboutAdress"/>
                         <br/>
-                        <label>Mail</label>
+                        <label>@L["Admin_About_Mail"]</label>
                         <input type="text" class="form-control" asp-for="AboutMail"/>
                         <br/>
-                        <label>Telefon</label>
+                        <label>@L["Admin_About_Phone"]</label>
                         <input type="text" class="form-control" asp-for="AboutNumber"/>
                         <br/>
-                        <label>Çalışma Saati</label>
+                        <label>@L["Admin_About_WorkTime"]</label>
                         <input type="text" class="form-control" asp-for="AboutWorkTime"/>
                         <br/>
-                        <button type="submit" class="btn btn-primary">Hakkında Bilgilerini Güncelle</button>
+                        <button type="submit" class="btn btn-primary">@L["Admin_About_UpdateButton"]</button>
                         @if (!string.IsNullOrEmpty(Model?.AboutId))
                         {
-                            <a href="/Admin/About/DeleteAbout/@Model.AboutId" class="btn btn-danger" onclick="return confirm('Silmek istediğinize emin misiniz?');">Hakkında Bilgilerini Sil</a>
+                            <a href="/Admin/About/DeleteAbout/@Model.AboutId" class="btn btn-danger"
+                               onclick="return confirm(@L["Admin_About_UpdateDeleteConfirm"]);">@L["Admin_About_UpdateDeleteButton"]</a>
                         }
                     </form>
                 </div>

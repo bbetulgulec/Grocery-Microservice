@@ -1,6 +1,6 @@
 @model List<ResultContactDto>
 @{
-    ViewBag.Title = "Contact List";
+    ViewBag.Title = L["Admin_Contact_Title"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
     var count = 0;
 }
@@ -13,12 +13,12 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>İsim Soyisim</th>
-                        <th>Email</th>
-                        <th>Konu</th>
-                        <th>İçerik</th>
-                        <th>Durum</th>
-                        <th>Sil</th>
+                        <th>@L["Admin_Contact_FullName"]</th>
+                        <th>@L["Admin_About_Mail"]</th>
+                        <th>@L["Admin_Contact_Subject"]</th>
+                        <th>@L["Admin_Contact_Message"]</th>
+                        <th>@L["Admin_Comment_Status"]</th>
+                        <th>@L["Delete"]</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -34,14 +34,15 @@
                             <td>
                                 @if (item.IsRead)
                                 {
-                                    <span class="badge bg-success">Okundu</span>
+                                    <span class="badge bg-success">@L["Admin_Contact_Read"]</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-secondary">Okunmadı</span>
+                                    <span class="badge bg-secondary">@L["Admin_Contact_Unread"]</span>
                                 }
                             </td>
-                            <td><a href='/Admin/Contact/DeleteContact/@item.ContactId' class="btn btn-danger"> Sil</a>
+                            <td><a href='/Admin/Contact/DeleteContact/@item.ContactId'
+                                   class="btn btn-danger"> @L["Delete"]</a>
                             </td>
                         </tr>
                     }

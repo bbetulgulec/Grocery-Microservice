@@ -1,74 +1,85 @@
-@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @model CreateLoginDto
 @{
-    ViewBag.Title = "Login";
-    Layout = null;
+  ViewBag.Title = "Login";
+  Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mevsim Manav - Müşteri Girişi</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>@L["Login_PageTitle"]</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="~/template/assets/css/main.css" />
+  <link rel="stylesheet" href="~/template/assets/css/main.css"/>
 </head>
 <body class="auth-body min-vh-100 d-flex align-items-center justify-content-center p-3 p-md-4">
-  <div class="card auth-card border-0 overflow-hidden shadow-lg" style="max-width: 1000px; width: 100%;">
-    <div class="row g-0 align-items-stretch">
-      <!-- Sol Yan Menü (Koyu Alan) -->
-      <div class="col-md-5 auth-sidebar p-4 p-lg-5 d-flex flex-column justify-content-between text-white">
-        <div>
-          <div class="brand-logo mb-4 d-flex align-items-center gap-2">
-            <i class="bi bi-basket-fill brand-mark fs-3"></i>
-            <span class="fs-4 fw-bold">Mevsim Manav</span>
-          </div>
-          <span class="gh-pill is-cream mb-3 d-inline-block">Taze & Organik</span>
-          <h3 class="fw-bold mb-3 text-white">Hoş Geldiniz!</h3>
-          <p class="text-white-50 fs-6 lh-base mb-0">
-            Henüz bir hesabınız yoksa üye olarak tarladan sofranıza en taze ürünleri hemen sipariş edebilirsiniz.
-          </p>
+<div class="card auth-card border-0 overflow-hidden shadow-lg" style="max-width: 1000px; width: 100%;">
+  <div class="row g-0 align-items-stretch">
+    <!-- Sol Yan Menü (Koyu Alan) -->
+    <div class="col-md-5 auth-sidebar p-4 p-lg-5 d-flex flex-column justify-content-between text-white">
+      <div>
+        <div class="brand-logo mb-4 d-flex align-items-center gap-2">
+          <i class="bi bi-basket-fill brand-mark fs-3"></i>
+          <span class="fs-4 fw-bold">@L["Mevsim_Manav"]</span>
         </div>
-        
-        <div class="pt-5">
-          <p class="small text-white-50 mb-2">Hesabınız yok mu?</p>
-          <a href="/Register/Index" class="btn btn-gec-outline-cream d-inline-flex align-items-center gap-2">
-            <i class="bi bi-person-plus-fill"></i> Kayıt Ol
-          </a>
-        </div>
+        <span class="gh-pill is-cream mb-3 d-inline-block">@L["Login_Pill"]</span>
+        <h3 class="fw-bold mb-3 text-white">@L["Login_Welcome"]</h3>
+        <p class="text-white-50 fs-6 lh-base mb-0">
+          @L["Login_WelcomeText"]
+        </p>
       </div>
 
-      <!-- Sağ Taraf (Form Alanı) -->
-      <div class="col-md-7 p-4 p-lg-5 text-dark bg-white d-flex flex-column justify-content-center">
-        <div class="d-flex align-items-center justify-content-between mb-4">
-          <h2 class="fw-bold mb-0 text-dark">Giriş Yap</h2>
-          <a href="/Default/Index" class="text-secondary text-decoration-none small d-flex align-items-center gap-1 hover-mint">
-            <i class="bi bi-house-door"></i> Siteye Dön
-          </a>
-        </div>
-
-        <form asp-controller="Login" asp-action="Index" method="post">
-          <div class="mb-3">
-            <label for="Email" class="form-label text-dark fw-semibold small mb-1">E-Posta Adresi</label>
-            <input type="email" class="form-control form-control-gec" asp-for="Email" id="Email" placeholder="ornek@email.com" required />
-          </div>
-
-          <div class="mb-4">
-            <label for="password" class="form-label text-dark fw-semibold small mb-1">Şifre</label>
-            <input type="password" class="form-control form-control-gec" asp-for="Password" id="password" placeholder="••••••••" required />
-          </div>
-
-          <div class="pt-2">
-            <button type="submit" class="btn btn-gec-main w-100 d-flex align-items-center justify-content-center gap-2 fs-6">
-              <i class="bi bi-box-arrow-in-right"></i> Giriş Yap
-            </button>
-          </div>
-        </form>
+      <div class="pt-5">
+        <p class="small text-white-50 mb-2">@L["Login_NoAccount"]</p>
+        <a href="/Register/Index" class="btn btn-gec-outline-cream d-inline-flex align-items-center gap-2">
+          <i class="bi bi-person-plus-fill"></i> @L["Login_RegisterButton"]
+        </a>
       </div>
-
     </div>
+
+    <!-- Sağ Taraf (Form Alanı) -->
+    <div class="col-md-7 p-4 p-lg-5 text-dark bg-white d-flex flex-column justify-content-center">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <h2 class="fw-bold mb-0 text-dark">@L["Admin_Login_Title"]</h2>
+        <a href="/Default/Index"
+           class="text-secondary text-decoration-none small d-flex align-items-center gap-1 hover-mint">
+          <i class="bi bi-house-door"></i> @L["Login_BackToSite"]
+        </a>
+      </div>
+
+      <form asp-controller="Login" asp-action="Index" method="post">
+        @if (ViewBag.ErrorMessage != null)
+        {
+          <div class="alert alert-danger d-flex align-items-center gap-2 py-2 small" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span>@ViewBag.ErrorMessage</span>
+          </div>
+        }
+        <div class="mb-3">
+          <label for="Email" class="form-label text-dark fw-semibold small mb-1">@L["Admin_Login_EmailLabel"]</label>
+          <input type="email" class="form-control form-control-gec" asp-for="Email" id="Email"
+                 placeholder="@L["Admin_Login_EmailPlaceholder"]" required/>
+        </div>
+
+        <div class="mb-4">
+          <label for="password"
+                 class="form-label text-dark fw-semibold small mb-1">@L["Admin_Login_PasswordLabel"]</label>
+          <input type="password" class="form-control form-control-gec" asp-for="Password" id="password"
+                 placeholder="••••••••" required/>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit"
+                  class="btn btn-gec-main w-100 d-flex align-items-center justify-content-center gap-2 fs-6">
+            <i class="bi bi-box-arrow-in-right"></i> @L["Admin_Login_Title"]
+          </button>
+        </div>
+      </form>
+    </div>
+
   </div>
+</div>
 </body>
 </html>

@@ -1,17 +1,17 @@
 @model List<ResultOrderingByUserIdDto>
 @{
-    ViewBag.Title = "Kullanıcı Sipariş Detayları";
+    ViewBag.Title = L["Admin_UserOrderDetails_Title"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 <section class="orders-page">
     <header class="orders-heading">
         <div>
-            <h1>Sipariş geçmişi</h1>
-            <p>Müşterinin verdiği siparişler ve ürün detayları</p>
+            <h1>@L["Admin_UserOrderDetails_Title"]</h1>
+            <p>@L["Admin_UserOrderDetails_Subtitle"]</p>
         </div>
         <a href="/Admin/Order/GetAllOrders" class="orders-back">
             <span class="back-arrow" aria-hidden="true">&larr;</span>
-            Sipariş listesine dön
+            @L["Admin_UserOrderDetails_BackToList"]
         </a>
     </header>
 
@@ -23,14 +23,14 @@
                 <article class="order-card">
                     <header class="order-card-head">
                         <div class="order-meta">
-                            <span class="order-number">Sipariş #@order.OrderingID</span>
+                            <span class="order-number">@L["Admin_UserOrderDetails_OrderPrefix"] @order.OrderingID</span>
                             <time class="order-date">
                                 @order.OrderDate.ToString("dd MMMM yyyy, HH:mm")
                             </time>
                         </div>
 
                         <div class="order-total">
-                            <span class="order-total-label">Sipariş toplamı</span>
+                            <span class="order-total-label">@L["Admin_UserOrderDetails_TotalLabel"]</span>
                             <span class="order-total-value">
                                 @order.TotalPrice.ToString("N2") ₺
                             </span>
@@ -42,10 +42,11 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Ürün</th>
-                                <th scope="col">Birim fiyat</th>
-                                <th scope="col" class="item-qty">Adet</th>
-                                <th scope="col" style="text-align:right">Tutar</th>
+                                <th scope="col">@L["Admin_HighlightList_Product"]</th>
+                                <th scope="col">@L["Admin_UserOrderDetails_TableHeaderUnitPrice"]</th>
+                                <th scope="col" class="item-qty">@L["Admin_OrderSummary_Unit"]</th>
+                                <th scope="col"
+                                    style="text-align:right">@L["Admin_UserOrderDetails_TableHeaderSubtotal"]</th>
                             </tr>
                             </thead>
 
@@ -64,7 +65,7 @@
                                         <td class="item-price">@detail.ProductPrice.ToString("N2")</td>
                                         <td class="item-qty">
                                                 <span class="quantity-tag">
-                                                    @detail.ProductAmount adet
+                                                    @detail.ProductAmount @L["Admin_OrderSummary_Unit"]
                                                 </span>
                                         </td>
                                         <td class="item-subtotal">
@@ -77,7 +78,7 @@
                             {
                                 <tr>
                                     <td colspan="5" class="order-empty-items">
-                                        Bu sipariş için ürün detayı bulunamadı.
+                                        @L["Admin_UserOrderDetails_EmptyItems"]
                                     </td>
                                 </tr>
                             }
@@ -94,8 +95,8 @@
             <div class="orders-empty-icon">
                 <i class="fa-regular fa-clipboard" aria-hidden="true"></i>
             </div>
-            <h2>Henüz sipariş yok</h2>
-            <p>Bu müşteriye ait sipariş kaydı bulunmuyor.</p>
+            <h2>@L["Admin_UserOrderDetails_EmptyOrdersTitle"]</h2>
+            <p>@L["Admin_UserOrderDetails_EmptyOrdersText"]</p>
         </div>
     }
 </section>

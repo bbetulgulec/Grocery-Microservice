@@ -19,8 +19,9 @@ var builder = WebApplication.CreateBuilder(args);
 //Tokenın geçerliliğini sorgular
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
-    options.Authority = builder.Configuration["IdentityServerUrl"];//IdentityServer ile nirlikte ayağa kalkamyı sağlar
-    options.Audience = "ResourceCatalog";//config tarafındaki dinleyici hangi keye sahipse ne yaapacağı işlemler velirlenir
+    options.Authority = builder.Configuration["IdentityServerUrl"]; //IdentityServer ile nirlikte ayağa kalkamyı sağlar
+    options.Audience =
+        "ResourceCatalog"; //config tarafındaki dinleyici hangi keye sahipse ne yaapacağı işlemler velirlenir
     options.RequireHttpsMetadata = false;
 });
 
@@ -38,9 +39,6 @@ builder.Services.AddScoped<IContactService, ContactService>();
 builder.Services.AddScoped<IGalleryServices, GalleryServices>();
 
 
-
-
-
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
 builder.Services.AddScoped<IDatabaseSettings>(sp =>
@@ -55,17 +53,10 @@ builder.Services.AddScoped<IValidator<About>, AboutValidator>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
-app.UseHttpsRedirection();
-
+if (app.Environment.IsDevelopment()) app.MapOpenApi();
 app.UseAuthentication();
-app.UseAuthorization();  
+app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();
 app.Run();
-

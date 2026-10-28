@@ -1,0 +1,57 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [ development ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy bilgisi
+        run: |
+          echo "### 🚀 Deploy başlıyor" >> $GITHUB_STEP_SUMMARY
+          echo "- **Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Mesaj:** ${{ github.event.head_commit.message }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Başlatan:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Sunucuda güncelle ve yeniden başlat
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+            cd ~/Grocery-Microservice
+
+            echo "▶ [1/4] Eski commit: $(git rev-parse --short HEAD)"
+            git pull origin development
+            echo "▶ [2/4] Yeni commit: $(git rev-parse --short HEAD)"
+            git log -1 --pretty=format:"   %an: %s"
+            echo ""
+
+            echo "▶ [3/4] Docker image'ları build ediliyor ve container'lar başlatılıyor..."
+            docker compose up -d --build
+
+            echo "▶ [4/4] Eski image'lar temizleniyor..."
+            docker image prune -f
+
+            echo ""
+            echo "✅ Çalışan container'lar:"
+            docker compose ps --format "table {{.Service}}\t{{.Status}}"
+
+            echo ""
+            echo "⚠️ Çalışmayan container var mı?"
+            docker compose ps --status exited --status restarting || true
+
+      - name: Sonuç özeti
+        if: always()
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "### ✅ Deploy başarılı" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### ❌ Deploy başarısız, log'lara bak" >> $GITHUB_STEP_SUMMARY
+          fi

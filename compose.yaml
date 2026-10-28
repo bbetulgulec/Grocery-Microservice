@@ -1,0 +1,239 @@
+services:
+  identity-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
+      MSSQL_PID: Developer
+    volumes:
+      - identity_db_data:/var/opt/mssql
+    restart: unless-stopped
+
+  comment-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
+      MSSQL_PID: Developer
+    volumes:
+      - comment_db_data:/var/opt/mssql
+    restart: unless-stopped
+
+  cargo-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
+      MSSQL_PID: Developer
+    volumes:
+      - cargo_db_data:/var/opt/mssql
+    restart: unless-stopped
+
+  order-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD}
+      MSSQL_PID: Developer
+    ports:
+      - "127.0.0.1:1434:1433"
+    volumes:
+      - order_db_data:/var/opt/mssql
+    restart: unless-stopped
+
+  message-db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ManavMessageDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - message_db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  basket-redis:
+    image: redis:7
+    volumes:
+      - basket_redis_data:/data
+    restart: unless-stopped
+
+  catalog-mongo:
+    image: mongo:7
+    ports:
+      - "27018:27017"
+    volumes:
+      - catalog_mongo_data:/data/db
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: unless-stopped
+    
+    
+    
+  identity:
+    build:
+      context: ./IdentityServer/manav.identityServer
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://16.192.248.206:5001
+      ConnectionStrings__DefaultConnection: "Server=identity-db,1433;Database=manavIdentityDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+      Jwt__Key: ${JWT_KEY}
+    ports:
+      - "5001:8080"
+    depends_on:
+      - identity-db
+    restart: unless-stopped
+    
+  catalog:
+    build:
+      context: .
+      dockerfile: Services/Catalog/manav.catalog/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://16.192.248.206:5001
+      DatabaseSettings__ConnectionString: mongodb://catalog-mongo:27017
+      AWS__AccessKeyId: ${AWS_ACCESS_KEY_ID}
+      AWS__SecretAccessKey: ${AWS_SECRET_ACCESS_KEY}
+    depends_on:
+      - catalog-mongo
+      - identity
+    restart: unless-stopped
+    
+    
+    
+  comment:
+    build:
+      context: .
+      dockerfile: Services/Comment/manav.comment/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://16.192.248.206:5001
+      ConnectionStrings__DefaultConnection: "Server=comment-db,1433;Database=manavCommentDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+    depends_on:
+      - comment-db
+      - identity
+    restart: unless-stopped
+    
+    
+    
+    
+  cargo:
+    build:
+      context: .
+      dockerfile: Services/Cargo/manav.cargo.webApi/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://16.192.248.206:5001
+      ConnectionStrings__CargoDatabase: "Server=cargo-db,1433;Database=manavCargoDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+    depends_on:
+    - cargo-db
+    - identity
+    restart: unless-stopped
+      
+      
+      
+  basket:
+    build:
+      context: .
+      dockerfile: Services/Basket/manav.basket/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://16.192.248.206:5001
+      RedisSettings__Host: basket-redis
+      RedisSettings__Port: 6379
+    depends_on:
+      - basket-redis
+      - identity
+    restart: unless-stopped
+    
+    
+  message:
+    build:
+      context: .
+      dockerfile: Services/Message/manav.Message/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://16.192.248.206:5001
+      ConnectionStrings__DefaultConnection: "Server=message-db,5432;Database=ManavMessageDB;Username=postgres;Password=${POSTGRES_PASSWORD}"
+    depends_on:
+      - message-db
+      - identity
+    restart: unless-stopped
+    
+    
+    
+  order:
+    build:
+      context: .
+      dockerfile: Services/Order/Presentation/manav.order.webApi/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://16.192.248.206:5001
+      ConnectionStrings__CargoDatabase: "Server=order-db,1433;Database=ManavOrderDb;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+    depends_on:
+      - order-db
+      - identity
+    restart: unless-stopped
+    
+  webui:
+    build:
+      context: .
+      dockerfile: Frontend/manav.webUI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:8080"
+      AWS_REGION: "eu-north-1"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS__Region: "eu-north-1"
+      AWS__AccessKeyId: "${AWS_ACCESS_KEY_ID}"
+      AWS__SecretAccessKey: "${AWS_SECRET_ACCESS_KEY}"
+      AWSStorageOptions__BucketName: "${AWS_BUCKET_NAME}"
+      AWSStorageOptions__CdnDomain: "${AWS_CDN_DOMAIN}"
+    ports:
+      - "127.0.0.1:5000:8080"
+    depends_on:
+      - ocelot
+      - identity
+    restart: unless-stopped
+    
+  ocelot:
+    build:
+      context: .
+      dockerfile: ApiGateway/manav.OcelotGateway/Dockerfile
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      IdentityServerUrl: http://16.192.248.206:5001
+    ports:
+      - "5002:8080"
+    volumes:
+      - ./ApiGateway/manav.OcelotGateway/ocelot.Docker.json:/app/ocelot.json:ro
+    depends_on:
+      - identity
+      - catalog
+      - basket
+      - order
+      - cargo
+      - comment
+    restart: unless-stopped
+  
+volumes:
+  identity_db_data:
+  comment_db_data:
+  cargo_db_data:
+  order_db_data:
+  message_db_data:
+  basket_redis_data:
+  catalog_mongo_data:
+  rabbitmq_data:

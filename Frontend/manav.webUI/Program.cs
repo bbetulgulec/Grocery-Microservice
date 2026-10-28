@@ -1,8 +1,10 @@
 using Amazon;
+using Amazon.Extensions.NETCore.Setup;
 using Amazon.Runtime;
 using Amazon.S3;
 using FluentValidation;
-using manav.catalog.Entities;
+using manav.webUI;
+using manav.webUI.Filters;
 using manav.webUI.Handlers;
 using manav.webUI.Services;
 using manav.webUI.Services.AwsS3Services;
@@ -28,16 +30,10 @@ using Microsoft.AspNetCore.Mvc.Razor;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddLocalization(options =>
-{
-    
-    options.ResourcesPath = "Resources";
-    
-});
-builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-    .AddDataAnnotationsLocalization();
+builder.Services.AddLocalization(options => { options.ResourcesPath = "Resource"; });
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme,
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(
+    JwtBearerDefaults.AuthenticationScheme,
     options =>
     {
         options.LoginPath = "/Login/Index";
@@ -53,17 +49,16 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     options =>
     {
         options.LoginPath = "/Login/Index";
-        options.ExpireTimeSpan=TimeSpan.FromHours(5);
+        options.ExpireTimeSpan = TimeSpan.FromHours(5);
         options.Cookie.Name = "manavCookie";
-        options.SlidingExpiration=true;
+        options.SlidingExpiration = true;
     });
 builder.Services.AddAccessTokenManagement();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateAboutValidator>();
 builder.Services.AddScoped<ILoginServices, LoginServices>();
-builder.Services.AddHttpClient<IIdentityService,IdentityService>();
+builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 builder.Services.AddScoped<ICloudStorageService, CloudStorageService>();
 builder.Services.Configure<ClientSettings>(
     builder.Configuration.GetSection("ClientSettings"));
@@ -73,17 +68,22 @@ builder.Services.AddTransient<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddScoped<ClientCredentialHandler>();
 builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
 var awsSection = builder.Configuration.GetSection("AWS");
-var awsOptions = new Amazon.Extensions.NETCore.Setup.AWSOptions
+var awsOptions = new AWSOptions
 {
-    Credentials = new BasicAWSCredentials(
-        awsSection["AccessKeyId"], 
-        awsSection["SecretAccessKey"]
-    ),
-    Region = RegionEndpoint.GetBySystemName(awsSection["Region"])
+    Region = RegionEndpoint.GetBySystemName(awsSection["Region"] ?? "eu-north-1")
 };
-
+if (!string.IsNullOrEmpty(awsSection["AccessKeyId"]))
+    awsOptions.Credentials = new BasicAWSCredentials(
+        awsSection["AccessKeyId"], awsSection["SecretAccessKey"]);
 builder.Services.AddDefaultAWSOptions(awsOptions);
 builder.Services.AddAWSService<IAmazonS3>();
+builder.Services.AddControllersWithViews(options => { options.Filters.Add<AdminAuthFilter>(); })
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+            factory.Create(typeof(SharedResource));
+    });
 
 var values = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 builder.Services.AddHttpClient<IUserService, UserService>(options =>
@@ -126,6 +126,11 @@ builder.Services.AddHttpClient<ICommentService, CommentService>(options =>
     options.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Comment.Path}");
 }).AddHttpMessageHandler<ClientCredentialHandler>();
 
+builder.Services.AddHttpClient<IAdminCommentService, AdminCommentService>(options =>
+{
+    options.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Comment.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
 builder.Services.AddHttpClient<IBasketService, BasketService>(options =>
 {
     options.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Basket.Path}");
@@ -153,36 +158,32 @@ builder.Services.AddHttpClient<IUserIdentityService, UserIdentityService>(option
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 var app = builder.Build();
+var supportedCultures = new[] { "tr", "en" };
+app.UseRequestLocalization(new RequestLocalizationOptions()
+    .SetDefaultCulture("tr")
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures));
+
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
-
+if (!app.Environment.IsDevelopment()) app.UseHsts();
+app.UseExceptionHandler("/Error/Index");
+app.UseStatusCodePagesWithReExecute("/Error/Index", "?code={0}");
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapStaticAssets();
 
-var supportedCulture = new[] { "en", "tr" };
-var locaritationOptions= new RequestLocalizationOptions()
-    .SetDefaultCulture(supportedCulture[1])
-    .AddSupportedCultures(supportedCulture)
-    .AddSupportedUICultures(supportedCulture);
-
-app.UseRequestLocalization(locaritationOptions);
 // AREA ROUTE - default'tan ÖNCE olmalı
 app.MapControllerRoute(
-        name: "areas",
-        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}")
+        "areas",
+        "{area:exists}/{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Default}/{action=Index}/{id?}")
+        "default",
+        "{controller=Default}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 

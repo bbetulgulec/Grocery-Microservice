@@ -8,10 +8,10 @@
 
 <div class="my-orders">
     <div class="orders-title">
-        <h2>Siparişlerim</h2>
-        <p>Verdiğiniz siparişleri ve ürün detaylarını buradan takip edebilirsiniz.</p>
+        <h2>@L["MyOrders_Title"]</h2>
+        <p>@L["MyOrders_Subtitle"]</p>
         <span class="orders-count">
-            Toplam @orderCount sipariş
+            @L["total"] @orderCount @L["orders"]
         </span>
     </div>
 
@@ -32,34 +32,34 @@
                 <div class="table-responsive">
                     <table class="my-order-table">
                         <thead>
-                            <tr>
-                                <th>Ürün</th>
-                                <th>Birim fiyat</th>
-                                <th>Adet</th>
-                                <th class="price">Tutar</th>
-                            </tr>
+                        <tr>
+                            <th>@L["Admin_HighlightList_Product"]</th>
+                            <th>@L["Admin_UserOrderDetails_TableHeaderUnitPrice"]</th>
+                            <th>@L["Admin_OrderSummary_Unit"]</th>
+                            <th class="price">@L["Admin_UserOrderDetails_TableHeaderSubtotal"]</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            @if (order.OrderDetails != null && order.OrderDetails.Any())
-                            {
-                                foreach (var detail in order.OrderDetails)
-                                {
-                                    <tr>
-                                        <td>@detail.ProductName</td>
-                                        <td>@detail.ProductPrice.ToString("N2") ₺</td>
-                                        <td>@detail.ProductAmount</td>
-                                        <td class="price">
-                                            @detail.ProductTotalPrice.ToString("N2") ₺
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                            else
+                        @if (order.OrderDetails != null && order.OrderDetails.Any())
+                        {
+                            foreach (var detail in order.OrderDetails)
                             {
                                 <tr>
-                                    <td colspan="4">Bu siparişin ürün detayı bulunamadı.</td>
+                                    <td>@detail.ProductName</td>
+                                    <td>@detail.ProductPrice.ToString("N2") ₺</td>
+                                    <td>@detail.ProductAmount</td>
+                                    <td class="price">
+                                        @detail.ProductTotalPrice.ToString("N2") ₺
+                                    </td>
                                 </tr>
                             }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="4">@L["MyOrders_NoDetails"]</td>
+                            </tr>
+                        }
                         </tbody>
                     </table>
                 </div>
@@ -69,7 +69,7 @@
     else
     {
         <div class="no-orders">
-            Henüz sipariş vermediniz.
+            @L["MyOrders_Empty"]
         </div>
     }
 </div>

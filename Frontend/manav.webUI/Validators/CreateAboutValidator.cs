@@ -1,27 +1,28 @@
 using FluentValidation;
 using manav.DtoLayer.CatalogDtos.AboutDtos;
+using Microsoft.Extensions.Localization;
 
 namespace manav.webUI.Validators;
 
 public class CreateAboutValidator : AbstractValidator<CreateAboutDto>
 {
-    public CreateAboutValidator()
+    public CreateAboutValidator(IStringLocalizer<SharedResource> l)
     {
         RuleFor(x => x.AboutDescription)
-            .NotEmpty().WithMessage("Açıklama alanı boş bırakılamaz.")
-            .MinimumLength(10).WithMessage("Açıklama en az 10 karakter olmalıdır.");
+            .NotEmpty().WithMessage(_ => l["Validation_About_DescriptionRequired"])
+            .MinimumLength(10).WithMessage(_ => l["Validation_About_DescriptionMinLength"]);
 
         RuleFor(x => x.AboutWorkTime)
-            .NotEmpty().WithMessage("Çalışma saatleri alanı boş bırakılamaz.");
+            .NotEmpty().WithMessage(_ => l["Validation_About_WorkTimeRequired"]);
 
         RuleFor(x => x.AboutNumber)
-            .NotEmpty().WithMessage("Telefon numarası boş bırakılamaz.");
+            .NotEmpty().WithMessage(_ => l["Validation_About_PhoneRequired"]);
 
         RuleFor(x => x.AboutAdress)
-            .NotEmpty().WithMessage("Adres alanı boş bırakılamaz.");
+            .NotEmpty().WithMessage(_ => l["Validation_About_AddressRequired"]);
 
         RuleFor(x => x.AboutMail)
-            .NotEmpty().WithMessage("Mail adresi boş bırakılamaz.")
-            .EmailAddress().WithMessage("Lütfen geçerli bir mail adresi giriniz.");
+            .NotEmpty().WithMessage(_ => l["Validation_About_MailRequired"])
+            .EmailAddress().WithMessage(_ => l["Validation_About_MailInvalid"]);
     }
 }

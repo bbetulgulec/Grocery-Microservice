@@ -1,6 +1,6 @@
 @model List<UserOrderSummaryDto>
 @{
-    ViewBag.Title = "Sipariş Veren Kullanıcılar";
+    ViewBag.Title = L["Admin_OrderSummary_Title"];
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
     var count = 0;
 }
@@ -12,10 +12,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Kullanıcı ID</th>
-                        <th>Toplam Sipariş</th>
-                        <th>Son Sipariş Tarihi</th>
-                        <th>Sipariş Listesi</th>
+                        <th>@L["Admin_OrderSummary_UserId"]</th>
+                        <th>@L["Admin_OrderSummary_TotalOrder"]</th>
+                        <th>@L["Admin_OrderSummary_LastOrderDate"]</th>
+                        <th>@L["Admin_OrderSummary_OrderList"]</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -25,12 +25,13 @@
                         <tr>
                             <th scope="row">@count</th>
                             <td>@item.UserID</td>
-                            <td><span class="badge bg-info">@item.TotalOrderCount Adet</span></td>
+                            <td><span class="badge bg-info">@item.TotalOrderCount @L["Admin_OrderSummary_Unit"]</span>
+                            </td>
                             <td>@item.LastOrderDate.ToString("dd.MM.yyyy HH:mm")</td>
                             <td>
                                 <a href="/Admin/Order/OrderListByUserId/@item.UserID"
                                    class="btn btn-primary btn-sm">
-                                    Siparişleri Listele
+                                    @L["Admin_OrderSummary_ListOrdersButton"]
                                 </a>
                             </td>
                         </tr>

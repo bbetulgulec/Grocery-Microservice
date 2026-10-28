@@ -8,19 +8,19 @@
 
         <section class="col-lg-6">
             <div class="gec-card">
-                <span class="gh-pill is-green">Güvenli ödeme</span>
-                <h1 class="mt-3">Ödeme bilgileri</h1>
-                <p class="text-muted">Kart bilgilerinizi girerek siparişinizi tamamlayın.</p>
+                <span class="gh-pill is-green">@L["Payment_Pill"]</span>
+                <h1 class="mt-3">@L["Payment_Title"]</h1>
+                <p class="text-muted">@L["Payment_Subtitle"]</p>
 
                 <form id="paymentForm" action="@Url.Action("FailedPayment", "Payment")" method="get">
                     <div class="mb-3">
-                        <label class="form-label" for="cardName">Kart üzerindeki isim</label>
+                        <label class="form-label" for="cardName">@L["Payment_CardName"]</label>
                         <input class="form-control" id="cardName" autocomplete="cc-name"
                                placeholder="Ad Soyad" required>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="cardNumber">Kart numarası</label>
+                        <label class="form-label" for="cardNumber">@L["Payment_CardNumber"]</label>
                         <input class="form-control" id="cardNumber" inputmode="numeric"
                                autocomplete="cc-number" placeholder="1234 5678 9012 3456"
                                maxlength="23" required>
@@ -28,19 +28,19 @@
 
                     <div class="row g-3">
                         <div class="col-6">
-                            <label class="form-label" for="expiry">Son kullanma tarihi</label>
+                            <label class="form-label" for="expiry">@L["Payment_Expiry"]</label>
                             <input class="form-control" id="expiry" inputmode="numeric"
                                    autocomplete="cc-exp" placeholder="AA/YY" maxlength="5" required>
                         </div>
                         <div class="col-6">
-                            <label class="form-label" for="cvv">Güvenlik kodu</label>
+                            <label class="form-label" for="cvv">@L["Payment_Cvv"]</label>
                             <input class="form-control" id="cvv" inputmode="numeric"
                                    autocomplete="cc-csc" placeholder="CVV" maxlength="4" required>
                         </div>
                     </div>
 
                     <button class="btn btn-primary w-100 mt-4" type="submit">
-                        Ödemeyi tamamla
+                        @L["Payment_SubmitButton"]
                     </button>
                 </form>
             </div>
@@ -48,7 +48,7 @@
 
         <aside class="col-lg-6" aria-label="Kart önizlemesi">
             <div class="gec-card">
-                <span class="gh-pill">Kart önizlemesi</span>
+                <span class="gh-pill">@L["Payment_PreviewLabel"]</span>
 
                 <div class="card-scene mt-4">
                     <div class="card-flipper" id="cardFlipper">
@@ -64,12 +64,13 @@
 
                             <div class="payment-card-details">
                                 <div>
-                                    <span class="payment-card-label">KART SAHİBİ</span>
-                                    <span class="payment-card-value" id="previewName">AD SOYAD</span>
+                                    <span class="payment-card-label">@L["Payment_PreviewHolder"]</span>
+                                    <span class="payment-card-value" id="previewName">@L["Payment_PreviewName"]</span>
                                 </div>
                                 <div>
-                                    <span class="payment-card-label">SON KULLANMA</span>
-                                    <span class="payment-card-value" id="previewExpiry">AA/YY</span>
+                                    <span class="payment-card-label">@L["Payment_PreviewExpiry"]</span>
+                                    <span class="payment-card-value"
+                                          id="previewExpiry">@L["Payment_ExpiryPlaceholder"]</span>
                                 </div>
                             </div>
                         </div>
@@ -77,19 +78,19 @@
                         <div class="payment-card-face payment-card-back">
                             <div class="card-magnetic-stripe" aria-hidden="true"></div>
                             <div>
-                                <span class="payment-card-label">GÜVENLİK KODU</span>
+                                <span class="payment-card-label">@L["Payment_PreviewCvv"]</span>
                                 <div class="card-cvv-strip" id="previewCvv">•••</div>
                             </div>
                             <div class="payment-card-top">
                                 <span class="payment-card-label">BANK CARD</span>
-                                <span class="payment-card-label">ARKA YÜZ</span>
+                                <span class="payment-card-label">@L["Payment_PreviewBack"]</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <p class="small text-muted mt-3 mb-0">
-                    Kart önizlemesi, girdiğiniz bilgileri gösterir.
+                    @L["Payment_PreviewNote"]
                 </p>
             </div>
         </aside>

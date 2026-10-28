@@ -2,17 +2,29 @@
 
 <div class="col-lg-8">
     <div class="menu-scroll" tabindex="0" aria-label="Scrollable menu list">
-        @foreach (var item in Model)
+        @if (Model != null && Model.Any())
         {
-            <a href="/ProductDetail/Index/@item.Product.ProductID/">
-                <div class="menu-item">
-                    <span class="menu-thumb"><img src="@item.Product.ProductImageURL" alt="Heirloom tomatoes" loading="lazy"/></span>
-                    <span class="menu-body"><h4>@item.HighlightsProductsName</h4>
-                        <p class="menu-desc">@item.Product.ProductDescription</p></span>
-                    <span class="menu-price">$@item.Product.ProductPrice</span>
-                </div>
-            </a>
-          
+            @foreach (var item in Model)
+            {
+                @if (item?.Product != null)
+                {
+                    <a href="/ProductDetail/Index/@item.Product.ProductID/">
+                        <div class="menu-item">
+                            <span class="menu-thumb"><img src="@item.Product.ProductImageURL" alt="Heirloom tomatoes"
+                                                          loading="lazy"/></span>
+                            <span class="menu-body">
+                                <h4>@item.HighlightsProductsName</h4>
+                                <p class="menu-desc">@item.Product.ProductDescription</p>
+                            </span>
+                            <span class="menu-price">₺ @item.Product.ProductPrice</span>
+                        </div>
+                    </a>
+                }
+            }
+        }
+        else
+        {
+            <div class="text-muted p-3">@L["Highlight_not_found_product"]</div>
         }
     </div>
-    </div>
+</div>
